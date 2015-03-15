@@ -1,6 +1,6 @@
 ===  WPi Designer Button Shortcode - Create Buttons & Call-To-Action Buttons === 
 Contributors: wooprali
-Donate link: http://wooprali.prali.in/
+Donate link: http://wooprali.prali.in/contact-us/
 Tags: designer button, button shortcode, easy button shortcode, buttons, easy button, css buttons, css button, css3, CTA button, call-to-action button, wordpress button creator, wordpress button generator, wordpress button plugin
 Requires at least: 3.0.1
 Tested up to: 4.1
@@ -19,7 +19,7 @@ WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call 
 3. Creating reusable styles for buttons & CTA buttons.
 
 
-#### Designer Studio Contains below features::
+#### Designer Button Studio Contains below features::
 
 *  Icons Collection.
 *  Styles collection which are professionally designed.
@@ -38,7 +38,7 @@ WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call 
 *  Shortcode looks like [wpi_designer_button id=256]
 *  You can use the shortcode even without creating the button or style.
 *  User can also generate shortcode directly inside wordpress visual editor( TinyMCE).
-*  Please read plugin's documentation before creating any style or button. Its a best practice to read documentation first.
+*  Please read plugin's <a href="http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/" target="_blank">documentation </a> before creating any style or button. Its a best practice to read documentation first.
 *  Note:: In next version we will add more icons in icons collection.
 
 
@@ -84,6 +84,8 @@ WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call 
 *  You can also add multiple headings with ticker animation.
 
 Note:: WE ARE DOING OUR BEST TO MAKE THIS PLUGIN PERFECT. If you face any problem in using this plugin or you need some more features or any support please dont hesitate to contact us. You can contact us from here.
+
+<a href="http://wooprali.prali.in/contact-us/" target="_blank">Support</a>
 
 #### Watch how to videos of this plugin
 
