@@ -96,9 +96,6 @@ How to change Fonts
 [youtube https://www.youtube.com/watch?v=yXpZoD2pfj8&rel=0&autoplay=0&playlist=PLhhetWyvvPIZHCJBYdFPrP03ETp6QRKH5]
 
 
-#### [My Other WordPress Plugins](http://wooprali.prali.in/plugins)
-* [WPi Custom Logout - Redirection to home on logout](https://wordpress.org/plugins/wpi-custom-logout/)
-* [WPi Display Plugin Data - Show wordpress.org plugins data in your website](https://wordpress.org/plugins/wpi-display-plugin-data/)
 
 == Installation ==
 
