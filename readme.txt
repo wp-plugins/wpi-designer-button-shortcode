@@ -1,4 +1,4 @@
-===  WPi Designer Button Shortcode - Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button] === 
+===  WPi Designer Button Shortcode - Create Buttons & Call-To-Action Buttons anywhere in wordpress [wpi_designer_button] === 
 Contributors: wooprali
 Donate link: http://wooprali.prali.in/
 Tags: designer button, button shortcode, easy button shortcode, buttons, easy button, css buttons, css button, css3, CTA button, call-to-action button, wordpress button creator, wordpress button generator, wordpress button plugin
