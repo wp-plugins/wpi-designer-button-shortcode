@@ -47,12 +47,12 @@ WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call 
 
 #### Creating Styles::
 
-*  you can create unlimited number of reusable styles for buttons.
-*  you can change the button's font from the fonts collection.
-*  you can change the button's Color.
+*  You can create unlimited number of reusable styles for buttons.
+*  You can change the button's font from the fonts collection.
+*  You can change the button's Color.
 *  You can change the button's font-weight.
 *  You can change the space around the text inside button.
-*  You can add the shodow to the text inside button.
+*  You can add the shadow to the text inside button.
 *  You can add the shadow to the button.
 *  You can change the button shape like rectangle, little rounded rectangle, full rounded rectangle or circular(without button text).
 *  You can add the glow to the button with any color and from small size to big size glow.
@@ -67,7 +67,7 @@ WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call 
 #### Creating Call-To-Action (CTA) Buttons::
 
 *  Every call-to-action button contains Heading, Sub-heading, Button & Footer Text.
-*  You can create beauticul & awesome CTA buttons with small effort.
+*  You can create beautiful & awesome CTA buttons with small effort.
 *  You can select from professionally designed CTA buttons Styles from Styles collection.
 *  You can change the heading text font.
 *  You can change the heading text size.
@@ -77,7 +77,7 @@ WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call 
 *  You can change the heading text background color.
 *  You can change the heading text top & bottom margin.
 *  You can change the heading text padding.
-*  above setting can be done on sub heading also with limited settings.
+*  Above setting can be done on sub heading also with limited settings.
 *  We will update and add more styles to styles collection regularly.
 *  You can check latest Styles and its settings in plugin's website.
 *  In next version we will add Export & Import Styles settings. which is good feature to extend this plugin's power.
