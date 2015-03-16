@@ -118,6 +118,7 @@ An answer to that question.
 
 == Screenshots ==
 1. Professionally designed button styles collection
+2. Call-to-action presets collection
 
 
 == Changelog ==
