@@ -117,7 +117,7 @@ An answer to that question.
 
 
 == Screenshots ==
-1. 
+1. Professionally designed button styles collection
 
 
 == Changelog ==
