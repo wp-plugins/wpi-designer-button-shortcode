@@ -29,8 +29,13 @@ class WPiDesButCommon{
 		$args = array(			
 			'post_type' => 'wpi_des_but_sty', 'post_status'=>array('publish'), 'numberposts'       => -1
 		); 
+		
+		$style_ids=array();		
+		$preset_styles=WPiArray::get_preset_styles();
+		foreach($preset_styles as $style_id){
+			$style_ids["preset_".$style_id]= "preset_".$style_id;	
+		}
 		$button_styles = get_posts($args);
-		$style_ids=array();
 		foreach ( $button_styles as $bs ) :			
 			$style_ids[$bs->ID]= $bs->ID;
         endforeach;	
