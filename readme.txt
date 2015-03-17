@@ -18,8 +18,7 @@ Create Buttons & Call-To-Action Buttons anywhere in wordpress using button short
 > 2. Creating call-to-action buttons.
 > 3. Creating reusable styles for buttons & CTA buttons.
 > 
-> [Demo](http://wooprali.prali.in/products/plugins/wpi-designer-button-shortcode/?#demo) | [Help](http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/) |  [Support](http://wooprali.prali.in/contact-us/)
->
+
 
 #### Designer Button Studio Contains below features::
 
