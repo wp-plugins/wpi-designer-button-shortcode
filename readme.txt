@@ -12,12 +12,12 @@ Create Buttons & Call-To-Action Buttons anywhere in wordpress using button short
 
 == Description ==
 
-WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call to Action (CTA) Buttons. It has small designer studio where you can design or style elements using simple user interface. this plugin conists of below features.
+> WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call to Action (CTA) Buttons. It has small designer studio where you can design or style elements using simple user interface. this plugin conists of below features.
 
-1. Creating beautiful buttons.
-2. Creating call-to-action buttons.
-3. Creating reusable styles for buttons & CTA buttons.
-
+> 1. Creating beautiful buttons.
+> 2. Creating call-to-action buttons.
+> 3. Creating reusable styles for buttons & CTA buttons.
+> 
 
 #### Designer Button Studio Contains below features::
 
@@ -85,7 +85,10 @@ WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call 
 
 Note:: WE ARE DOING OUR BEST TO MAKE THIS PLUGIN PERFECT. If you face any problem in using this plugin or you need some more features or any support please dont hesitate to contact us. You can contact us from here.
 
-<a href="http://wooprali.prali.in/contact-us/" target="_blank">Support</a>
+> 
+> [Demo](http://wooprali.prali.in/products/plugins/wpi-designer-button-shortcode/) | [Help](http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/) |  [Support](http://wooprali.prali.in/contact-us/)
+>
+
 
 #### Watch how to videos of this plugin
 
