@@ -1,4 +1,4 @@
-===  Buttons: WPi Designer Button  === 
+===  WPi Designer Button  === 
 Contributors: wooprali
 Donate link: http://wooprali.prali.in/contact-us/
 Tags: designer button, button shortcode, easy button shortcode, buttons, easy button, css buttons, css button, css3, CTA button, call-to-action button, wordpress button creator, wordpress button generator, wordpress button plugin
