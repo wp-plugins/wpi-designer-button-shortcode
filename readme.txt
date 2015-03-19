@@ -8,11 +8,11 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create Buttons & Call-To-Action Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
+Create Buttons & Call-To-Action (CTA) Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
 
 == Description ==
 
-> WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call to Action (CTA) Buttons. It has small designer studio where you can design or style elements using simple user interface. this plugin conists of below features.
+> WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call to Action Buttons. It has small designer studio where you can style buttons & other elements using simple user interface. This plugin conists of below features.
 
 > 1. Creating beautiful buttons.
 > 2. Creating call-to-action buttons.
