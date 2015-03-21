@@ -48,7 +48,7 @@ class WPiDesButCommon{
 		$r="";
 		$preset_styles=WPiArray::get_preset_styles();
 		foreach($preset_styles as $style_id){					
-			$output.="<div class='wpi_style_holder'><div id='wpi_db_sty_preset_".$style_id."' class='wpi_style wpi_designer_button wpi_designer_button_style_".$style_id."' >Button <span class='wpi_id'>preset_".$style_id."</span></div></div>";		
+			$output.="<div class='wpi_style_holder'><div id='wpi_db_sty_preset_".$style_id."' class='wpi_style wpi_designer_button wpi_designer_button_".$style_id."' >Button <span class='wpi_id'>preset_".$style_id."</span></div></div>";		
 		}
 		foreach($style_ids as $style_id){
 			$classes=WPiDesButCommon::get_button_style_class($style_id);			
