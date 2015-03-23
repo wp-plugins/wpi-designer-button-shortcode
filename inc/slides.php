@@ -97,6 +97,7 @@ class WPiDesButSli{
 			array("label"=>"Image Blur", "name"=>'background_image_blur', "type"=>"select", "section"=>"Frame",  "group"=>"Background Image Effects",  "css_property"=>"blur", "value"=> "", "list"=> $text_shadow_distance),		
 			array("label"=>"Background Repeat Image", "name"=>'background_repeat_image', "type"=>"select", "section"=>"Frame",  "group"=>"Repeat Image", "css_property"=>"background-image", "value"=> "", "list"=> $repeat_images),
 			array("label"=>"Frame Height", "name"=>'frame_height', "type"=>"select", "section"=>"Frame", "group"=>"Frame Height", "css_property"=>"min-height", "value"=> "", "list"=> $slide_height),
+			array("label"=>"Frame Width", "name"=>'frame_width', "type"=>"text", "section"=>"Frame", "group"=>"Frame Width", "css_property"=>"width", "value"=> "",),
 			
 		);		
 		return $fields;
@@ -182,13 +183,14 @@ class WPiDesButSli{
 			}else{
 				$ss->background_repeat_image= "url(". WPIDB_URL ."images/".$ss->background_repeat_image.")" ;
 			}
-			$slide_footer_display= $ss->slide_footer_text=="" ? "none" : " ";
+			$slide_footer_display= $ss->slide_footer_text=="" ? "none" : " ";			
 			
 			$classes=array(
 				array(
 					"element"=> ".wpi_slide_".$ss->ID,
 					"styles"=> array(
 						"min-height"=> $ss->frame_height,	
+						"width"=> $ss->frame_width,	
 						"background-color"=> $ss->background_color,
 						"background-image"=> $ss->background_repeat_image,
 						"color"=> "#ffffff",
