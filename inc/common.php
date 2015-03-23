@@ -45,10 +45,10 @@ class WPiDesButCommon{
 	public static function get_styles(){		
 		$style_ids=self::get_style_ids();		
 		$output="";
-		$r="";		
+		$r="";			
 		foreach($style_ids as $style_id){
 			$classes=WPiDesButCommon::get_button_style_class($style_id);			
-			$output.="<div class='wpi_style_holder'><div id='wpi_db_sty_".$style_id."' class='wpi_style {$classes}' >Button <span class='wpi_id'>".$style_id."</span></div></div>";
+			$output.="<div class='wpi_style_holder'><div id='wpi_db_sty_".$style_id."' class='wpi_style wpi_designer_button {$classes}' >Button <span class='wpi_id'>".$style_id."</span></div></div>";
 			$r.=print_r($classes,true);
 		}
 		//$r=print_r($style_ids,true);
