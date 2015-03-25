@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://wooprali.prali.in/plugins/wpi-designer-button-shortcode
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 1.0.0
+ * Version: 2.0
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
