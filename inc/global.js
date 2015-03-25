@@ -1095,7 +1095,33 @@
 			});
 		};	
 			
-		
+		(function($){
+			$.fn.wpi_admin_globals=function(){
+				function WPiAdmin(){
+					this.$wpi_admin= $("#wpi_admin");
+					this.init();
+				}
+				WPiAdmin.prototype.init=function(){
+					var self=this;     
+					this.$header=this.$wpi_admin.find("#wpi_gs_header");
+					this.$header_ha=this.$wpi_admin.find("#wpi_gs_header_ha");
+					this.$header_bg=this.$wpi_admin.find("#wpi_gs_header_bg");
+					this.$header_bg.css({"opacity":0});
+					this.$header_childrens=this.$wpi_admin.find("img");
+					this.$header_childrens.on("mouseover mouseout",function(e){
+						e.stopPropagation();
+					});
+					this.$header_ha.on("mouseover",function(e){
+						e.stopPropagation();
+						self.$header_bg.finish().animate({"opacity":1},200);
+					}).on("mouseout",function(e){ 
+						e.stopPropagation();
+						self.$header_bg.finish().animate({"opacity":0},200);				
+					});
+				}
+				return new WPiAdmin();
+			} 			
+		})(jQuery);
 		$.fn.disableSelection = function() {
 			return this
 					 .attr('unselectable', 'on')

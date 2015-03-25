@@ -42,6 +42,8 @@ background_image_blur:'0px',
 icon:'cloud',
 style_id:'376',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 };
 
 var a1={
@@ -85,6 +87,8 @@ background_image_blur:'0px',
 icon:'chat',
 style_id:'245',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a2={
 slide_heading:'Spot 3 differences<br>in the Spykar shirt below',
@@ -127,6 +131,8 @@ background_image_blur:'0px',
 icon:'cloud',
 style_id:'239',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a3={
 slide_heading:'FLAT<br>55%<br>OFF',
@@ -169,6 +175,8 @@ background_image_blur:'0px',
 icon:'tag',
 style_id:'245',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a4={
 slide_heading:'ADDITIONAL<br>14% OFF',
@@ -211,6 +219,8 @@ background_image_blur:'0px',
 icon:'tag',
 style_id:'215',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a5={
 slide_heading:'FLAT<br>40% OFF<span style=',
@@ -253,6 +263,8 @@ background_image_blur:'0px',
 icon:'tag',
 style_id:'239',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a6={
 slide_heading:'FLAT<br>55%<br>OFF',
@@ -295,6 +307,8 @@ background_image_blur:'0px',
 icon:'tag',
 style_id:'245',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a7={
 slide_heading:'Mexican Days are here!<br>Get 20% off. ',
@@ -337,6 +351,8 @@ background_image_blur:'0px',
 icon:'tag',
 style_id:'247',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a8={
 slide_heading:'Creative<br>Stationary',
@@ -379,6 +395,8 @@ background_image_blur:'0px',
 icon:'no',
 style_id:'245',
 frame_height:'500px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a9={
 slide_heading:'Design,<br>Code & Photography.',
@@ -421,6 +439,8 @@ background_image_blur:'0px',
 icon:'no',
 style_id:'643',
 frame_height:'500px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a10={
 slide_heading:'FREE PHOTOS',
@@ -505,6 +525,8 @@ background_image_blur:'0px',
 icon:'no',
 style_id:'636',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a12={
 slide_heading:'If you don\'t<br>want anyone<br>to find out, ',
@@ -547,6 +569,8 @@ background_image_blur:'0px',
 icon:'no',
 style_id:'721',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a13={
 slide_heading:'Telerik Kendo UI',
@@ -589,6 +613,8 @@ background_image_blur:'0px',
 icon:'no',
 style_id:'748',
 frame_height:'300px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 var a14={
 slide_heading:'Social OS',
@@ -631,6 +657,8 @@ background_image_blur:'0px',
 icon:'no',
 style_id:'752',
 frame_height:'400px',
+frame_margin_left:'0px',
+frame_margin_right:'0px',
 }
 
 wpi_create("0","Sky White",a0);

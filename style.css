@@ -226,6 +226,56 @@ box-sizing: border-box;
 .wpi_designer_button.wpi_padding_40px.wpi_no_text{padding:40px 40px;}
 .wpi_designer_button.wpi_padding_50px.wpi_no_text{padding:50px 50px;}
 
+/* ---------------------------------------------------------------------------- Share Buttons --------------------------------------------------------------------*/
+.wpi_share_buttons {	
+	display: inline-block;
+}
+.wpi_share_buttons .wpi_sb_text {	
+	vertical-align:middle;
+	white-space: nowrap;
+	padding-right:10px;
+	margin-bottom: 10px;
+	display: block;
+}
+.wpi_share_buttons ul {	
+	margin:0px; padding:0px;
+	display:table-cell;	
+}
+.wpi_share_buttons li {
+	font-size: 0;
+	vertical-align: top;
+	display:inline-block;	
+}
+.wpi_share_buttons .wpi_designer_button{
+	display:inline-block;
+	vertical-align: top;
+  	margin: 0px;
+}
+.wpi_share_buttons .wpi_designer_button:hover{
+	color:#ffffff!important;
+}
+.wpi_share_buttons .wpi_sb_facebook a:hover{background-color:#3C5B9B!important; border-color:#3C5B9B!important;}
+.wpi_share_buttons .wpi_sb_twitter a:hover{background-color:#2CA9E0!important;border-color:#2CA9E0!important;}
+.wpi_share_buttons .wpi_sb_googleplus a:hover{background-color:#F63E28!important;border-color:#F63E28!important;}
+.wpi_share_buttons .wpi_sb_linkedin a:hover{background-color:#0274B3!important;border-color:#0274B3!important;}
+.wpi_share_buttons .wpi_sb_pinterest a:hover{background-color:#CB2027!important;border-color:#CB2027!important;}
+.wpi_share_buttons .wpi_sb_tumblr a:hover{background-color:#2A445F!important;border-color:#2A445F!important;}
+.wpi_share_buttons .wpi_sb_stumbleupon a:hover{background-color:#ED4A13!important;border-color:#ED4A13!important;}
+.wpi_share_buttons .wpi_sb_reddit a:hover{background-color:#CDE3F9!important; border-color:#CDE3F9!important; color:#616366!important}
+.wpi_share_buttons .wpi_sb_wordpress a:hover{background-color:#0274B3!important;border-color:#0274B3!important;}
+.wpi_share_buttons .wpi_sb_email a:hover{background-color:#668A0C!important;border-color:#668A0C!important;}
+
+.wpi_share_buttons .wpi_sb_facebook a:active{background-color:#314F8C!important;}
+.wpi_share_buttons .wpi_sb_twitter a:active{background-color:#229ACF!important;}
+.wpi_share_buttons .wpi_sb_googleplus a:active{background-color:#D9331F!important;}
+.wpi_share_buttons .wpi_sb_linkedin a:active{background-color:#016196!important;}
+.wpi_share_buttons .wpi_sb_pinterest a:active{background-color:#B3181E!important;}
+.wpi_share_buttons .wpi_sb_tumblr a:active{background-color:#1D344B!important;}
+.wpi_share_buttons .wpi_sb_stumbleupon a:active{background-color:#D84310!important;}
+.wpi_share_buttons .wpi_sb_reddit a:active{background-color:#B8CFE7!important; color:#616366!important}
+.wpi_share_buttons .wpi_sb_wordpress a:active{background-color:#036BA4!important;}
+.wpi_share_buttons .wpi_sb_email a:active{background-color:#5A7A09!important;}
+/* ---------------------------------------------------------------------------- Slide --------------------------------------------------------------------*/
 .wpi_slide{
 	position:relative;
 	min-height: 200px;

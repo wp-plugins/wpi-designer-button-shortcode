@@ -920,7 +920,35 @@ height: 100%;
 .wpi_des_but_sty .wpi_visual .button_wrap, .wpi_des_but .wpi_visual .button_wrap{
 	padding:50px 50px; 
 }
+/* ---------------------------------------------------------------------------- Share Buttons --------------------------------------------------------------------*/
 
+.wpi_des_but_sb #wpi_preview{
+	text-align:center;
+	padding:50px 10px;
+}
+.wpi_des_but_sb #wpi_visual_header{
+	min-height:30px;
+}
+.wpi_des_but_sb #wpi_preview .wpi_share_buttons {
+	outline: 1px dashed #EAEAEA;
+	display: inline-block;
+}
+.wpi_des_but_sb #wpi_preview .wpi_share_buttons .wpi_sb_text {
+	vertical-align:middle;
+	padding-right:10px;
+	white-space: nowrap;
+	margin-bottom: 10px;
+	display: block;
+}
+.wpi_des_but_sb #wpi_preview .wpi_share_buttons ul{
+	margin:0px; padding:0px;
+	display:table-cell;	
+}
+.wpi_des_but_sb #wpi_preview .wpi_share_buttons li {
+	font-size: 0;	
+	vertical-align: top;
+	display:inline-block;
+}
 /* ---------------------------------------------------------------------------- Slide --------------------------------------------------------------------*/
 .wpi_des_but_sli #wpi_slide{
 	position:relative;
@@ -969,6 +997,20 @@ text-align: left;
 .wpi_db .wpi_designer_button{margin-bottom:0px; cursor:pointer; }
 .wpi_db .wpi_designer_button:active{color:#333333; background-color:#dddddd; border-color:#bbbbbb; }
 .wpi_db .wpi_designer_button.wpi_no_text .wpi_text{display:none;}
+
+/*wpiAdmin*/
+#wpi_admin #wpi_gs_header{    position:relative;}
+#wpi_admin #wpi_gs_header:after{  content:"";  display:block;  clear:both;}
+#wpi_admin #wpi_gs_header_bg{position:absolute; top:0px; left:-20px; right:0px; bottom:0px;background-color:#ffffff;z-index:-999; }
+#wpi_admin #wpi_gs_header_ha{position:absolute; top:0px; left:0px; right:0px; bottom:0px;}
+#wpi_admin #wpi_gs_heading{  float:left;  padding:25px 10px 10px 30px;  font-size:35px; vertical-align: top; font-size:30px;}
+
+#wpi_admin #wpi_gs_heading img{  width:200px; }
+#wpi_admin #wpi_gs_heading span{ display:none;}
+#wpi_admin #wpi_gs_product_logo{  float:right; width:100px; }
+#wpi_admin #wpi_gs_product_logo img{  width:100%; height:auto; vertical-align: top; }
+#wpi_admin #wpi_gs_content_inner{margin:20px;background-color:#ffffff; padding:20px; border-radius:5px;}
+#wpi_admin #wpi_gs_content_header{  border-bottom:1px solid #eeeeee; padding-bottom:10px; color:#666666; font-family:"Open Sans";}
 
 /* ---------------------------------------------------------------------------- wpiAccordion --------------------------------------------------------------------*/
 .wpiAccordion * {

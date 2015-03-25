@@ -30,6 +30,8 @@ class WPiDesButSli{
 		$margin=WPiArray::get_margin();
 		$margin=WPiTools::get_list(array("suffix"=>"px","list"=>$margin));	
 		
+		$withMinusMargin=array_merge($margin,array("-10px"=>"-10px","-20px"=>"-20px","-30px"=>"-30px","-40px"=>"-40px","-50px"=>"-50px","-60px"=>"-60px","-70px"=>"-70px","-80px"=>"-80px","-90px"=>"-90px","-100px"=>"-100px"));
+		
 		$border_width=WPiArray::get_border_width();
 		$border_width=WPiTools::get_list(array("suffix"=>"px","list"=>$border_width));
 				
@@ -70,14 +72,16 @@ class WPiDesButSli{
 			array("label"=>"Slide Heading Margin Top", "name"=>'slide_heading_margin_top', "type"=>"select", "section"=>"Spacing", "group"=>"Heading", "css_property"=>"margin-top", "value"=> "", "list"=> $margin),
 			array("label"=>"Slide Heading Margin Left", "name"=>'slide_heading_margin_left', "type"=>"select", "section"=>"Spacing", "group"=>"Heading", "css_property"=>"margin-left", "value"=> "", "list"=> $margin),
 			array("label"=>"Slide Heading Margin Right", "name"=>'slide_heading_margin_right', "type"=>"select", "section"=>"Spacing", "group"=>"Heading", "css_property"=>"margin-right", "value"=> "", "list"=> $margin),
+			array("label"=>"Slide Heading Margin Bottom", "name"=>'slide_heading_margin_bottom', "type"=>"select", "section"=>"Spacing", "group"=>"Heading", "css_property"=>"margin-bottom", "value"=> "", "list"=> $margin),
 			array("label"=>"Slide Heading Padding", "name"=>'slide_heading_padding', "type"=>"select", "section"=>"Spacing", "group"=>"Heading", "css_property"=>"padding", "value"=> "", "list"=> $margin),
 			array("label"=>"Slide Text Margin Top", "name"=>'slide_text_margin_top', "type"=>"select", "section"=>"Spacing", "group"=>"Sub Heading", "css_property"=>"margin-top", "value"=> "", "list"=> $margin),
 			array("label"=>"Slide Text Margin Left", "name"=>'slide_text_margin_left', "type"=>"select", "section"=>"Spacing", "group"=>"Sub Heading", "css_property"=>"margin-left", "value"=> "", "list"=> $margin),
 			array("label"=>"Slide Text Margin Right", "name"=>'slide_text_margin_right', "type"=>"select", "section"=>"Spacing", "group"=>"Sub Heading", "css_property"=>"margin-right", "value"=> "", "list"=> $margin),
 			array("label"=>"Button Margin top", "name"=>'button_margin_top', "type"=>"select", "section"=>"Spacing", "group"=>"Button", "css_property"=>"margin-top", "value"=> "", "list"=> $margin),
 			array("label"=>"Button Margin Bottom", "name"=>'button_margin_bottom', "type"=>"select", "section"=>"Spacing", "group"=>"Button", "css_property"=>"margin-bottom", "value"=> "", "list"=> $margin),	
-			array("label"=>"Slide Footer padding", "name"=>'slide_footer_padding', "type"=>"select", "section"=>"Spacing",  "group"=>"Footer", "value"=> "", 
-				"list"=> $margin),
+			array("label"=>"Slide Footer padding", "name"=>'slide_footer_padding', "type"=>"select", "section"=>"Spacing",  "group"=>"Footer", "value"=> "", "list"=> $margin),
+			array("label"=>"Frame Margin Left", "name"=>'frame_margin_left', "type"=>"select", "section"=>"Spacing", "group"=>"Frame", "css_property"=>"margin-left", "value"=> "", "list"=> $withMinusMargin),
+			array("label"=>"Frame Margin Right", "name"=>'frame_margin_right', "type"=>"select", "section"=>"Spacing", "group"=>"Frame", "css_property"=>"margin-right", "value"=> "", "list"=> $withMinusMargin),
 				
 			array("label"=>"Slide Heading Border Width", "name"=>'slide_heading_border_width', "type"=>"select", "section"=>"Effects", "group"=>"Borders", "css_property"=>"border-width", "value"=> "", "list"=> $border_width),
 			array("label"=>"Slide Heading Shadow", "name"=>'slide_heading_shadow_distance', "type"=>"select", "section"=>"Effects", "group"=>"Shadows",  "css_property"=>"text-shadow-distance", "value"=> "", "list"=> $text_shadow_distance),
@@ -98,6 +102,7 @@ class WPiDesButSli{
 			array("label"=>"Background Repeat Image", "name"=>'background_repeat_image', "type"=>"select", "section"=>"Frame",  "group"=>"Repeat Image", "css_property"=>"background-image", "value"=> "", "list"=> $repeat_images),
 			array("label"=>"Frame Height", "name"=>'frame_height', "type"=>"select", "section"=>"Frame", "group"=>"Frame Height", "css_property"=>"min-height", "value"=> "", "list"=> $slide_height),
 			array("label"=>"Frame Width", "name"=>'frame_width', "type"=>"text", "section"=>"Frame", "group"=>"Frame Width", "css_property"=>"width", "value"=> "",),
+			
 			
 		);		
 		return $fields;
@@ -183,17 +188,21 @@ class WPiDesButSli{
 			}else{
 				$ss->background_repeat_image= "url(". WPIDB_URL ."images/".$ss->background_repeat_image.")" ;
 			}
-			$slide_footer_display= $ss->slide_footer_text=="" ? "none" : " ";			
+			$slide_footer_display= $ss->slide_footer_text=="" ? "none" : " ";
+			if($ss->frame_margin_left=="0px") $ss->frame_margin_left="auto";
+			if($ss->frame_margin_right=="0px") $ss->frame_margin_right="auto";
 			
 			$classes=array(
 				array(
 					"element"=> ".wpi_slide_".$ss->ID,
 					"styles"=> array(
-						"min-height"=> $ss->frame_height,	
+						"min-height"=> $ss->frame_height,
 						"width"=> $ss->frame_width,	
 						"background-color"=> $ss->background_color,
 						"background-image"=> $ss->background_repeat_image,
 						"color"=> "#ffffff",
+						"margin-left"=> $ss->frame_margin_left,	
+						"margin-right"=> $ss->frame_margin_right,	
 					),				
 				),
 				array(
@@ -207,6 +216,7 @@ class WPiDesButSli{
 						"margin-top"=> $ss->slide_heading_margin_top,
 						"margin-left"=> $ss->slide_heading_margin_left,
 						"margin-right"=> $ss->slide_heading_margin_right,
+						"margin-bottom"=> $ss->slide_heading_margin_bottom,
 						"padding"=> $ss->slide_heading_padding,
 						"border-width"=> $ss->slide_heading_border_width,
 						"border-color"=> $ss->slide_heading_border_color,

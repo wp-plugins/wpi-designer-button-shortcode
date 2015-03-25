@@ -1,7 +1,22 @@
 <?php
 class WPiControls{
 	public static function select($args=array()){
-		$defaults=array("name"=>"", "class"=>" ", "value"=>"", "list"=>array(0));
+		$defaults=array("name"=>"", "class"=>" ", "value"=>"", "list"=>array(0), "default"=>"");
+		extract(wp_parse_args($args,$defaults));
+		$output="<select name='{$name}' id='{$name}'>";
+		foreach($list as $key=>$val){
+			if($value!=""){
+				if($key==$value) $selected="selected"; else $selected=$default;
+			}else{				
+				$selected=$default;
+			}
+			$output.="<option value='{$key}' $selected>{$val}</option>";
+		}
+		$output.="</select>";
+		return $output;
+	}
+	public static function boolean($args=array()){
+		$defaults=array("name"=>"", "class"=>" ", "value"=>"", "list"=>array(0=>"false",1=>"true"));
 		extract(wp_parse_args($args,$defaults));
 		$output="<select name='{$name}' id='{$name}'>";
 		foreach($list as $key=>$val){
@@ -26,7 +41,7 @@ class WPiControls{
 		extract(wp_parse_args($args,$defaults));
 		$output="<input type='hidden' name='{$name}' id='{$name}' value='{$value}' />";
 		return $output;	
-	}
+	}	
 	public static function button($args=array()){
 		$defaults=array("name"=>"", "class"=>" ", "value"=>"");
 		extract(wp_parse_args($args,$defaults));
@@ -333,14 +348,39 @@ class WPiCss{
 		return $styles;	
 	}
 }
-class WPiTemplate{
+class WPiTemplate{	
 	public static function html($post_id, $args=array()){
-		$sec_alt=0;	
+		$holder = "";
+		if($post_id!=""){							
+			foreach($args as $k => $v ){	
+				$args[$k]['value']=WPiData::get_post_meta($post_id, $args[$k]['name']);	
+			}	
+			$holder = self::create_holder($args);
+		}		
+		return $holder;
+	}	
+	public static function html_option($option, $args=array()){							
+		$holder = "";
+		if($option!=""){			
+			foreach($args as $k => $v ){
+				$name=$args[$k]['name']	;
+				if(isset($_POST[$name]) && $_POST[$name]!=""){
+					$args[$k]['value']=update_option("wpi_admin_".$option."_".$name, $_POST[$name]);	
+				}
+			}								
+			foreach($args as $k => $v ){	
+				$args[$k]['value']=get_option("wpi_admin_".$option."_".$args[$k]['name']);	
+			}	
+			$holder = self::create_holder($args);
+		}
+		return $holder;
+	}	
+	public static function create_holder($args){		
 		$c=0;
 		$out="";
 		$section="";
 		$html="";
-		$ss=array();		
+			
 		foreach($args as $arg){	
 			if(isset($arg['section']) && $arg['section']!="" && isset($arg['name']) && $arg['name']!=""){	
 				$section_name=$arg['section'];	
@@ -359,8 +399,7 @@ class WPiTemplate{
 				$sections[$key][$group_name][]=$data;
 			}			
 			unset($sections[$key]['backup']);		
-		}
-				
+		}	
 		$header='
 		<div class="wpi_header">
 			<span class="wpi_menu genericon genericon-menu">
@@ -395,23 +434,26 @@ class WPiTemplate{
 					$sections_content.='<h3>'.$group_key.' <i class="genericon genericon-next"></i></h3>';
 				}				
 				$sections_content.='<div class="wpi_accordion_content">';		
-				foreach($group as $data){	
-					$data['value']=WPiData::get_post_meta($post_id, $data['name']);	
-					if($data['type']	== "text" ){
-						$input=WPiControls::text(array("name"=>$data['name'], "value"=>$data['value']));
-					}else if($data['type'] == "textarea" ){
-						$input=WPiControls::textarea(array("name"=>$data['name'], "value"=>$data['value']));
-					}else if($data['type'] == "hidden" ){
-						$input=WPiControls::hidden(array("name"=>$data['name'], "value"=>$data['value']));
-					}else if($data['type'] == "button" ){
-						$input=WPiControls::button(array("name"=>$data['name'], "value"=>$data['value']));
-					}else if($data['type'] == "wp_image" ){
-						$input=WPiControls::wp_image(array("name"=>$data['name'], "value"=>$data['value']));
-					}else if($data['type'] == "select" ){
-						$input=WPiControls::select(array("name"=>$data['name'], "value"=>$data['value'], "list"=>$data['list'] ));
+				foreach($group as $data){
+					$defaults=array("name"=>"", "label"=>"", "type"=>"text", "value"=>"", "list"=>array(0), "default"=>"");
+					extract(wp_parse_args($data,$defaults));
+					if($type	== "text" ){
+						$input=WPiControls::text(array("name"=>$name, "value"=>$value));
+					}else if($type == "textarea" ){
+						$input=WPiControls::textarea(array("name"=>$name, "value"=>$value));
+					}else if($type == "hidden" ){
+						$input=WPiControls::hidden(array("name"=>$name, "value"=>$value));
+					}else if($type == "button" ){
+						$input=WPiControls::button(array("name"=>$name, "value"=>$value));
+					}else if($type == "wp_image" ){
+						$input=WPiControls::wp_image(array("name"=>$name, "value"=>$value));
+					}else if($type == "select" ){
+						$input=WPiControls::select(array("name"=>$name, "value"=>$value, "list"=>$list, "default"=>$default ));
+					}else if($type == "boolean" ){
+						$input=WPiControls::boolean(array("name"=>$name, "value"=>$value, "list"=>$list));
 					}
-					if($data['type'] != "hidden" ){
-						$sections_content.='<div class="label">'.$data['label'].'</div>';
+					if($type != "hidden" ){
+						$sections_content.='<div class="label">'.$label.'</div>';
 					}
 					$sections_content.='<div class="input">'.$input.'</div>';
 				};
@@ -459,9 +501,7 @@ class WPiTemplate{
 		  </div><!-- content-->
 		</div><!-- wpiHolder-->';
 		return $html;
-		//$out=print_r($sections,true);
-		//return $out;
-	}	
+	}
 	public static function create_tabs($args){
 		
 		$content="<div class='wpi_tabs'>";	

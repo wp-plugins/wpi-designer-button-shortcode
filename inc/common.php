@@ -30,25 +30,38 @@ class WPiDesButCommon{
 			'post_type' => 'wpi_des_but_sty', 'post_status'=>array('publish'), 'numberposts'       => -1
 		); 
 		
-		$style_ids=array();		
+		$style_ids=array();	
+		
+		$button_styles = get_posts($args);
+		foreach ( $button_styles as $bs ) :			
+			$style_ids[$bs->ID]= $bs->post_title;
+        endforeach;	
+		
 		$preset_styles=WPiArray::get_preset_styles();
 		foreach($preset_styles as $style_id){
 			$style_ids["preset_".$style_id]= "preset_".$style_id;	
 		}
-		$button_styles = get_posts($args);
-		foreach ( $button_styles as $bs ) :			
-			$style_ids[$bs->ID]= $bs->ID;
-        endforeach;	
 		
 		return	$style_ids;
+	}
+	public static function get_share_buttons_ids(){
+		$args = array(			
+			'post_type' => 'wpi_des_but_sb', 'post_status'=>array('publish'), 'numberposts'       => -1
+		); 
+		$ids=array();	
+		$share_buttons = get_posts($args);
+		foreach ($share_buttons as $sb ) :			
+			$ids[$sb->ID]= $sb->post_title;
+        endforeach;	
+		return	$ids;
 	}
 	public static function get_styles(){		
 		$style_ids=self::get_style_ids();		
 		$output="";
-		$r="";			
-		foreach($style_ids as $style_id){
-			$classes=WPiDesButCommon::get_button_style_class($style_id);			
-			$output.="<div class='wpi_style_holder'><div id='wpi_db_sty_".$style_id."' class='wpi_style wpi_designer_button {$classes}' >Button <span class='wpi_id'>".$style_id."</span></div></div>";
+		$r="";
+		foreach($style_ids as $k => $v){
+			$classes=WPiDesButCommon::get_button_style_class($k);			
+			$output.="<div class='wpi_style_holder'><div id='wpi_db_sty_".$k."' class='wpi_style wpi_designer_button {$classes}' >Button <span class='wpi_id'>".$k."</span></div></div>";
 			$r.=print_r($classes,true);
 		}
 		//$r=print_r($style_ids,true);

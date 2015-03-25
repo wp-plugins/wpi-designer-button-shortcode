@@ -31,6 +31,7 @@ class WPiArray{
 			array("name"=>"Droid Sans"),
 			array("name"=>"Roboto", "var"=>"100,300,400,700"),
 			array("name"=>"Exo 2", "var"=>"100,300,400,700"),
+			array("name"=>"Capriola"),
 		);
 		return $fonts;
 	}
@@ -51,7 +52,7 @@ class WPiArray{
 		return $out;
 	}
 	public static function get_font_weights(){		
-		$font_weights=array(300,400,600,700);
+		$font_weights=array(100,300,400,600,700);
 		return $font_weights;
 	}
 	public static function get_fonts(){	
@@ -64,7 +65,7 @@ class WPiArray{
 		return $fonts;
 	}
 	public static function get_font_sizes(){
-		$font_sizes=array(8,9,10,12,14,16,18,20,23,26,28,30,32,36,40,44,48,52,66,72,80,100,120);
+		$font_sizes=array(8,9,10,12,14,16,18,20,23,26,28,30,32,36,40,44,48,52,66,72,80,100,120,140,160,180,200,220,240,260,280,300,320,340);
 		return $font_sizes;
 	}	
 }

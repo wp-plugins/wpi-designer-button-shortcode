@@ -1,14 +1,14 @@
 ===  WPi Designer Button  === 
 Contributors: wooprali
 Donate link: http://wooprali.prali.in/contact-us/?utm_source=wordpress&utm_medium=plugin&utm_content=donate&utm_campaign=donate
-Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css buttons, css button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button
+Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css buttons, css button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button, share buttons, sharing buttons, 
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: 4.3
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create Buttons & Call-To-Action (CTA) Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
+Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
 
 == Description ==
 
@@ -126,6 +126,9 @@ An answer to that question.
 
 
 == Changelog ==
+
+= 2.0 =
+Share Buttons & Global Settings added in this version
 
 = 1.0 =
 This is the first version .
