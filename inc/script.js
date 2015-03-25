@@ -989,6 +989,8 @@
 		function set_radius(radius){
 			if(radius=="rectangle"){				
 				radius="0px";
+			}else if(radius=="rounded"){				
+				radius="100px";
 			}else{				
 				radius=radius;
 			}
