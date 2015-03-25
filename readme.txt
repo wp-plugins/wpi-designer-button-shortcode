@@ -44,10 +44,7 @@ Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using
 *  You can use the shortcode even without creating the button or style.
 *  User can also generate shortcode directly inside wordpress visual editor( TinyMCE).
 *  Please read plugin's <a href="http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/" target="_blank">documentation </a> before creating any style or button. Its a best practice to read documentation first.
-*  Note:: In next version we will add more icons in icons collection.
-
-
-. 
+*  Note:: In next version we will add more icons in icons collection.. 
 
 
 #### Creating Styles::
