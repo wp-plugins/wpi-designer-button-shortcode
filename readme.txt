@@ -1,7 +1,7 @@
 ===  WPi Designer Button  === 
 Contributors: wooprali
 Donate link: http://wooprali.prali.in/contact-us/?utm_source=wordpress&utm_medium=plugin&utm_content=donate&utm_campaign=donate
-Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css buttons, css button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button, share buttons, sharing buttons, 
+Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css buttons, css button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button, social share, share buttons, share button, sharing buttons, 
 Requires at least: 3.0.1
 Tested up to: 4.1
 Stable tag: 2.0
