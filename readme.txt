@@ -30,6 +30,9 @@ Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using
 *  Given more importance to UI & UX in this plugin.
 *  Dynamic Help section for Plugin's guide and getting any support.
 
+#### Extra features::
+*  Simple button generator/Maker
+
 . 
 #### Creating Buttons::
 
