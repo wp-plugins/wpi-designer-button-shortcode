@@ -16,7 +16,8 @@ Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using
 
 > 1. Creating beautiful buttons.
 > 2. Creating call-to-action buttons.
-> 3. Creating reusable styles for buttons & CTA buttons.
+> 3. Creating Share buttons.
+> 4. Creating reusable button styles for buttons, CTA buttons & Share buttons.
 > 
 
 
@@ -83,6 +84,11 @@ Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using
 *  You can check latest Styles and its settings in plugin's website.
 *  In next version we will add Export & Import Styles settings. which is good feature to extend this plugin's power.
 *  You can also add multiple headings with ticker animation.
+
+#### Creating Share Buttons::
+*  You can change the gap between Share buttons.
+*  You can change the space around all Share buttons.
+*  You can set the position for Share buttons like above/below the content.
 
 Note:: WE ARE DOING OUR BEST TO MAKE THIS PLUGIN PERFECT. If you face any problem in using this plugin or you need some more features or any support please dont hesitate to contact us. You can contact us from here.
 
