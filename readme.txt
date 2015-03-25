@@ -12,7 +12,7 @@ Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using
 
 == Description ==
 
-> WPi Designer Button Shortcode plugin is used to create beautiful Buttons, Call-To-Action (CTA) & Share Buttons in WordPress. It has small designer studio where you can style buttons & other elements using simple user interface. This plugin conists of below features.
+> WPi Designer Button Shortcode plugin is good Button Generator, Anyone can create Buttons, Call-To-Action (CTA) & Share Buttons in WordPress. It has small designer studio where you can style buttons & other elements using simple user interface. This plugin conists of below features.
 
 > 1. Creating beautiful buttons.
 > 2. Creating call-to-action buttons.
@@ -31,7 +31,8 @@ Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using
 *  Dynamic Help section for Plugin's guide and getting any support.
 
 #### Extra features::
-*  Simple button generator/Maker
+*  Button generator/Maker
+*  Shortcode generator
 
 . 
 #### Creating Buttons::
