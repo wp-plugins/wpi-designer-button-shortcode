@@ -1,7 +1,7 @@
 ===  WPi Designer Button  === 
 Contributors: wooprali
 Donate link: http://wooprali.prali.in/contact-us/?utm_source=wordpress&utm_medium=plugin&utm_content=donate&utm_campaign=donate
-Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css buttons, css button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button, social share, share buttons, share button, sharing buttons, 
+Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css3 buttons, css3 button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button, social share, share buttons, share button, sharing buttons, 
 Requires at least: 3.0.1
 Tested up to: 4.1
 Stable tag: 2.0
@@ -12,7 +12,7 @@ CSS3 Button Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anyw
 
 == Description ==
 
-> WPi Designer Button Shortcode plugin is good Button Generator, Anyone can create Buttons, Call-To-Action (CTA) & Share Buttons in WordPress. It has small designer studio where you can style buttons & other elements using simple user interface. This plugin conists of below features.
+> WPi Designer Button Shortcode plugin is good CSS3 Button Generator, Anyone can create Buttons, Call-To-Action (CTA) & Share Buttons in WordPress. It has small designer studio where you can style buttons & other elements using simple user interface. This plugin conists of below features.
 
 > 1. Creating beautiful buttons.
 > 2. Creating call-to-action buttons.
@@ -33,7 +33,7 @@ CSS3 Button Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anyw
 #### Extra features::
 *  Button generator/Maker
 *  Shortcode generator
-* CSS3 Buttons, Share Buttons, CTA Buttons
+*  CSS3 Buttons, Share Buttons, CTA Buttons
 
 . 
 #### Creating Buttons::
