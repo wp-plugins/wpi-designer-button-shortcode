@@ -35,7 +35,7 @@ class WPiDesButSB{
 			
 			array("label"=>"Share Text", "name"=>'share_text_margin_bottom', "type"=>"select", "section"=>"Spacing", "group"=>"Shate Text", "css_property"=>"margin-bottom", "value"=> "", "list"=> $gap),			
 			
-			array("label"=>"Frame Padding Top", "name"=>'frame_padding_top', "type"=>"select", "section"=>"Spacing", "group"=>"Frame", "css_property"=>"padding-top","value"=> "", "list"=> $margin),
+			array("label"=>"Frame Padding Top", "name"=>'frame_padding_top', "type"=>"select", "section"=>"Spacing", "group"=>"Frame", "css_property"=>"padding-top","value"=> "", "list"=> $margin), 
 			array("label"=>"Frame Padding Bottom", "name"=>'frame_padding_bottom', "type"=>"select", "section"=>"Spacing", "group"=>"Frame", "css_property"=>"padding-bottom","value"=> "", "list"=> $margin),
 			array("label"=>"Frame Padding Left", "name"=>'frame_padding_left', "type"=>"select", "section"=>"Spacing", "group"=>"Frame", "css_property"=>"padding-left","value"=> "", "list"=> $margin),
 			array("label"=>"Frame Padding right", "name"=>'frame_padding_right', "type"=>"select", "section"=>"Spacing", "group"=>"Frame", "css_property"=>"padding-right","value"=> "", "list"=> $margin),			
