@@ -8,7 +8,7 @@ Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Button Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
+CSS3 Button Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
 
 == Description ==
 
@@ -33,6 +33,7 @@ Button Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere 
 #### Extra features::
 *  Button generator/Maker
 *  Shortcode generator
+* CSS3 Buttons, Share Buttons, CTA Buttons
 
 . 
 #### Creating Buttons::
