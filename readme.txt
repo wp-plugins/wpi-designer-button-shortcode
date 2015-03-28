@@ -4,7 +4,7 @@ Donate link: http://wooprali.prali.in/contact-us/?utm_source=wordpress&utm_mediu
 Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css3 buttons, css3 button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button, social share, share buttons, share button, sharing buttons, 
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

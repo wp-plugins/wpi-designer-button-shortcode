@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://wooprali.prali.in/plugins/wpi-designer-button-shortcode
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.0
+ * Version: 2.1
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -52,10 +52,11 @@ class WPiDesignerButtonShortcode{
 		add_filter("the_content", array($this,"just"),20);		
 	}
 	public function just($content){
+		$share_buttons=get_option("wpi_admin_"."global_settings_"."share_buttons");
 		$share_buttons_set=get_option("wpi_admin_"."global_settings_"."share_buttons_set");
 		$share_buttons_location=get_option("wpi_admin_"."global_settings_"."share_buttons_location");
 		if(is_single() || is_page()){
-			if($share_buttons_set!=""){
+			if($share_buttons==1){
 				if($share_buttons_location=="above"){
 					$content=do_shortcode("[wpi_designer_button share_id=".$share_buttons_set."]").$content;
 				}else{
@@ -207,7 +208,8 @@ class WPiDesignerButtonShortcode{
 	
 	public function global_settings_page(){
 		$share_buttons_ids=WPiDesButCommon::get_share_buttons_ids();
-		$fields=array(			
+		$fields=array(	
+			array("label"=>"Share Buttons", "name"=>'share_buttons', "type"=>"select",  "section"=>"Share Buttons", "group"=>"Share Buttons", "value"=> "", "list"=>array("0"=>"Disable", "1"=>"Enable")),		
 			array("label"=>"Share Buttons Set", "name"=>'share_buttons_set', "type"=>"select",  "section"=>"Share Buttons Set", "group"=>"Share Buttons Set", "value"=> "", "list"=>$share_buttons_ids),
 			array("label"=>"Share Button Above/Below Content", "name"=>'share_buttons_location', "type"=>"select",  "section"=>"Share Buttons Location", "group"=>"Share Buttons Location", "value"=> "", "list"=>array("above"=>"Above", "below"=>"Below"), "default"=>"below"),
 		);		
@@ -250,6 +252,7 @@ class WPiDesignerButtonShortcode{
 	public function enqueue_scripts(){
 		wp_enqueue_style("wpi_designer_button", WPIDB_URL."style.css",array(),NULL, NULL);
 		wp_enqueue_style("wpi_designer_button_preset_styles", WPIDB_URL."preset_styles.css",array(),NULL, NULL);	
+		wp_enqueue_style("wpi_designer_button_genericons", WPIDB_URL."genericons/genericons/genericons.css",array(),NULL, NULL);
 		wp_enqueue_script("wpi_front_global_script",	WPIDB_URL."inc/front_global.js","jQuery");	
 		wp_enqueue_script("wpi_front_script",	WPIDB_URL."inc/front_script.js","jQuery");			
 	}	
