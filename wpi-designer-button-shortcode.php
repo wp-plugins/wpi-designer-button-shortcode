@@ -55,7 +55,7 @@ class WPiDesignerButtonShortcode{
 		$share_buttons=get_option("wpi_admin_"."global_settings_"."share_buttons");
 		$share_buttons_set=get_option("wpi_admin_"."global_settings_"."share_buttons_set");
 		$share_buttons_location=get_option("wpi_admin_"."global_settings_"."share_buttons_location");
-		if(is_single() || is_page()){
+		if(is_single()){
 			if($share_buttons==1){
 				if($share_buttons_location=="above"){
 					$content=do_shortcode("[wpi_designer_button share_id=".$share_buttons_set."]").$content;
