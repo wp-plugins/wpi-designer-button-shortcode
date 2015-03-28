@@ -1,22 +1,23 @@
 ===  WPi Designer Button  === 
 Contributors: wooprali
 Donate link: http://wooprali.prali.in/contact-us/?utm_source=wordpress&utm_medium=plugin&utm_content=donate&utm_campaign=donate
-Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css buttons, css button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button, share buttons, sharing buttons, 
+Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css3 buttons, css3 button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button, social share, share buttons, share button, sharing buttons, 
 Requires at least: 3.0.1
 Tested up to: 4.1
 Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
+CSS3 Button Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
 
 == Description ==
 
-> WPi Designer Button Shortcode plugin is used to create beautiful buttons & Call to Action Buttons in WordPress. It has small designer studio where you can style buttons & other elements using simple user interface. This plugin conists of below features.
+> WPi Designer Button Shortcode plugin is good CSS3 Button Generator, Anyone can create Buttons, Call-To-Action (CTA) & Share Buttons in WordPress. It has small designer studio where you can style buttons & other elements using simple user interface. This plugin conists of below features.
 
 > 1. Creating beautiful buttons.
 > 2. Creating call-to-action buttons.
-> 3. Creating reusable styles for buttons & CTA buttons.
+> 3. Creating Share buttons.
+> 4. Creating reusable button styles for buttons, CTA buttons & Share buttons.
 > 
 
 
@@ -29,6 +30,11 @@ Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using
 *  Given more importance to UI & UX in this plugin.
 *  Dynamic Help section for Plugin's guide and getting any support.
 
+#### Extra features::
+*  Button generator/Maker
+*  Shortcode generator
+*  CSS3 Buttons, Share Buttons, CTA Buttons
+
 . 
 #### Creating Buttons::
 
@@ -40,10 +46,7 @@ Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using
 *  You can use the shortcode even without creating the button or style.
 *  User can also generate shortcode directly inside wordpress visual editor( TinyMCE).
 *  Please read plugin's <a href="http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/" target="_blank">documentation </a> before creating any style or button. Its a best practice to read documentation first.
-*  Note:: In next version we will add more icons in icons collection.
-
-
-. 
+*  Note:: In next version we will add more icons in icons collection.. 
 
 
 #### Creating Styles::
@@ -83,6 +86,11 @@ Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using
 *  You can check latest Styles and its settings in plugin's website.
 *  In next version we will add Export & Import Styles settings. which is good feature to extend this plugin's power.
 *  You can also add multiple headings with ticker animation.
+
+#### Creating Share Buttons::
+*  You can change the gap between Share buttons.
+*  You can change the space around all Share buttons.
+*  You can set the position for Share buttons like above/below the content.
 
 Note:: WE ARE DOING OUR BEST TO MAKE THIS PLUGIN PERFECT. If you face any problem in using this plugin or you need some more features or any support please dont hesitate to contact us. You can contact us from here.
 
