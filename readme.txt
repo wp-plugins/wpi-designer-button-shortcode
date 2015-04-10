@@ -23,7 +23,7 @@ CSS3 Button Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anyw
 Please support this plugin by leaving a review! [here](https://wordpress.org/support/view/plugin-reviews/wpi-designer-button-shortcode). A huge thank you from WooPrali in advance!
 
 > 
-> [Buttons & CTA Buttons Demo](http://designerbutton.prali.in/showcase/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) | [WPi Designer Button Help](http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=help&utm_campaign=db) |  [Support](http://designerbutton.prali.in/contact-us/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=contact&utm_campaign=db)
+> [Buttons Demo](http://designerbutton.prali.in/showcase-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) | [CTA Buttons Demo](http://designerbutton.prali.in/showcase-cta-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) |[Share Buttons Demo](http://designerbutton.prali.in/showcase-share-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) |[WPi Designer Button Help](http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=help&utm_campaign=db) |  [Support](http://designerbutton.prali.in/contact-us/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=contact&utm_campaign=db)
 >
 
 #### Designer Button Studio Contains below features::
@@ -100,7 +100,7 @@ Please support this plugin by leaving a review! [here](https://wordpress.org/sup
 Note:: WE ARE DOING OUR BEST TO MAKE THIS PLUGIN PERFECT. If you face any problem in using this plugin or you need some more features or any support please dont hesitate to contact us. You can contact us from here.
 
 > 
-> [Buttons & CTA Buttons Demo](http://designerbutton.prali.in/showcase/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) | [WPi Designer Button Help](http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=help&utm_campaign=db) |  [Support](http://designerbutton.prali.in/contact-us/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=contact&utm_campaign=db)
+> [Buttons Demo](http://designerbutton.prali.in/showcase-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) | [CTA Buttons Demo](http://designerbutton.prali.in/showcase-cta-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) |[Share Buttons Demo](http://designerbutton.prali.in/showcase-share-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) |[WPi Designer Button Help](http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=help&utm_campaign=db) |  [Support](http://designerbutton.prali.in/contact-us/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=contact&utm_campaign=db)
 >
 
 
