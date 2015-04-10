@@ -2,6 +2,8 @@
 Contributors: wooprali
 Donate link: http://wooprali.prali.in/contact-us/?utm_source=wordpress&utm_medium=plugin&utm_content=donate&utm_campaign=donate
 Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css3 buttons, css3 button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button, social share, share buttons, share button, sharing buttons, 
+Plugin URI: http://designerbutton.prali.in
+Author URI: http://wooprali.prali.in
 Requires at least: 3.0.1
 Tested up to: 4.1
 Stable tag: 2.2
@@ -112,7 +114,14 @@ How to change Colors
 How to change Fonts
 [youtube https://www.youtube.com/watch?v=yXpZoD2pfj8&rel=0&autoplay=0&playlist=PLhhetWyvvPIZHCJBYdFPrP03ETp6QRKH5]
 
+**Coming soon**
+* Video Backgrounds in Call To Action
+* (Got more ideas? Tell me!)
 
+If you have suggestions for a new add-on, feel free to email me at info@prali.in
+Want regular updates?  follow my sites on Twitter!
+
+<https://twitter.com/DesignerButton>
 
 == Installation ==
 
