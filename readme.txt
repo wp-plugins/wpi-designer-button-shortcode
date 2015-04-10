@@ -137,9 +137,8 @@ Want regular updates?  follow my sites on Twitter!
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
-
-An answer to that question.
+= Can i create buttons directly without creating styles? =
+Yes, But i recommend to create styles first.
 
 
 == Screenshots ==
