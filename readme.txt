@@ -4,7 +4,7 @@ Donate link: http://wooprali.prali.in/contact-us/?utm_source=wordpress&utm_mediu
 Tags: designer button, button shortcode, easy button shortcode, shortcode, buttons, easy button, css3 buttons, css3 button, css3, CTA button, call-to-action button, wordpress button creator, button generator, button maker, wordpress button, plugin,images, button, social share, share buttons, share button, sharing buttons, 
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: 2.1
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,7 @@ CSS3 Button Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anyw
 > 4. Creating reusable button styles for buttons, CTA buttons & Share buttons.
 > 
 
+Please support this plugin by leaving a review! [here](https://wordpress.org/support/view/plugin-reviews/wpi-designer-button-shortcode). A huge thank you from WooPrali in advance!
 
 #### Designer Button Studio Contains below features::
 
@@ -134,6 +135,10 @@ An answer to that question.
 
 
 == Changelog ==
+= 2.2 =
+Broken Preset links are fixed
+Button css fixed
+plugin website link updated with New Brand website
 
 = 2.0 =
 Share Buttons & Global Settings added in this version

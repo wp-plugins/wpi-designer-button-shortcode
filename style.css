@@ -16,9 +16,9 @@ box-sizing: border-box;
 .wpi_designer_button{
 	background-color:#cccccc;
 	border:2px solid #cccccc;
-	text-align: center;
+	text-align: center!important;
 	color:#333333;
-	line-height:1.2em;
+	line-height:1.2em!important;
 	padding:5px 20px;	
 	-webkit-transition:all .2s;
 	-moz-transition:all .2s;
@@ -28,7 +28,7 @@ box-sizing: border-box;
 	border-radius:25px;
 	display:inline-block;
 	margin-bottom:10px;	
-	text-decoration:none;
+	text-decoration:none!important;
 	vertical-align: top;
 }
 .wpi_designer_button:hover{

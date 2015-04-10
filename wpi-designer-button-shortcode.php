@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: WPi Designer Button Shortcode
- * Plugin URI: http://wooprali.prali.in/plugins/wpi-designer-button-shortcode
+ * Plugin URI: http://designerbutton.prali.in/
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.1
+ * Version: 2.2
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -209,7 +209,7 @@ class WPiDesignerButtonShortcode{
 	public function global_settings_page(){
 		$share_buttons_ids=WPiDesButCommon::get_share_buttons_ids();
 		$fields=array(	
-			array("label"=>"Share Buttons", "name"=>'share_buttons', "type"=>"select",  "section"=>"Share Buttons", "group"=>"Share Buttons", "value"=> "", "list"=>array("0"=>"Disable", "1"=>"Enable")),		
+			array("label"=>"Share Buttons Enabled?", "name"=>'share_buttons', "type"=>"select",  "section"=>"Share Buttons", "group"=>"Share Buttons", "value"=> "", "list"=>array("0"=>"Disable", "1"=>"Enable")),		
 			array("label"=>"Share Buttons Set", "name"=>'share_buttons_set', "type"=>"select",  "section"=>"Share Buttons Set", "group"=>"Share Buttons Set", "value"=> "", "list"=>$share_buttons_ids),
 			array("label"=>"Share Button Above/Below Content", "name"=>'share_buttons_location', "type"=>"select",  "section"=>"Share Buttons Location", "group"=>"Share Buttons Location", "value"=> "", "list"=>array("above"=>"Above", "below"=>"Below"), "default"=>"below"),
 		);		
