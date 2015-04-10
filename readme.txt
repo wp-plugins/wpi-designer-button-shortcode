@@ -118,7 +118,7 @@ How to change Fonts
 * Video Backgrounds in Call To Action
 * (Got more ideas? Tell me!)
 
-If you have suggestions for a new add-on, feel free to [contact us](http://designerbutton.prali.in/contact-us/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=contact&utm_campaign=db)
+If you have suggestions for a new add-on, feel free to [contact us](http://designerbutton.prali.in/contact-us/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=contact&utm_campaign=db). 
 Want regular updates?  follow my sites on Twitter!
 
 <https://twitter.com/DesignerButton>
