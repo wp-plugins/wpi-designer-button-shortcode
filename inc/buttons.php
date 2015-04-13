@@ -10,11 +10,11 @@ class WPiDesBut{
 				
 		$style_ids=WPiDesButCommon::get_style_ids();
 		$fields=array(		
-			array("label"=>"Style Id", "name"=>'style_id', "type"=>"select",  "section"=>"Style",  "group"=>"Style","value"=> "", "list"=> $style_ids),
-			array("label"=>"Button Text", "name"=>'text', "type"=>"text",  "section"=>"Text", "group"=>"Text", "value"=> ""),
-			array("label"=>"Icon", "name"=>'icon', "type"=>"select",  "section"=>"Text", "group"=>"Text", "value"=> "", "list"=> $icons),
-			array("label"=>"Link", "name"=>'link', "type"=>"text", "section"=>"Link", "group"=>"Link", "value"=> ""),
-			array("label"=>"Target", "name"=>'target', "type"=>"select", "section"=>"Link", "group"=>"Link", "value"=> "", "list"=> array("self"=>"Self","_blank"=>"New Window")),			
+			array("label"=>"Style Id", "name"=>'style_id', "type"=>"select",  "section"=>"Style Section",  "group"=>"Style","value"=> "", "list"=> $style_ids),
+			array("label"=>"Button Text", "name"=>'text', "type"=>"text",  "section"=>"Text Section", "group"=>"Text", "value"=> ""),
+			array("label"=>"Icon", "name"=>'icon', "type"=>"select",  "section"=>"Text Section", "group"=>"Text", "value"=> "", "list"=> $icons),
+			array("label"=>"Link", "name"=>'link', "type"=>"text", "section"=>"Link Section", "group"=>"Link", "value"=> ""),
+			array("label"=>"Target", "name"=>'target', "type"=>"select", "section"=>"Link Section", "group"=>"Link", "value"=> "", "list"=> array("self"=>"Self","_blank"=>"New Window")),			
 		);
 		return $fields;
 	}
