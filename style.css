@@ -1,10 +1,19 @@
 @charset "utf-8";
 /* CSS Document */
-.wpi_db * {
+/*.wpi_db * {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}*/
+
+.wpi_designer_button *,
+.wpi_share_buttons *,
+.wpi_slide * {
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
 box-sizing: border-box;
 }
+
 .clear{
 	clear:both;
 	display:block;
