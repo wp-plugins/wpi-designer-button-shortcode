@@ -152,13 +152,13 @@ Yes, But i recommend to create styles first.
 
 == Changelog ==
 = 2.3 =
-Button text Element ID bug Fixed
-Box Sizing Issue is Fixed
+* Button text Element ID bug Fixed
+* Box Sizing Issue is Fixed
 
 = 2.2 =
-Broken Preset links are fixed
-Button css fixed
-plugin website link updated with New Brand website
+* Broken Preset links are fixed
+* Button css fixed
+* plugin website link updated with New Brand website
 
 = 2.0 =
 Share Buttons & Global Settings added in this version
