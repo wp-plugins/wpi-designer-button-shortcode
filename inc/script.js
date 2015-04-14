@@ -178,8 +178,7 @@
 				remove_class("icon");
 				preview_button.addClass("wpi_icon wpi_icon_"+but['icon'].val());				
 			},
-			text:function(){
-				alert(but['text'].val());
+			text:function(){				
 				preview_button_text(but['text'].val());
 			},
 			style_id:function(){
