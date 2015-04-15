@@ -152,7 +152,7 @@ Yes, But i recommend to create styles first.
 
 == Changelog ==
 
-= 2.3.1=
+= 2.3.1 =
 * Button  Icon Position Feature is added
 
 
