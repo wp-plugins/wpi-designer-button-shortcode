@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://designerbutton.prali.in/
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.3
+ * Version: 2.3.1
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -285,7 +285,7 @@ class WPiDesignerButtonShortcode{
 	}		
 	public function designer_button($atts, $content=""){
 		
-		$defaults=array("id"=>"", "style_id"=>"", "slide_id"=>"", "share_id"=>"", 'link'=>'#', 'text'=>'button', "target"=>"", "icon"=>"", "display"=>false);
+		$defaults=array("id"=>"", "style_id"=>"", "slide_id"=>"", "share_id"=>"", 'link'=>'#', 'text'=>'button', "target"=>"", "icon"=>"", "display"=>false, "icon_position"=>"left");
 		$atts=shortcode_atts($defaults, $atts, "wpi_designer_button");
 		$button="";
 		$output="";
@@ -305,11 +305,21 @@ class WPiDesignerButtonShortcode{
 			$atts['link']=get_post_meta($atts['id'], "link",true);
 			$atts['target']=get_post_meta($atts['id'], "target",true);
 			$atts['icon']=get_post_meta($atts['id'], "icon",true);
+			$atts['icon_position']=get_post_meta($atts['id'], "icon_position",true);
 			$atts['style_id']= get_post_meta($atts['id'], "style_id",true);	
 		}
 		
-		$classes=WPiDesButCommon::get_button_style_class($atts['style_id']);		
-		if($atts['icon']!=""){$icon_class="wpi_icon wpi_icon_".$atts['icon'];}else{$icon_class="";}	
+		$classes=WPiDesButCommon::get_button_style_class($atts['style_id']);
+		if($atts['icon_position']=="right"){
+			$left_icon="";
+			$right_icon="<i class=''></i>";
+			$icon_position="wpi_icon_right";
+		}else{
+			$left_icon="<i class=''></i>";
+			$right_icon="";		
+			$icon_position="wpi_icon_left";
+		}		
+		if($atts['icon']!=""){$icon_class="wpi_icon wpi_icon_".$atts['icon']." ".$icon_position; }else{$icon_class="";}	
 		if($atts['display']==true){$display_class="wpi_display";}else{$display_class="";}
 		if(trim($atts['text'])==""){$no_text_class="wpi_no_text";}else{$no_text_class="";}
 		
@@ -319,7 +329,8 @@ class WPiDesignerButtonShortcode{
 		}else{
 			$atts['target']="";
 		}
-		$button.="<a href='".$atts['link']."' class='wpi_designer_button {$classes} {$icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' ><i></i><span class='wpi_text'>".$atts['text']."</span></a>";
+		
+		$button.="<a href='".$atts['link']."' class='wpi_designer_button {$classes} {$icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' >".$left_icon."<span class='wpi_text'>".$atts['text']."</span>".$right_icon."</a>";
 		
 		if($atts['slide_id']!=""){
 			$output.="<div class='wpi_slide {$slide_class}'>";

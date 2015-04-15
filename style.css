@@ -349,8 +349,13 @@ text-align: left;
 	font-size: inherit;
 	font-size: 100%;
 	vertical-align: top;
-	line-height: 1.2em;
+	line-height: 1.2em;	
+}
+.wpi_icon_left i{
 	margin-right: 10px;
+}
+.wpi_icon_right i{	
+	margin-left: 10px;
 }
 .wpi_icon.wpi_no_text{	
 	

@@ -32,6 +32,7 @@ class WPiArray{
 			array("name"=>"Roboto", "var"=>"100,300,400,700"),
 			array("name"=>"Exo 2", "var"=>"100,300,400,700"),
 			array("name"=>"Capriola"),
+			array("name"=>"Crimson Text"),
 		);
 		return $fonts;
 	}

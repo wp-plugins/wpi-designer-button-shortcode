@@ -1003,6 +1003,10 @@ text-align: left;
 .wpi_db .wpi_designer_button:active{color:#333333; background-color:#dddddd; border-color:#bbbbbb; }
 .wpi_db .wpi_designer_button.wpi_no_text .wpi_text{display:none;}
 
+.wpi_db .wpi_designer_button.wpi_icon_left i.wpi_icon_r{display:none;}
+.wpi_db .wpi_designer_button.wpi_icon_right i.wpi_icon_l{display:none;}
+
+
 /*wpiAdmin*/
 #wpi_admin #wpi_gs_header{    position:relative;}
 #wpi_admin #wpi_gs_header:after{  content:"";  display:block;  clear:both;}

@@ -12,7 +12,8 @@ class WPiDesBut{
 		$fields=array(		
 			array("label"=>"Style Id", "name"=>'style_id', "type"=>"select",  "section"=>"Style Section",  "group"=>"Style","value"=> "", "list"=> $style_ids),
 			array("label"=>"Button Text", "name"=>'text', "type"=>"text",  "section"=>"Text Section", "group"=>"Text", "value"=> ""),
-			array("label"=>"Icon", "name"=>'icon', "type"=>"select",  "section"=>"Text Section", "group"=>"Text", "value"=> "", "list"=> $icons),
+			array("label"=>"Icon", "name"=>'icon', "type"=>"select",  "section"=>"Icon Section", "group"=>"Text", "value"=> "", "list"=> $icons),
+			array("label"=>"Icon Position", "name"=>'icon_position', "type"=>"select",  "section"=>"Icon Section", "group"=>"Text", "value"=> "", "list"=>  array("left"=>"Left","right"=>"Right")),
 			array("label"=>"Link", "name"=>'link', "type"=>"text", "section"=>"Link Section", "group"=>"Link", "value"=> ""),
 			array("label"=>"Target", "name"=>'target', "type"=>"select", "section"=>"Link Section", "group"=>"Link", "value"=> "", "list"=> array("self"=>"Self","_blank"=>"New Window")),			
 		);
@@ -27,7 +28,12 @@ class WPiDesBut{
 		$output= WPiTemplate::html($post->ID, $this->fields());	
 		
 		$classes=WPiDesButCommon::get_button_style_class($post->style_id);
-		if($post->icon!=""){$icon_class="wpi_icon wpi_icon_".$post->icon;}else{$icon_class="";}			
+		if($post->icon_position=="right"){			
+			$icon_position="wpi_icon_right";
+		}else{				
+			$icon_position="wpi_icon_left";
+		}	
+		if($post->icon!=""){$icon_class="wpi_icon wpi_icon_".$post->icon." ".$icon_position;}else{$icon_class="";}			
 		if(trim($post->text)==""){$no_text_class="wpi_no_text";}else{$no_text_class="";}
 		
 		$styles_list=WPiDesButCommon::get_styles();	
@@ -38,7 +44,7 @@ class WPiDesBut{
 		$shortcode= "<div id='wpi_shortcode' class='wpi_icon wpi_icon_star'><i></i><div class='wpi_text'>[wpi_designer_button id=".$post->ID."]</div></div>";
 		$links="<div id='wpi_links'><a href='post-new.php?post_type=wpi_des_but_sty'>Create New Style</a></div>";
 		
-		$preview="<div id='wpi_preview' class=' button_wrap'><a class='wpi_designer_button {$classes} {$icon_class} {$no_text_class}' href='#'><i></i><span class='wpi_text'>".$post->text."</span></a></div>";
+		$preview="<div id='wpi_preview' class=' button_wrap'><a class='wpi_designer_button {$classes} {$icon_class} {$no_text_class}' href='#'><i class='wpi_icon_l'></i><span class='wpi_text'>".$post->text."</span><i class='wpi_icon_r'></i></a></div>";
 		
 		$print="";
 		$info="<div class='wpi_info'>".$print."</div>";		
