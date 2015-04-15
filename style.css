@@ -350,12 +350,15 @@ text-align: left;
 	font-size: 100%;
 	vertical-align: top;
 	line-height: 1.2em;	
+	margin-right: 10px;
 }
 .wpi_icon_left i{
+	margin-left: 0px;
 	margin-right: 10px;
 }
 .wpi_icon_right i{	
 	margin-left: 10px;
+	margin-right: 0px;
 }
 .wpi_icon.wpi_no_text{	
 	
