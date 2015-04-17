@@ -201,7 +201,11 @@
 			},
 			style_id:function(){
 				var no_text_class="";
-				var icon_class="wpi_icon wpi_icon_"+but['icon'].val();
+				var icon_position="wpi_icon_left";				
+				if(but['icon_position'].val()=="right"){
+					icon_position="wpi_icon_right";
+				}
+				var icon_class="wpi_icon wpi_icon_"+but['icon'].val()+" "+icon_position;
 				var element="#wpi_db_sty_"+but['style_id'].val();
 				var classes=$(element).attr("class");	
 				if(but['text'].val()==""){no_text_class="wpi_no_text";}
@@ -932,9 +936,7 @@
 			$(".wpiAccordion").wpiAccordion();
 		}
 		if ( $("#wpi_dashboard_widget").length) {	
-			$(".wpi_tabs").set_tabs();	
-			$(".wpiHolder").wpiHolder({back:".wpi_back"});
-			$(".wpiAccordion").wpiAccordion();
+			$(".wpi_tabs").set_tabs();				
 		}
 		if ( box.length) {	
 			var tabs=$(".wpi_visual_holder .wpi_tabs").set_tabs();	
@@ -1110,8 +1112,12 @@
 			$(element).click(function(){			
 				set_inputs({icon:val}, $sty_defaults);			
 				remove_class("icon");
+				var icon_position="wpi_icon_left";				
+				if(but['icon_position'].val()=="right"){
+					icon_position="wpi_icon_right";
+				}				
 				$classes="";			
-				$classes+=" wpi_icon wpi_icon_"+val;	
+				$classes+=" wpi_icon wpi_icon_"+val+" "+icon_position;	
 				preview_button.addClass($classes);
 			});				
 		}

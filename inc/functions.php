@@ -381,12 +381,24 @@ class WPiTemplate{
 		$section="";
 		$html="";
 			
+		if(count($args)<10){
+			$merge_all_fields=true;
+			$no_sections="wpi_no_sections";
+		}else{
+			$merge_all_fields=false;
+			$no_sections="";
+		}
 		foreach($args as $arg){	
-			if(isset($arg['section']) && $arg['section']!="" && isset($arg['name']) && $arg['name']!=""){	
-				$section_name=$arg['section'];	
+			if($merge_all_fields==true){
+				$section_name='settings';
+				$arg['group']='no_group';	
 			}else{
-				$section_name='settings';	
-			}			
+				if(isset($arg['section']) && $arg['section']!="" && isset($arg['name']) && $arg['name']!=""){	
+					$section_name=$arg['section'];	
+				}else{
+					$section_name='settings';	
+				}	
+			}		
 			$sections[$section_name]['backup'][]=$arg;
 		}
 		foreach($sections as $key => $section){	
@@ -407,12 +419,16 @@ class WPiTemplate{
 			</span>
 			<span class="wpi_heading">Settings</span>
 		  </div><!-- header--> ';
-		  		
-		$sec='<div class="wpi_sections">';		
-		foreach($sections as $key => $section){	
-			$sec.='<div class="wpi_section" data-target_id="'.sanitize_title($key).'" data-target="'.$key.'">'.$key.'<div class="wpi_open genericon genericon-next"></div></div>';			
-		}
-		$sec.='</div><!-- sections-->';		
+		  	
+		if($merge_all_fields==false){	
+			$sec='<div class="wpi_sections">';		
+			foreach($sections as $key => $section){	
+				$sec.='<div class="wpi_section" data-target_id="'.sanitize_title($key).'" data-target="'.$key.'">'.$key.'<div class="wpi_open genericon genericon-next"></div></div>';			
+			}
+			$sec.='</div><!-- sections-->';	
+		}else{
+			$sec="";
+		}	
 		
 		$c=0;
 		$sections_content='<div class="wpi_sections_content">';
@@ -465,7 +481,7 @@ class WPiTemplate{
 		}
 		$sections_content.='</div><!-- sections content-->';
 		  
-		$html.='<div  class="wpiHolder">';
+		$html.='<div  class="wpiHolder '.$no_sections.'">';
 		$html.=$header;
 		$html.='<div class="wpi_content"><div class="wpi_content_holder">';
 		$html.=$sec;
