@@ -1194,26 +1194,6 @@ text-align: left;
 	 
 /*-- end wpiHolder --*/
 
-/* ---------------------------------------------------------------------------- wpiHolder ----------------------------------------------------------------------------*/
-#wpi_dashboard_widget .wpi_tab_content {
-height:400px;
-overflow:auto;
-}
-#wpi_dashboard_widget #wpi_help {} 
-#wpi_dashboard_widget_buttons .wpi_dashboard_widget_title{font-size:24px; margin:20px; font-weight: 100;}
-#wpi_dashboard_widget_buttons li {padding:10px 20px; border-top:1px solid #eeeeee;  background-color: #ffffff; margin:0px 0px 1px 0px;	}
-#wpi_dashboard_widget_buttons li.wpi_alternate {background-color: #F9F9F9;}
-#wpi_dashboard_widget_buttons li .wpi_dashboard_widget_item_name{ font-size:16px; font-weight:bold; color:#dddddd; display:block; margin-bottom:10px;}
-#wpi_dashboard_widget_buttons li .wpi_dashboard_widget_item_shortcode{ display:block; }
-#wpi_dashboard_widget_buttons li .wpi_dashboard_widget_item_preview{ display:block;}
-
-background: url(images/help_bg2.png);
-
-
-
-
-
-/*-- end wpi_dashboard_widget --*
 
 @media screen and (max-width: 782px){
 	.wpi_row {

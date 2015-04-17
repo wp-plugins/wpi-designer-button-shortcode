@@ -931,11 +931,6 @@
 			$(".wpiHolder").wpiHolder({back:".wpi_back"});
 			$(".wpiAccordion").wpiAccordion();
 		}
-		if ( $("#wpi_dashboard_widget").length) {	
-			$(".wpi_tabs").set_tabs();	
-			$(".wpiHolder").wpiHolder({back:".wpi_back"});
-			$(".wpiAccordion").wpiAccordion();
-		}
 		if ( box.length) {	
 			var tabs=$(".wpi_visual_holder .wpi_tabs").set_tabs();	
 			$(".wpiHolder").wpiHolder({back:".wpi_back"});

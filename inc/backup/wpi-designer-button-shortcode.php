@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://designerbutton.prali.in/
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.3.3
+ * Version: 2.3.2
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -26,7 +26,7 @@ require_once("inc/shareButtons.php");
 
 class WPiDesignerButtonShortcode{
 
-	const VERSION = '2.3.3';
+	const VERSION = '1.0.0';
 
 	public function __construct(){
 		add_action('init', array($this, 'load_plugin_textdomain' ) );
@@ -49,43 +49,7 @@ class WPiDesignerButtonShortcode{
 		add_action("admin_enqueue_scripts", array($this, 'load_fonts'));
 		add_action("wp_enqueue_scripts", array($this, 'load_fonts'));
 		
-		add_filter("the_content", array($this,"just"),20);	
-		
-		add_action( 'wp_dashboard_setup', array($this,'add_dashboard_widgets' ));	
-	}
-	public function add_dashboard_widgets() {	
-		wp_add_dashboard_widget(
-			'wpi_dashboard_widget',
-			'WPI Designer Button',  
-			array($this,'dashboard_widget_function')
-		);	
-	}		
-	public function dashboard_widget_function() {
-		$styles_list="sd";
-		$help=self::dashboard_widget_help();
-		$buttons="<div class='wpi_dashboard_widget_title'>Button Shortcodes</div>";
-		$buttons.="<ul>";
-		$buttons.="";
-		$args = array( 'post_type' => "wpi_des_but" );		
-		$myposts = get_posts( $args );
-		$alternate="";
-		foreach ( $myposts as $post ) :
-			if($alternate!=""){$alternate="";}else{$alternate= "wpi_alternate";}
-			$but_short="[wpi_designer_button display='true' id={$post->ID}]";
-			$buttons.="<li class='{$alternate}'>";	
-				$buttons.="<span class='wpi_dashboard_widget_item_name '>".$post->post_name."</span>";
-				$buttons.="<span class='wpi_dashboard_widget_item_preview'>".do_shortcode( $but_short )."</span>";				
-				$buttons.="<span class='wpi_dashboard_widget_item_shortcode'>".$but_short."</span>";				
-			$buttons.="</li>";
-		endforeach; 			
-		$buttons.="</ul>";
-		
-		$args=array(
-			array("id"=>"wpi_dashboard_widget_buttons", "text"=>"Button", "content"=>$buttons), 			
-			array("id"=>"wpi_help", "text"=>"Help", "content"=>$help, "active"=>true),
-		);	
-		$tabs=WPiTemplate::create_tabs($args);
-		echo $tabs;
+		add_filter("the_content", array($this,"just"),20);		
 	}
 	public function just($content){
 		$share_buttons=get_option("wpi_admin_"."global_settings_"."share_buttons");
@@ -298,24 +262,24 @@ class WPiDesignerButtonShortcode{
 		global $post_type;
 		global $wpi_gs_page;
 		//echo $hook;
-		if ( !in_array($hook, array('post-new.php','post.php', 'edit.php', 'index.php', "wpi_page_global_settings"))) return; 		
-   		if(in_array($post_type,array("wpi_des_but_sli", "wpi_des_but_sty", "wpi_des_but_sb", "wpi_des_but")) || in_array($hook, array("wpi_page_global_settings",'index.php'))) {
+		if ( !in_array($hook, array('post-new.php','post.php', 'edit.php', "wpi_page_global_settings"))) return; 		
+   		if(in_array($post_type,array("wpi_des_but_sli", "wpi_des_but_sty", "wpi_des_but_sb", "wpi_des_but")) || in_array($hook, array("wpi_page_global_settings"))) {
 		
 		}else{
 			return;
 		}
-		wp_enqueue_style("wpi_designer_button", WPIDB_URL."style.css",array(),self::VERSION, NULL);	
-		wp_enqueue_style("wpi_designer_button_preset_styles", WPIDB_URL."preset_styles.css",array(),self::VERSION, NULL);	
-		wp_enqueue_style("wpi_designer_button_admin", WPIDB_URL."admin_style.css",array(),self::VERSION, NULL);	
-		wp_enqueue_style("wpi_designer_button_genericons", WPIDB_URL."genericons/genericons/genericons.css",array(),self::VERSION, NULL);	
-		wp_enqueue_script("wpi_front_global_script",	WPIDB_URL."inc/front_global.js","jQuery",self::VERSION, NULL);		
-		wp_enqueue_script("wpi_tools_script",	WPIDB_URL."inc/tools.js","jQuery",self::VERSION, NULL);	
-		wp_enqueue_script("wpi_global_script",	WPIDB_URL."inc/global.js","jQuery",self::VERSION, NULL);			
-		wp_enqueue_script("wpi_designer_button_script",	WPIDB_URL."inc/script.js","jQuery",self::VERSION, NULL);		
-		wp_enqueue_script("wpi_designer_button_presets_script",	WPIDB_URL."presets.js","jQuery",self::VERSION, NULL);
-		wp_enqueue_script("wpi_designer_button_themes_script",	WPIDB_URL."themes.js","jQuery",self::VERSION, NULL);
-		wp_enqueue_script("wpi_designer_button_icons_script",	WPIDB_URL."icons.js","jQuery",self::VERSION, NULL);
-		wp_enqueue_script("wpi_designer_button_sli_presets_script",	WPIDB_URL."sli_presets.js","jQuery",self::VERSION, NULL);	
+		wp_enqueue_style("wpi_designer_button", WPIDB_URL."style.css",array(),NULL, NULL);	
+		wp_enqueue_style("wpi_designer_button_preset_styles", WPIDB_URL."preset_styles.css",array(),NULL, NULL);	
+		wp_enqueue_style("wpi_designer_button_admin", WPIDB_URL."admin_style.css",array(),NULL, NULL);	
+		wp_enqueue_style("wpi_designer_button_genericons", WPIDB_URL."genericons/genericons/genericons.css",array(),NULL, NULL);	
+		wp_enqueue_script("wpi_front_global_script",	WPIDB_URL."inc/front_global.js","jQuery");		
+		wp_enqueue_script("wpi_tools_script",	WPIDB_URL."inc/tools.js","jQuery");	
+		wp_enqueue_script("wpi_global_script",	WPIDB_URL."inc/global.js","jQuery");			
+		wp_enqueue_script("wpi_designer_button_script",	WPIDB_URL."inc/script.js","jQuery");		
+		wp_enqueue_script("wpi_designer_button_presets_script",	WPIDB_URL."presets.js","jQuery");
+		wp_enqueue_script("wpi_designer_button_themes_script",	WPIDB_URL."themes.js","jQuery");
+		wp_enqueue_script("wpi_designer_button_icons_script",	WPIDB_URL."icons.js","jQuery");
+		wp_enqueue_script("wpi_designer_button_sli_presets_script",	WPIDB_URL."sli_presets.js","jQuery");	
 		
 		wp_enqueue_script('media-upload');
 		wp_enqueue_script('thickbox');
@@ -496,15 +460,7 @@ class WPiDesignerButtonShortcode{
 		$classes[] = 'wpi_db';		
 		return $classes;
 	}
-	public function dashboard_widget_help(){
-		$help_args=array("notes"=>array(
-		"To create Button first create the style from menu wpi > styles > new style",		
-		"To create CTA Button first create the style from menu wpi > styles > new style",
-		"To create Share Button first create the style from menu wpi > styles > new style",
-		));
-		$help=WPiDesButCommon::get_help_tab($help_args);
-		return $help;
-	}
+	
 }
 $wpi_designer_button_shortcode=new WPiDesignerButtonShortcode;
 ?>
