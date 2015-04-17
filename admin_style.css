@@ -1054,6 +1054,7 @@ text-align: left;
   font-family: 'Open Sans', sans-serif;
   border-right:1px solid #cccccc;
 }
+
   .wpiHolder .wpi_header{
     width:100%;
     display:table;
@@ -1111,6 +1112,9 @@ text-align: left;
     display:table;
     width:200%;   
     transition:all 0.3s;
+  }
+  .wpiHolder.wpi_no_sections .wpi_content_holder{    
+    width:100%; 
   }
     .wpiHolder .wpi_sections{
       width:50%;

@@ -6,7 +6,7 @@ Plugin URI: http://designerbutton.prali.in
 Author URI: http://wooprali.prali.in
 Requires at least: 3.0.1
 Tested up to: 4.1
-Stable tag: 2.3.3
+Stable tag: 2.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -151,6 +151,9 @@ Yes, But i recommend to create styles first.
 
 
 == Changelog ==
+
+= 2.3.4 =
+* Settings Panel simplified
 
 = 2.3.3 =
 * Now you can access button shortcode directly from Dashboard
