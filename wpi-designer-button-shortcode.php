@@ -107,6 +107,8 @@ class WPiDesignerButtonShortcode{
 		wp_enqueue_script( 'wpi_js_urls' );
 	}
 	public function load_fonts() {
+		if(is_ssl()) $http="https:"; else $http="http:";
+		
 		$fonts=WPiArray::get_google_fonts();
 		$fontList=array();
 		foreach($fonts as $font){
@@ -114,7 +116,7 @@ class WPiDesignerButtonShortcode{
 			$fontList[]=$font['name'].$var;
 		};
 		$fonts_i=implode("|",$fontList);
-		wp_register_style( "wpi_fonts", "http://fonts.googleapis.com/css?family=".$fonts_i);
+		wp_register_style( "wpi_fonts", $http."//fonts.googleapis.com/css?family=".$fonts_i);
 		wp_enqueue_style( "wpi_fonts");	
 	}
     
