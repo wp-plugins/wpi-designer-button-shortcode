@@ -26,7 +26,7 @@ require_once("inc/shareButtons.php");
 
 class WPiDesignerButtonShortcode{
 
-	const VERSION = '2.3.3';
+	const VERSION = '2.3.4';
 
 	public function __construct(){
 		add_action('init', array($this, 'load_plugin_textdomain' ) );
