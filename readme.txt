@@ -10,7 +10,7 @@ Stable tag: 2.3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-CSS3 Button Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
+CSS3 Button Creator/Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
 
 == Description ==
 
