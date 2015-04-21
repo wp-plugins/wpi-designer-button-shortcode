@@ -1086,7 +1086,10 @@
 				"text-shadow":text_shadow,	
 				"border-radius":radius,	
 				"display":args.display				
-			};
+			};			
+			if(args.background_color==""){args.background_color="transparent";}
+			if(args.background_color_h==""){args.background_color_h="transparent";}
+			if(args.background_color_a==""){args.background_color_a="transparent";}
 			$normal={
 				"background-color":args.background_color, 
 				"color":args.text_color,

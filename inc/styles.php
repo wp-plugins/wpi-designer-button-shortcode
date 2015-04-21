@@ -150,7 +150,9 @@ class WPiDesButSty{
 			if( $s->glow_size=="" || $s->glow_size=="no") {	$glow="0px";}else{$glow=$s->glow_size;}			
 			if( $s->text_shadow=="" || $s->text_shadow=="no") {	$text_shadow="0px";}else{$text_shadow=$s->text_shadow;}
 			if( $s->shape=="" || $s->shape=="rectangle") {	$radius="0px";}else{$radius=$s->shape;}
-			
+			if($s->background_color ==""){$s->background_color="transparent";}
+			if($s->background_color_h ==""){$s->background_color_h="transparent";}
+			if($s->background_color_a ==""){$s->background_color_a="transparent";}
 			$classes=array(
 				array(
 					"element"=> $element,
