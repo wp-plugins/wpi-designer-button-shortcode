@@ -42,7 +42,7 @@ Please support this plugin by leaving a review! [here](https://wordpress.org/sup
 *  Dynamic Help section for Plugin's guide and getting any support.
 
 #### Extra features::
-*  Button generator/Maker
+*  Button Creator/Generator/Maker
 *  Shortcode generator
 *  CSS3 Buttons, Share Buttons, CTA Buttons
 
