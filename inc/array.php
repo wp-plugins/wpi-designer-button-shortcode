@@ -34,6 +34,7 @@ class WPiArray{
 			array("name"=>"Capriola"),
 			array("name"=>"Crimson Text"),
 			array("name"=>"Lato", "var"=>"100,300,400,700"),
+			array("name"=>"Playfair Display", "var"=>"300,400,700"),
 		);
 		return $fonts;
 	}

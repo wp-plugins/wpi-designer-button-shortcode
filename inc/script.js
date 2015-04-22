@@ -366,7 +366,7 @@
 				sli['background_image_opacity'].change({fn:this},function(event){ event.data.fn.background_image_opacity();});
 				sli['background_image_blur'].change({fn:this},function(event){ event.data.fn.background_image_blur();});
 				sli['frame_height'].change({fn:this},function(event){ event.data.fn.frame_height();});
-				sli['frame_width'].keyup({fn:this},function(event){ event.data.fn.frame_width();});
+				sli['frame_width'].change({fn:this},function(event){ event.data.fn.frame_width();});
 				sli['frame_margin_left'].change({fn:this},function(event){ event.data.fn.frame_margin_left();});
 				sli['frame_margin_right'].change({fn:this},function(event){ event.data.fn.frame_margin_right();});
 				
