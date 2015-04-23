@@ -339,8 +339,10 @@ class WPiDesignerButtonShortcode{
 			//$output.=print_r($atts,true);		
 		}else if($atts['id']!=""){
 			$post=get_post($atts['id']);					
-			$atts['text']=get_post_meta($atts['id'], "text",true);	
-			$atts['link']=get_post_meta($atts['id'], "link",true);
+			$atts['text']=get_post_meta($atts['id'], "text",true);
+			if(	$atts['link']=="" && $atts['link']=="#"){
+				$atts['link']=get_post_meta($atts['id'], "link",true);
+			}
 			$atts['target']=get_post_meta($atts['id'], "target",true);
 			$atts['icon']=get_post_meta($atts['id'], "icon",true);
 			$atts['icon_position']=get_post_meta($atts['id'], "icon_position",true);
