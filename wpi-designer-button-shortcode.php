@@ -340,7 +340,7 @@ class WPiDesignerButtonShortcode{
 		}else if($atts['id']!=""){
 			$post=get_post($atts['id']);					
 			$atts['text']=get_post_meta($atts['id'], "text",true);
-			if(	$atts['link']=="" && $atts['link']=="#"){
+			if(	$atts['link']=="" || $atts['link']=="#"){
 				$atts['link']=get_post_meta($atts['id'], "link",true);
 			}
 			$atts['target']=get_post_meta($atts['id'], "target",true);
