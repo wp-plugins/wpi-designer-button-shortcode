@@ -1030,7 +1030,7 @@
 			if(image!="" && image!="no"){
 				image="url("+(WPiURLS.WPIDB_URL)+"images/"+image+")";
 			}else{
-				image=" ";
+				image="none";
 			}
 			return image;
 		}
