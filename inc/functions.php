@@ -6,12 +6,12 @@ class WPiControls{
 		$output="<select name='{$name}' id='{$name}'>";
 		foreach($list as $key=>$val){
 			if($value!=""){
-				if($key==$value) $selected="selected"; else $selected=$default;
-			}else{				
-				$selected=$default;
+				if($key==$value) $selected="selected"; else $selected="";
+			}else{	
+				if($key==$default) $selected="selected"; else $selected="";	
 			}
 			$output.="<option value='{$key}' $selected>{$val}</option>";
-		}
+		}		
 		$output.="</select>";
 		return $output;
 	}

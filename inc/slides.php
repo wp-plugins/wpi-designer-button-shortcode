@@ -42,7 +42,7 @@ class WPiDesButSli{
 		
 		$opacity=WPiTools::get_list(array("list"=>array(100,90,80,70,60,50,40,30,20,10,0)));
 		$style_ids=WPiDesButCommon::get_style_ids();	
-		$slide_height=WPiTools::get_list(array("suffix"=>"px","list"=>array(300,400,500,600,700,800)));
+		$slide_height=WPiTools::get_list(array("suffix"=>"px","list"=>array(100, 150, 200, 250, 300,400,500,600,700,800)));
 				
 		$fields=array(				
 			array("label"=>"Slide Heading", "name"=>'slide_heading', "type"=>"textarea", "section"=>"Text", "group"=>"Heading", "value"=> "",),
@@ -100,7 +100,7 @@ class WPiDesButSli{
 			array("label"=>"Image Opacity", "name"=>'background_image_opacity', "type"=>"select", "section"=>"Frame",  "group"=>"Background Image",  "css_property"=>"opacity", "value"=> "", "list"=> $opacity),
 			array("label"=>"Image Blur", "name"=>'background_image_blur', "type"=>"select", "section"=>"Frame",  "group"=>"Background Image Effects",  "css_property"=>"blur", "value"=> "", "list"=> $text_shadow_distance),		
 			array("label"=>"Background Repeat Image", "name"=>'background_repeat_image', "type"=>"select", "section"=>"Frame",  "group"=>"Repeat Image", "css_property"=>"background-image", "value"=> "", "list"=> $repeat_images),
-			array("label"=>"Frame Height", "name"=>'frame_height', "type"=>"select", "section"=>"Frame", "group"=>"Frame Height", "css_property"=>"min-height", "value"=> "", "list"=> $slide_height),
+			array("label"=>"Frame Height", "name"=>'frame_height', "type"=>"select", "section"=>"Frame", "group"=>"Frame Height", "css_property"=>"min-height", "default"=>"500px", "value"=> "", "list"=> $slide_height),
 			array("label"=>"Frame Width", "name"=>'frame_width', "type"=>"text", "section"=>"Frame", "group"=>"Frame Width", "css_property"=>"width", "value"=> "",),
 			
 			
