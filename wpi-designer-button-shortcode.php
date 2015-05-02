@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://designerbutton.prali.in/
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.3.7
+ * Version: 2.3.8
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -23,18 +23,25 @@ require_once("inc/buttons.php");
 require_once("inc/slides.php");
 require_once("inc/shareButtons.php");
 require_once("inc/buttonWidget.php");
+require_once("inc/activation.php");
 
 
 class WPiDesignerButtonShortcode{
 
-	const VERSION = '2.3.4';
+	const VERSION = '2.3.8';
 
-	public function __construct(){
+	public function __construct(){	
+		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.8' );	
+		register_activation_hook( __FILE__, array("WPi_DesignerButtonActivation", 'myplugin_activate' ));	
+		add_action( 'admin_notices', array("WPi_DesignerButtonActivation",'my_admin_notice' ));
+		//add_action('admin_init', array("WPi_DesignerButtonActivatation",'load_plugin'));
+	
 		add_action('init', array($this, 'load_plugin_textdomain' ) );
 		add_action("init", array($this, "admin_options"));
 		add_action("init", array($this, "js_wp_urls"));
 		add_action("init", array($this, "editor_buttons"));
-		add_action("admin_menu", array($this, 'register_admin_menu'));		
+		add_action("admin_menu", array($this, 'register_admin_menu'));	
+			
 		
 		add_action("wp_enqueue_scripts", array($this, "enqueue_scripts"),20 );
 		add_action("admin_enqueue_scripts", array($this, "enqueue_scripts_admin"),20 );	
@@ -53,7 +60,8 @@ class WPiDesignerButtonShortcode{
 		add_filter("the_content", array($this,"just"),20);	
 		
 		add_action( 'wp_dashboard_setup', array($this,'add_dashboard_widgets' ));
-		add_action( 'widgets_init', array($this,'wpi_designer_button_widget' ));	
+		add_action( 'widgets_init', array($this,'wpi_designer_button_widget' ));
+			
 	}
 	public function wpi_designer_button_widget() {
     	register_widget( 'WPi_DesignerButtonWidget' );
@@ -282,6 +290,7 @@ class WPiDesignerButtonShortcode{
 	}
 	public function help(){
 		$help_args=array("notes"=>array(
+		"First create button style before creating Buttons/Share Buttons/Call-To-Action Buttons", 
 		"To create Share Button Sets, first create button Style and next you can create Share Button Sets", 
 		"Here you can find all global settings related to WPi Plugins in one place ",
 		"You can copy generated shortcode from left panel and paste it in any post/page.",
@@ -505,6 +514,7 @@ class WPiDesignerButtonShortcode{
 	}
 	public function dashboard_widget_help(){
 		$help_args=array("notes"=>array(
+		"First create button style before creating Buttons/Share Buttons/Call-To-Action Buttons", 
 		"To create Button first create the style from menu wpi > styles > new style",		
 		"To create CTA Button first create the style from menu wpi > styles > new style",
 		"To create Share Button first create the style from menu wpi > styles > new style",

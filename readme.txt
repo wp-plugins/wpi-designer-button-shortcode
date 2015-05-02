@@ -6,7 +6,7 @@ Plugin URI: http://designerbutton.prali.in
 Author URI: http://wooprali.prali.in
 Requires at least: 3.0.1
 Tested up to: 4.2
-Stable tag: 2.3.7
+Stable tag: 2.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -151,6 +151,9 @@ Yes, But i recommend to create styles first.
 
 
 == Changelog ==
+
+= 2.3.8 =
+* After activate plugin message for users to access global settings page
 
 = 2.3.7 =
 * Now you can create CTA with min-height 100px
