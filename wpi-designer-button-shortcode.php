@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://designerbutton.prali.in/
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.3.8
+ * Version: 2.3.9
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -28,10 +28,10 @@ require_once("inc/activation.php");
 
 class WPiDesignerButtonShortcode{
 
-	const VERSION = '2.3.8';
+	const VERSION = '2.3.9';
 
 	public function __construct(){	
-		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.8' );	
+		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.9' );	
 		register_activation_hook( __FILE__, array("WPi_DesignerButtonActivation", 'myplugin_activate' ));	
 		add_action( 'admin_notices', array("WPi_DesignerButtonActivation",'my_admin_notice' ));
 		//add_action('admin_init', array("WPi_DesignerButtonActivatation",'load_plugin'));

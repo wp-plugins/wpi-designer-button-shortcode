@@ -32,7 +32,7 @@
 
 		//styles page
 		var sty_el=$( ".wpi_des_but_sty" );
-		var sty_ids=["shape","padding","shadow", "shadow_type","text_shadow", "border_sides", "glow_size", "glow_color", "texture", "text_size", "font", "font_weight", "border_width", "border_style", "display", "text_color", "background_color", "border_color", "text_color_h", "background_color_h", "border_color_h", "text_color_a", "background_color_a", "border_color_a"];
+		var sty_ids=["shape","padding","shadow", "shadow_type","text_shadow", "border_sides", "glow_size", "glow_color", "texture", "text_size", "font", "font_weight", "border_width", "border_style", "display", "min_width", "text_color", "background_color", "border_color", "text_color_h", "background_color_h", "border_color_h", "text_color_a", "background_color_a", "border_color_a"];
 		var sty=get_elements(sty_ids);
 		var $sty_defaults=get_defaults(sty_ids);
 		
@@ -51,6 +51,7 @@
 				sty['border_sides'].change(function(){ self.border_sides(); });	
 				sty['border_width'].change(function(){ self.border_width(); self.border_sides();});	
 				sty['display'].change(function(){ self.display(); });
+				sty['min_width'].change(function(){ self.min_width(); });
 				sty['border_style'].change(function(){ self.border_style(); });
 				sty['text_size'].change(function(){ self.text_size(); });	
 				sty['font'].change(function(){ self.font(); });
@@ -66,6 +67,7 @@
 				this.border_sides();
 				this.border_width();
 				this.display();
+				this.min_width();
 				this.border_style();
 				this.text_size();
 				this.font();
@@ -129,6 +131,16 @@
 			},
 			display:function(){						
 				preview_button.css({"display":sty['display'].val()});
+			},
+			min_width:function(){	
+				var val=sty['min_width'].val();
+				if(val!="" && val!=0){
+					val=parseInt(val)+"px";
+				}else{
+					val="";
+				}
+				sty['min_width'].val(val);				
+				preview_button.css({"min-width":val});
 			},
 			border_style:function(){
 				preview_button.css({"border-style":sty['border_style'].val()});
