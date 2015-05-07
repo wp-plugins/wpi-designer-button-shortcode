@@ -809,7 +809,7 @@ height: 100%;
 	font-family:Arial, Helvetica, sans-serif;
 	color:#bbbbbb;
 }
-.wpi_db #wpi_icons .wpi_icon .genericon{
+.wpi_db #wpi_icons .wpi_icon .genericon, .wpi_db #wpi_icons .wpi_icon .fa{
 	margin: 3px;
 	font-size: 45px;
 	color: #616161;
@@ -817,7 +817,7 @@ height: 100%;
 	padding: 5px;
 	display: block;
 }
-.wpi_db #wpi_icons .wpi_icon .genericon:hover{
+.wpi_db #wpi_icons .wpi_icon .genericon:hover, .wpi_db #wpi_icons .wpi_icon .fa:hover{
 	box-shadow:0px 0px 2px rgba(0,0,0,0.3);
 	text-shadow: 1px 1px 1px rgba(255,255,255,1);
 	-moz-text-shadow: 1px 1px 1px rgba(255,255,255,1);

@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://designerbutton.prali.in/
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.3.9
+ * Version: 2.3.91
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -13,7 +13,9 @@
  */
 defined('ABSPATH') or die("No script kiddies please!");
 if ( !defined('WPIDB_URL' ) ) {
+	define( 'WPIDB_VER', "2.3.91" ); 
 	define( 'WPIDB_URL', plugin_dir_url( __FILE__ ) ); 
+	define( 'WPIDB_PLUGIN', plugin_basename( __FILE__) );	
 }
 require_once("inc/array.php");
 require_once("inc/functions.php");
@@ -28,12 +30,13 @@ require_once("inc/activation.php");
 
 class WPiDesignerButtonShortcode{
 
-	const VERSION = '2.3.9';
+	const VERSION = '2.3.91-';
 
 	public function __construct(){	
-		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.9' );	
+		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.91' );	
 		register_activation_hook( __FILE__, array("WPi_DesignerButtonActivation", 'myplugin_activate' ));	
 		add_action( 'admin_notices', array("WPi_DesignerButtonActivation",'my_admin_notice' ));
+		add_filter ('plugin_action_links', array("WPi_DesignerButtonActivation",'setup_link'), 10, 2);
 		//add_action('admin_init', array("WPi_DesignerButtonActivatation",'load_plugin'));
 	
 		add_action('init', array($this, 'load_plugin_textdomain' ) );
@@ -46,7 +49,8 @@ class WPiDesignerButtonShortcode{
 		add_action("wp_enqueue_scripts", array($this, "enqueue_scripts"),20 );
 		add_action("admin_enqueue_scripts", array($this, "enqueue_scripts_admin"),20 );	
 		
-		add_shortcode("wpi_designer_button",array($this, "designer_button"));		
+		add_shortcode("wpi_designer_button",array($this, "designer_button"));
+		add_shortcode("wpidb",array($this, "wpidb"));				
 		
 		add_filter('manage_wpi_des_but_posts_columns', array($this, 'buttons_head'), 10);
 		add_action('manage_wpi_des_but_posts_custom_column', array($this, 'buttons_content'), 10, 2);
@@ -302,9 +306,10 @@ class WPiDesignerButtonShortcode{
 		return 123;
 	}
 	public function enqueue_scripts(){
-		wp_enqueue_style("wpi_designer_button", WPIDB_URL."style.css",array(),NULL, NULL);
-		wp_enqueue_style("wpi_designer_button_preset_styles", WPIDB_URL."preset_styles.css",array(),NULL, NULL);	
+		wp_enqueue_style("wpi_designer_button", WPIDB_URL."style.css",array(),self::VERSION, NULL);
+		wp_enqueue_style("wpi_designer_button_preset_styles", WPIDB_URL."preset_styles.css",array(),self::VERSION, NULL);	
 		wp_enqueue_style("wpi_designer_button_genericons", WPIDB_URL."genericons/genericons/genericons.css",array(),NULL, NULL);
+		wp_enqueue_style("wpi_designer_button_font-awesome", WPIDB_URL."font-awesome/css/font-awesome.css",array(),NULL, NULL);
 		wp_enqueue_script("wpi_front_global_script",	WPIDB_URL."inc/front_global.js","jQuery");	
 		wp_enqueue_script("wpi_front_script",	WPIDB_URL."inc/front_script.js","jQuery");			
 	}	
@@ -321,7 +326,8 @@ class WPiDesignerButtonShortcode{
 		wp_enqueue_style("wpi_designer_button", WPIDB_URL."style.css",array(),self::VERSION, NULL);	
 		wp_enqueue_style("wpi_designer_button_preset_styles", WPIDB_URL."preset_styles.css",array(),self::VERSION, NULL);	
 		wp_enqueue_style("wpi_designer_button_admin", WPIDB_URL."admin_style.css",array(),self::VERSION, NULL);	
-		wp_enqueue_style("wpi_designer_button_genericons", WPIDB_URL."genericons/genericons/genericons.css",array(),self::VERSION, NULL);	
+		wp_enqueue_style("wpi_designer_button_genericons", WPIDB_URL."genericons/genericons/genericons.css",array(),self::VERSION, NULL);
+		wp_enqueue_style("wpi_designer_button_font-awesome", WPIDB_URL."font-awesome/css/font-awesome.css",array(),NULL, NULL);	
 		wp_enqueue_script("wpi_front_global_script",	WPIDB_URL."inc/front_global.js","jQuery",self::VERSION, NULL);		
 		wp_enqueue_script("wpi_tools_script",	WPIDB_URL."inc/tools.js","jQuery",self::VERSION, NULL);	
 		wp_enqueue_script("wpi_global_script",	WPIDB_URL."inc/global.js","jQuery",self::VERSION, NULL);			
@@ -334,7 +340,23 @@ class WPiDesignerButtonShortcode{
 		wp_enqueue_script('media-upload');
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');
-	}		
+	}	
+	public function wpidb($atts, $content=""){
+		$icon="";
+		$icon_size="";
+		$defaults=array("icon"=>"", "icon_size"=>"");
+		$atts=shortcode_atts($defaults, $atts, "wpidb");
+		if($atts['icon_size']!=""){
+			$atts['icon_size']=str_replace("px","",$atts['icon_size']);
+			$icon_size="font-size:".$atts['icon_size']."px;";
+		}
+		if($atts['icon']!=""){
+			$icon="<b class='wpidb_icon wpidb_icon_".$atts['icon']."' style='".$icon_size."'></b>";
+		}
+		$output="";
+		$output.=$icon.$content;
+		return $output;
+	}	
 	public function designer_button($atts, $content=""){
 		
 		$defaults=array("id"=>"", "style_id"=>"", "slide_id"=>"", "share_id"=>"", 'link'=>'#', 'text'=>'button', "target"=>"", "icon"=>"", "display"=>false, "icon_position"=>"left");
@@ -354,6 +376,9 @@ class WPiDesignerButtonShortcode{
 		}else if($atts['id']!=""){
 			$post=get_post($atts['id']);					
 			$atts['text']=get_post_meta($atts['id'], "text",true);
+			if ( has_shortcode( $atts['text'], 'wpidb' ) ) { 
+				$atts['text']=do_shortcode( $atts['text']);
+			} 
 			if(	$atts['link']=="" || $atts['link']=="#"){
 				$atts['link']=get_post_meta($atts['id'], "link",true);
 			}

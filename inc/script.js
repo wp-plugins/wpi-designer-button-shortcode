@@ -1214,8 +1214,11 @@
 			$wpi_db_theme_count++;
 		};
 		$.fn.create_icons=function( val){			
+    		var fa = val.search("fa-");
+			var font="genericon genericon-";
+			if(fa!=-1){font="fa ";}
 			var output="<div id='wpi_db_ico_"+$wpi_db_icons_count+"' class='wpi_icons_holder'>";			
-			output+="<div class='wpi_icon'><div class='genericon genericon-"+val+"'><div class='wpi_icon_title'>"+val+"</div></div></div>";	 
+			output+="<div class='wpi_icon'><div class='"+font+val+"'><div class='wpi_icon_title'>"+val+"</div></div></div>";	 
 			output+="</div>";
 			$("#wpi_icons").append($(output));				
 			set_icon("#wpi_db_ico_"+$wpi_db_icons_count, val);

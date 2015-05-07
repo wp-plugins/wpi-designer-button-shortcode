@@ -6,7 +6,7 @@ Plugin URI: http://designerbutton.prali.in
 Author URI: http://wooprali.prali.in
 Requires at least: 3.0.1
 Tested up to: 4.2
-Stable tag: 2.3.9
+Stable tag: 2.3.91
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -151,6 +151,9 @@ Yes, But i recommend to create styles first.
 
 
 == Changelog ==
+
+= 2.3.91 =
+* Font-awesome icons added. ability to add multiple icons in the button.
 
 = 2.3.9 =
 * New Button style property added. Now we can add min-width to button style

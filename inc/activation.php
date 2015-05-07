@@ -17,4 +17,15 @@ class WPi_DesignerButtonActivation{
 		<?php
 		}	   
 	}	
+	public function setup_link($links, $file)	{
+		static $plugin = null;	
+		if (is_null ($plugin))	{
+			$plugin = WPIDB_PLUGIN;
+		}		
+		if ($file == $plugin)	{
+			$link = '<a href="admin.php?page=global_settings">Setup</a>';
+			array_unshift ($links, $link);
+		}
+		return $links;
+	}	
 }
