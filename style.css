@@ -2724,7 +2724,7 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-desktop i:before {content: "\f108";}
 .wpi_icon_fa-laptop i:before {content: "\f109";}
 .wpi_icon_fa-tablet i:before {content: "\f10a";}
-.wpi_icon_fa-mobile-phone:before,
+.wpi_icon_fa-mobile-phone i:before,
 .wpi_icon_fa-mobile i:before {content: "\f10b";}
 .wpi_icon_fa-circle-o i:before {content: "\f10c";}
 .wpi_icon_fa-quote-left i:before {content: "\f10d";}
