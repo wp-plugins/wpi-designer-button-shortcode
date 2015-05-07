@@ -144,6 +144,9 @@ Want regular updates?  follow my sites on Twitter!
 = Can i create buttons directly without creating styles? =
 Yes, But i recommend to create styles first.
 
+= Can i create multiple icons in buttons ? =
+Yes, by using shortcode [wpidb icon="icon name"] in button text. Button text accepts only [wpidb] shortcode. [wpidb] shortcode accepts only two attributes "icon" & "icon_size". 
+
 
 == Screenshots ==
 1. Professionally designed button styles collection
