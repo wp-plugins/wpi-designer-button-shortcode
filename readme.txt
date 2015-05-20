@@ -10,13 +10,14 @@ Stable tag: 2.3.92
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-CSS3 Button Creator/Generator, Create Buttons, Call-To-Action (CTA) & Share Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
+CSS3 Button Creator/Generator, Create Buttons, Call-To-Action (CTA), Share Buttons & Twin Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
 
 == Description ==
 
 > WPi Designer Button Shortcode plugin is good CSS3 Button Generator, Anyone can create Buttons, Call-To-Action (CTA) & Share Buttons in WordPress. It has small designer studio where you can style buttons & other elements using simple user interface. This plugin conists of below features.
 
 > 1. Creating beautiful buttons.
+> 1. Creating twin buttons.
 > 2. Creating call-to-action buttons.
 > 3. Creating Share buttons.
 > 4. Creating reusable button styles for buttons, CTA buttons & Share buttons.
@@ -25,9 +26,10 @@ CSS3 Button Creator/Generator, Create Buttons, Call-To-Action (CTA) & Share Butt
 Please support this plugin by leaving a review! [here](https://wordpress.org/support/view/plugin-reviews/wpi-designer-button-shortcode). A huge thank you from WooPrali in advance!
 
 > 
->*  [Buttons Demo](http://designerbutton.prali.in/showcase-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo).
->*  [CTA Buttons Demo](http://designerbutton.prali.in/showcase-cta-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) .
->*  [Share Buttons Demo](http://designerbutton.prali.in/showcase-share-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) .
+>*  [Buttons Demo](http://designerbutton.prali.in/showcase-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#db).
+>*  [Twin Buttons Demo](http://designerbutton.prali.in/showcase-twin-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=twin_demo&utm_campaign=db#db).
+>*  [CTA Buttons Demo](http://designerbutton.prali.in/showcase-cta-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=cta_demo&utm_campaign=db#db) .
+>*  [Share Buttons Demo](http://designerbutton.prali.in/showcase-share-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=shate_demo&utm_campaign=db#db) .
 >*  [WPi Designer Button Help](http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=help&utm_campaign=db) .
 >*  [Support](http://designerbutton.prali.in/contact-us/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=contact&utm_campaign=db).
 >
@@ -103,10 +105,13 @@ Please support this plugin by leaving a review! [here](https://wordpress.org/sup
 *  You can change the space around all Share buttons.
 *  You can set the position for Share buttons like above/below the content.
 
+#### Creating Twin Buttons::
+*  Provide user a option to choose or click any one of a Twin Buttons.
+
 Note:: WE ARE DOING OUR BEST TO MAKE THIS PLUGIN PERFECT. If you face any problem in using this plugin or you need some more features or any support please dont hesitate to contact us. You can contact us from here.
 
 > 
-> [Buttons Demo](http://designerbutton.prali.in/showcase-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) | [CTA Buttons Demo](http://designerbutton.prali.in/showcase-cta-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) |[Share Buttons Demo](http://designerbutton.prali.in/showcase-share-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) |[WPi Designer Button Help](http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=help&utm_campaign=db) |  [Support](http://designerbutton.prali.in/contact-us/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=contact&utm_campaign=db)
+> [Buttons Demo](http://designerbutton.prali.in/showcase-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) | [CTA Buttons Demo](http://designerbutton.prali.in/showcase-cta-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) | [Share Buttons Demo](http://designerbutton.prali.in/showcase-share-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=demo&utm_campaign=db#demo) | [Twin Buttons Demo](http://designerbutton.prali.in/showcase-twin-buttons/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=twin_demo&utm_campaign=db#db) | [WPi Designer Button Help](http://wooprali.prali.in/category/help/wpi-designer-button-shortcode/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=help&utm_campaign=db) |  [Support](http://designerbutton.prali.in/contact-us/?&utm_source=wordpress&utm_medium=banner&utm_term=designer%20button&utm_content=contact&utm_campaign=db)
 >
 
 
