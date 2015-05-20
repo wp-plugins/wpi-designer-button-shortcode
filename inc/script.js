@@ -4,7 +4,9 @@
 		var TOOLS=$(document).wpiTools();
 		var CSS=$(document).wpiCss();
 		var UI=$(document).wpiUI();
-		var CREATEUI=$(document).wpiCreateUI();
+		var CREATEUI=$(document).wpiCreateUI();	
+		var MODAL=$(document).wpiModal({element:".wpiModal"});		
+			
 		DEBUG.setState("Script");
 		
 		var $wpi_export_tabs_count=0;
@@ -13,7 +15,8 @@
 		var $wpi_db_icons_arr=[];
 		
 		var box=$("#wpi_designer_button_box");
-		var preview_button=$("#wpi_preview .wpi_designer_button");	
+		var preview=$("#wpi_preview");	
+		var preview_button=preview.find(".wpi_designer_button");	
 		preview_button.data("shadow",{});
 		var restore=box.find("#wpi_restore");
 		var _export=box.find("#wpi_export");
@@ -209,7 +212,7 @@
 				preview_button.addClass("wpi_icon wpi_icon_"+but['icon'].val()+" "+icon_position);				
 			},
 			text:function(){				
-				preview_button_text(but['text'].val());
+				preview_button_text(preview_button, but['text'].val());
 			},
 			style_id:function(){
 				var no_text_class="";
@@ -223,6 +226,145 @@
 				if(but['text'].val()==""){no_text_class="wpi_no_text";}
 				preview_button.attr("class",classes+" "+icon_class+" "+no_text_class);				
 			},	
+		};	
+		
+		//twin buttons page
+		var tb_el=$( ".wpi_des_but_tb" );
+		var tb_ids=["left_button_icon","left_button_text", "right_button_icon","right_button_text", "min_width", "style_id", "icon_position"];
+		var tb=get_elements(tb_ids);
+		var left_preview_button=preview.find(".wpi_designer_button.wpi_left_button");
+		var right_preview_button=preview.find(".wpi_designer_button.wpi_right_button");
+		
+		var tb_map={
+			defaults:{},
+			init:function(){
+				this.defaults=get_defaults(tb_ids);
+				this.prepare_preview();	
+				export_fn(this.defaults);				
+				tb['left_button_icon'].change({fn:this},function(event){ event.data.fn.left_button_icon();});
+				tb['left_button_text'].keyup({fn:this},function(event){ event.data.fn.left_button_text();});
+				tb['right_button_icon'].change({fn:this},function(event){ event.data.fn.right_button_icon();});
+				tb['right_button_text'].keyup({fn:this},function(event){ event.data.fn.right_button_text();});
+				tb['min_width'].change({fn:this},function(event){ event.data.fn.min_width();});
+				tb['icon_position'].change({fn:this},function(event){ event.data.fn.icon_position();});
+				tb['style_id'].change({fn:this},function(event){ event.data.fn.style_id();});
+				
+			},
+			prepare_preview:function(){
+				this.left_button_icon();
+				this.left_button_text();
+				this.right_button_icon();
+				this.right_button_text();
+				this.style_id();				
+				this.icon_position();	
+				this.min_width();
+			},			
+			left_button_icon:function(){
+				remove_class("icon");				
+				var icon_position="wpi_icon_left";				
+				if(tb['icon_position'].val()=="right"){
+					icon_position="wpi_icon_right";
+				}				
+				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
+				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);
+			},
+			left_button_text:function(){				
+				preview_button_text(left_preview_button, tb['left_button_text'].val());
+			},
+			right_button_icon:function(){
+				remove_class("icon");				
+				var icon_position="wpi_icon_left";				
+				if(tb['icon_position'].val()=="right"){
+					icon_position="wpi_icon_right";
+				}
+				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
+				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);				
+			},
+			right_button_text:function(){				
+				preview_button_text(right_preview_button, tb['right_button_text'].val());
+			},
+			icon_position:function(){
+				remove_class("icon");					
+				var icon_position="wpi_icon_left";				
+				if(tb['icon_position'].val()=="right"){
+					icon_position="wpi_icon_right";
+				}				
+				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
+				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);
+			},			
+			style_id:function(){
+				var no_text_class="";
+				var icon_position="wpi_icon_left";				
+				if(tb['icon_position'].val()=="right"){
+					icon_position="wpi_icon_right";
+				}
+				var left_button_icon_class="wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position;
+				var right_button_icon_class="wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position;
+				var element="#wpi_db_sty_"+tb['style_id'].val();
+				var classes=$(element).attr("class");	
+				if(tb['left_button_text'].val()==""){no_text_class="wpi_no_text";}				
+				left_preview_button.attr("class",classes+" wpi_left_button "+left_button_icon_class+" "+no_text_class);
+				right_preview_button.attr("class",classes+" wpi_right_button "+right_button_icon_class+" "+no_text_class);
+			},				
+			min_width:function(){	
+				var val=tb['min_width'].val();
+				if(val!="" && val!=0){
+					val=parseInt(val)+"px";
+				}else{
+					val="";
+				}
+				tb['min_width'].val(val);				
+				preview_button.css({"min-width":val});
+			},
+			apply_preset:function(style){
+				var id=$(style).find(".wpi_id").text();
+				var no_text_class="";
+				var icon_position="wpi_icon_left";
+				tb['style_id'].val(id);
+				if(tb['icon_position'].val()=="right"){
+					icon_position="wpi_icon_right";
+				}
+				var left_button_icon_class="wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position;
+				var right_button_icon_class="wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position;
+				var classes=$(style).attr("class");	
+				if(tb['left_button_text'].val()==""){no_text_class="wpi_no_text";}
+				left_preview_button.attr("class",classes+" wpi_left_button "+left_button_icon_class+" "+no_text_class);
+				right_preview_button.attr("class",classes+" wpi_right_button "+right_button_icon_class+" "+no_text_class);
+			},
+			set_icon:function(icon){
+				var self=this;
+				var id=$(icon).find(".wpi_icon_title").text();				
+				var content=$("<div></div>");
+				var space=$("<div>&nbsp;</div>");		
+				var left_button=$("<div class='wpi_designer_button wpi_designer_button_preset_215'>Left Button</div>");
+				var right_button=$("<div  class='wpi_designer_button wpi_designer_button_preset_215'>Right Button</div>");
+				left_button.click(function(){  self.set_left_button_icon(id); MODAL.close_modal() });
+				right_button.click(function(){ self.set_right_button_icon(id); MODAL.close_modal()});
+				content.append(left_button).append(space).append(right_button);
+				content.append(right_button);
+				MODAL.open_modal({heading:"For which button you need Icon?.", content:content});				
+			},
+			set_left_button_icon:function(id){				
+				tb['left_button_icon'].val(id);
+				remove_class("icon");				
+				var icon_position=this.get_icon_position();
+				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
+				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);			
+			},
+			set_right_button_icon:function(id){
+				tb['right_button_icon'].val(id);
+				remove_class("icon");				
+				var icon_position=this.get_icon_position();	
+				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
+				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);				
+			},
+			get_icon_position:function(){
+				var icon_position="wpi_icon_left";				
+				if(tb['icon_position'].val()=="right"){
+					icon_position="wpi_icon_right";
+				}		
+				return icon_position;
+			}
 		};	
 		
 		//share buttons page
@@ -708,7 +850,7 @@
 			},	
 			button_text:function(){					
 				var val=sli['button_text'].val();				
-				preview_button_text(val);
+				preview_button_text(preview_button, val);
 			},
 			button_margin_top:function(){
 				sli_div['wpi_slide_button'].css({"margin-top":sli['button_margin_top'].val()});				
@@ -931,21 +1073,24 @@
 			sli_map.init();			
 		}else if ( sb_el.length) {
 			sb_map.init();			
+		}else if ( tb_el.length) {
+			tb_map.init();			
 		}
 		
-		function preview_button_text(val){
+		function preview_button_text(el, val){
 			if(val==""){
-				preview_button.addClass('wpi_no_text');	
+				el.addClass('wpi_no_text');	
 			}else{
-				preview_button.removeClass('wpi_no_text');		
+				el.removeClass('wpi_no_text');		
 			}
-			preview_button.find('.wpi_text').html(val);	
+			el.find('.wpi_text').html(val);	
 		}
+		
 		
 		if ( admin.length) {	
 			$(".wpi_tabs").set_tabs();	
 			$(".wpiHolder").wpiHolder({back:".wpi_back"});
-			$(".wpiAccordion").wpiAccordion();
+			$(".wpiAccordion").wpiAccordion();			
 		}
 		if ( $("#wpi_dashboard_widget").length) {	
 			$(".wpi_tabs").set_tabs();				
@@ -973,6 +1118,18 @@
 			styles.find(".wpi_style").click(function(){				
 				sli_map.apply_preset(this);
 			});		 
+		}else if ( tb_el.length ) {
+			if (styles.length ) {
+				styles.find(".wpi_style").click(function(){				
+					tb_map.apply_preset(this);
+				});	
+			}
+			if (icons.length ) {				
+				icons.find(".wpi_icon").click(function(){
+					alert(1);
+					//tb_map.apply_preset(this);
+				});					
+			}
 		}
 		
 		
@@ -1122,10 +1279,11 @@
 			preview_button.css($normal);
 			
 			stateChange($states);			
-		}
-		function set_icon(element,val){			
-			$(element).click(function(){			
-				set_inputs({icon:val}, $sty_defaults);			
+		}		
+		function set_icon(){		
+			icons.find(".wpi_icon").click(function(){				
+				var val=$(this).find(".wpi_icon_title").text();	
+				but['icon'].val(val);
 				remove_class("icon");
 				var icon_position="wpi_icon_left";				
 				if(but['icon_position'].val()=="right"){
@@ -1134,9 +1292,8 @@
 				$classes="";			
 				$classes+=" wpi_icon wpi_icon_"+val+" "+icon_position;	
 				preview_button.addClass($classes);
-			});				
+			});	
 		}
-		
 		function create_presets(element, args){
 			
 			var defaults=$sty_defaults;			
@@ -1220,13 +1377,19 @@
 			var output="<div id='wpi_db_ico_"+$wpi_db_icons_count+"' class='wpi_icons_holder'>";			
 			output+="<div class='wpi_icon'><div class='"+font+val+"'><div class='wpi_icon_title'>"+val+"</div></div></div>";	 
 			output+="</div>";
-			$("#wpi_icons").append($(output));				
-			set_icon("#wpi_db_ico_"+$wpi_db_icons_count, val);
-			
+			$("#wpi_icons").append($(output));	
 			$wpi_db_icons_count++;
 			
 		};
-		
+		$.fn.set_icons=function(){
+			if (tb_el.length && icons.length ) {				
+				icons.find(".wpi_icon").click(function(){					
+					tb_map.set_icon(this);
+				});					
+			}else{
+				set_icon();				
+			}
+		}
 		$.fn.set_icons_arr=function(icons){
 			$wpi_db_icons_arr=icons;
 		}

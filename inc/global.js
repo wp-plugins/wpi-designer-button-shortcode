@@ -98,6 +98,41 @@
 		var CAPTUREDATA=$(document).wpiCaptureData();
 		var CREATEUI=$(document).wpiCreateUI();
 		
+		$.fn.wpiModal=function(args){			
+			function WPiModal(options){				
+				this.init(options);
+			}
+			WPiModal.prototype.init=function(options){	
+				var self=this;
+				this.$modal=$(options.element);
+				this.$modal_overlay=$(options.overlay);
+				this.$modal_close=this.$modal.find(options.close);	
+				this.$modal_content=this.$modal.find(".wpiModal_content");
+				this.$modal_header=this.$modal.find(".wpiModal_header");
+				
+				this.$modal_close.click(function(){
+					self.close_modal();														 
+				});
+			}
+			WPiModal.prototype.close_modal=function(){		
+				this.$modal_overlay.addClass("wpi_none");
+				this.$modal.addClass("wpi_none");
+			}
+			WPiModal.prototype.open_modal=function(args){
+				var defaults={					
+					heading:"heading",
+					content:"content",					
+				};    
+				var options=$.extend(defaults,args);  
+				this.$modal_overlay.removeClass("wpi_none");
+				this.$modal.removeClass("wpi_none");
+				this.$modal_header.html(options.heading);
+				this.$modal_content.html("").append(options.content);
+			}
+			var defaults={element:".wpiModal", overlay:".wpiModal_overlay", close:".wpiModal_close"};
+			var options=$.extend(defaults,args);  
+			return new WPiModal(options);
+		};
 		
 		$.fn.wpiUI=function(){
 			function WPiUI(el){

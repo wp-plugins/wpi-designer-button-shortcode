@@ -534,5 +534,10 @@ class WPiTemplate{
 		$content.="</div>";
 		return $content;
 	}
+	public static function create_modal(){
+		$modal="<div class='wpiModal_overlay wpi_none'></div>";
+		$modal.="<div class='wpiModal wpi_none'><div class='wpiModal_close'>X</div><div class='wpiModal_header'></div><div class='wpiModal_content'></div></div>";
+		return $modal;
+	}
 }
 ?>

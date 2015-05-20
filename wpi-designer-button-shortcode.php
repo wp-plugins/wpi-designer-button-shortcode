@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://designerbutton.prali.in/
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.3.91
+ * Version: 2.3.92
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -13,7 +13,7 @@
  */
 defined('ABSPATH') or die("No script kiddies please!");
 if ( !defined('WPIDB_URL' ) ) {
-	define( 'WPIDB_VER', "2.3.91" ); 
+	define( 'WPIDB_VER', "2.3.92" ); 
 	define( 'WPIDB_URL', plugin_dir_url( __FILE__ ) ); 
 	define( 'WPIDB_PLUGIN', plugin_basename( __FILE__) );	
 }
@@ -22,6 +22,7 @@ require_once("inc/functions.php");
 require_once("inc/common.php");
 require_once("inc/styles.php");
 require_once("inc/buttons.php");
+require_once("inc/twinButtons.php");
 require_once("inc/slides.php");
 require_once("inc/shareButtons.php");
 require_once("inc/buttonWidget.php");
@@ -30,10 +31,10 @@ require_once("inc/activation.php");
 
 class WPiDesignerButtonShortcode{
 
-	const VERSION = '2.3.91-';
-
+	const VERSION = '2.3.92';	
 	public function __construct(){	
-		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.91' );	
+		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.92' );
+		define( 'DEV', "?t=".rand(0,1000) );	
 		register_activation_hook( __FILE__, array("WPi_DesignerButtonActivation", 'myplugin_activate' ));	
 		add_action( 'admin_notices', array("WPi_DesignerButtonActivation",'my_admin_notice' ));
 		add_filter ('plugin_action_links', array("WPi_DesignerButtonActivation",'setup_link'), 10, 2);
@@ -97,9 +98,35 @@ class WPiDesignerButtonShortcode{
 		endforeach; 			
 		$buttons.="</ul>";
 		
+		//blog
+		$alternate="";
+		$news="<div class='wpi_dashboard_widget_title'>Recent news</div>";	
+        include_once( ABSPATH . WPINC . '/feed.php' );
+        $rss = fetch_feed( 'http://designerbutton.prali.in/category/blog/feed/?v='.VERSION );
+        $maxitems = 0;
+        if ( ! is_wp_error( $rss ) ) :
+            $maxitems = $rss->get_item_quantity( 5 ); 
+            $rss_items = $rss->get_items( 0, $maxitems );        
+        endif;
+        $news.="<ul>";
+            if ( $maxitems == 0 ) :
+                $news.="<li>No Items</li>";
+            else :                
+                foreach ( $rss_items as $item ) :
+					if($alternate!=""){$alternate="";}else{$alternate= "wpi_alternate";}					
+                    $news.="<li class='{$alternate}'>";
+                        $news.="<a href='". esc_url( $item->get_permalink() ) ."' title='". sprintf( __( 'Posted %s', 'my-text-domain' ), $item->get_date('j F Y | g:i a') )."' target='_blank'>".esc_html( $item->get_title() )."</a>";
+						$news.="<span class='wpi_time'>". sprintf( __( 'Posted %s', 'my-text-domain' ), $item->get_date('j F Y | g:i a') )."</span>";
+                    $news.="</li>";
+                endforeach;
+            endif;
+        $news.="</ul>";
+		
 		$args=array(
-			array("id"=>"wpi_dashboard_widget_buttons", "text"=>"Button", "content"=>$buttons), 			
+			array("id"=>"wpi_dashboard_widget_buttons", "text"=>"Button", "content"=>$buttons),
+			array("id"=>"wpi_news", "text"=>"News", "content"=>$news), 			
 			array("id"=>"wpi_help", "text"=>"Help", "content"=>$help, "active"=>true),
+			
 		);	
 		$tabs=WPiTemplate::create_tabs($args);
 		echo $tabs;
@@ -182,7 +209,7 @@ class WPiDesignerButtonShortcode{
 		array_push( $buttons, '|', 'wpi' );
 		return $buttons;
 	}
-	function mce_add_buttons( $plugin_array ) {
+	public function mce_add_buttons( $plugin_array ) {
 		$plugin_array['wpi_designer_button'] = WPIDB_URL . 'mce-plugin.js';
 		return $plugin_array;
 	}
@@ -218,6 +245,21 @@ class WPiDesignerButtonShortcode{
 				"labels"=>array(
 					"name"=>"Buttons",
 					"singular"=>"Button"
+					),
+				"description"=>"",
+				"menu_icon"=>WPIDB_URL."logo.png",
+				"show_in_menu"=>"wpi_admin_page",
+				),
+			"remove_support"=>array("editor"),			
+		);
+		WPiData::register_post_type($data2);
+		
+		$data2=array(
+			"post_type"=>"wpi_des_but_tb",
+			"args"=>array(
+				"labels"=>array(
+					"name"=>"Twin Buttons",
+					"singular"=>"Twin Button"
 					),
 				"description"=>"",
 				"menu_icon"=>WPIDB_URL."logo.png",
@@ -318,20 +360,20 @@ class WPiDesignerButtonShortcode{
 		global $wpi_gs_page;
 		//echo $hook;
 		if ( !in_array($hook, array('post-new.php','post.php', 'edit.php', 'index.php', "wpi_page_global_settings"))) return; 		
-   		if(in_array($post_type,array("wpi_des_but_sli", "wpi_des_but_sty", "wpi_des_but_sb", "wpi_des_but")) || in_array($hook, array("wpi_page_global_settings",'index.php'))) {
+   		if(in_array($post_type,array("wpi_des_but_sli", "wpi_des_but_sty", "wpi_des_but_sb", "wpi_des_but_tb", "wpi_des_but")) || in_array($hook, array("wpi_page_global_settings",'index.php'))) {
 		
 		}else{
 			return;
 		}
-		wp_enqueue_style("wpi_designer_button", WPIDB_URL."style.css",array(),self::VERSION, NULL);	
+		wp_enqueue_style("wpi_designer_button", WPIDB_URL."style.css".DEV,array(),self::VERSION, NULL);	
 		wp_enqueue_style("wpi_designer_button_preset_styles", WPIDB_URL."preset_styles.css",array(),self::VERSION, NULL);	
-		wp_enqueue_style("wpi_designer_button_admin", WPIDB_URL."admin_style.css",array(),self::VERSION, NULL);	
+		wp_enqueue_style("wpi_designer_button_admin", WPIDB_URL."admin_style.css".DEV,array(),self::VERSION, NULL);	
 		wp_enqueue_style("wpi_designer_button_genericons", WPIDB_URL."genericons/genericons/genericons.css",array(),self::VERSION, NULL);
 		wp_enqueue_style("wpi_designer_button_font-awesome", WPIDB_URL."font-awesome/css/font-awesome.css",array(),NULL, NULL);	
 		wp_enqueue_script("wpi_front_global_script",	WPIDB_URL."inc/front_global.js","jQuery",self::VERSION, NULL);		
-		wp_enqueue_script("wpi_tools_script",	WPIDB_URL."inc/tools.js","jQuery",self::VERSION, NULL);	
-		wp_enqueue_script("wpi_global_script",	WPIDB_URL."inc/global.js","jQuery",self::VERSION, NULL);			
-		wp_enqueue_script("wpi_designer_button_script",	WPIDB_URL."inc/script.js","jQuery",self::VERSION, NULL);		
+		wp_enqueue_script("wpi_tools_script",	WPIDB_URL."inc/tools.js".DEV,"jQuery",self::VERSION, NULL);	
+		wp_enqueue_script("wpi_global_script",	WPIDB_URL."inc/global.js".DEV,"jQuery",self::VERSION, NULL);			
+		wp_enqueue_script("wpi_designer_button_script",	WPIDB_URL."inc/script.js".DEV,"jQuery",self::VERSION, NULL);		
 		wp_enqueue_script("wpi_designer_button_presets_script",	WPIDB_URL."presets.js","jQuery",self::VERSION, NULL);
 		wp_enqueue_script("wpi_designer_button_themes_script",	WPIDB_URL."themes.js","jQuery",self::VERSION, NULL);
 		wp_enqueue_script("wpi_designer_button_icons_script",	WPIDB_URL."icons.js","jQuery",self::VERSION, NULL);
@@ -359,7 +401,7 @@ class WPiDesignerButtonShortcode{
 	}	
 	public function designer_button($atts, $content=""){
 		
-		$defaults=array("id"=>"", "style_id"=>"", "slide_id"=>"", "share_id"=>"", 'link'=>'#', 'text'=>'button', "target"=>"", "icon"=>"", "display"=>false, "icon_position"=>"left");
+		$defaults=array("id"=>"", "style_id"=>"", "slide_id"=>"", "share_id"=>"", "twin_id"=>"", 'link'=>'#', 'text'=>'button', "target"=>"", "icon"=>"", "display"=>false, "icon_position"=>"left");
 		$atts=shortcode_atts($defaults, $atts, "wpi_designer_button");
 		$button="";
 		$output="";
@@ -386,6 +428,21 @@ class WPiDesignerButtonShortcode{
 			$atts['icon']=get_post_meta($atts['id'], "icon",true);
 			$atts['icon_position']=get_post_meta($atts['id'], "icon_position",true);
 			$atts['style_id']= get_post_meta($atts['id'], "style_id",true);	
+		}else if($atts['twin_id']!=""){
+			$post=get_post($atts['twin_id']);					
+			$atts['left_button_text']=get_post_meta($atts['twin_id'], "left_button_text",true);
+			$atts['right_button_text']=get_post_meta($atts['twin_id'], "right_button_text",true);			
+			$atts['left_button_link']=get_post_meta($atts['twin_id'], "left_button_link",true);
+			$atts['right_button_link']=get_post_meta($atts['twin_id'], "right_button_link",true);
+			$atts['left_button_icon']=get_post_meta($atts['twin_id'], "left_button_icon",true);
+			$atts['right_button_icon']=get_post_meta($atts['twin_id'], "right_button_icon",true);
+			
+			$atts['target']=get_post_meta($atts['twin_id'], "target",true);			
+			$atts['icon_position']=get_post_meta($atts['twin_id'], "icon_position",true);
+			$atts['style_id']= get_post_meta($atts['twin_id'], "style_id",true);
+			
+			if($atts['left_button_icon']!=""){$left_button_icon_class="wpi_icon wpi_icon_".$atts['left_button_icon']." ".$icon_position; }else{$left_button_icon_class="";}	
+			if($atts['right_button_icon']!=""){$right_button_icon_class="wpi_icon wpi_icon_".$atts['right_button_icon']." ".$icon_position; }else{$right_button_icon_class="";}		
 		}
 		
 		$classes=WPiDesButCommon::get_button_style_class($atts['style_id']);
@@ -407,8 +464,7 @@ class WPiDesignerButtonShortcode{
 			$atts['target']=$target;
 		}else{
 			$atts['target']="";
-		}
-		
+		}		
 		$button.="<a href='".$atts['link']."' class='wpi_designer_button {$classes} {$icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' >".$left_icon."<span class='wpi_text'>".$atts['text']."</span>".$right_icon."</a>";
 		
 		if($atts['slide_id']!=""){
@@ -473,6 +529,14 @@ class WPiDesignerButtonShortcode{
 			$share_buttons.="</ul></div>";
 						
 			$output.=$share_buttons;
+		}else if($atts['twin_id']!=""){
+			$style_id=get_post_meta($atts['twin_id'], "style_id",true);	
+			$twin_buttons="<div class='wpi_twin_buttons wpi_twin_button_".$atts['twin_id']."'>";
+			$twin_buttons.="<a href='".$atts['left_button_link']."' class='wpi_left_button wpi_designer_button {$classes} {$left_button_icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' >".$left_icon."<span class='wpi_text'>".$atts['left_button_text']."</span>".$right_icon."<span class='wpi_or_txt'>or</span></a>";			
+			$twin_buttons.="<a href='".$atts['right_button_link']."' class='wpi_right_button wpi_designer_button {$classes} {$right_button_icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' >".$left_icon."<span class='wpi_text'>".$atts['right_button_text']."</span>".$right_icon."</a>";
+			$twin_buttons.="</div>";	
+								
+			$output.=$twin_buttons;
 		}else{			
 			$output.=$button.$atts['slide_id'];	
 		}	

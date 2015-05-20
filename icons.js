@@ -10,6 +10,7 @@
 			$.each(icons, function(key,val){
 				$(document).create_icons(val);		
 			});	
+			$(document).set_icons();	
 		
 	});
 })(jQuery);

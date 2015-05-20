@@ -235,6 +235,43 @@ box-sizing: border-box;
 .wpi_designer_button.wpi_padding_40px.wpi_no_text{padding:40px 40px;}
 .wpi_designer_button.wpi_padding_50px.wpi_no_text{padding:50px 50px;}
 
+/* ---------------------------------------------------------------------------- Twin Buttons --------------------------------------------------------------------*/
+
+.wpi_twin_buttons {	
+	display: inline-block;
+	position:relative;
+}
+.wpi_twin_buttons .wpi_or_txt{	
+	position: absolute;
+	right: -16px;
+	top: 50%;
+	margin-top: -16px;	
+	width: 30px;
+	height: 30px;
+	z-index: 2;
+	background-color: #ffffff;
+	border-radius: 100px;
+	color: #666666;
+	line-height: 28px;
+	text-align: center;
+	font-family: "Open Sans", arial, sans-serif;
+	font-size: 14px;
+	border:1px solid #dddddd;
+}
+.wpi_twin_buttons .wpi_designer_button.wpi_left_button{	
+	padding-right: 40px!important;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	margin-right: 1px;
+	position:relative;
+}
+.wpi_twin_buttons .wpi_designer_button.wpi_right_button{	
+	padding-left: 40px!important;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	margin-left: 1px;
+}
+
 /* ---------------------------------------------------------------------------- Share Buttons --------------------------------------------------------------------*/
 .wpi_share_buttons {	
 	display: inline-block;
@@ -2470,8 +2507,8 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-th i:before {content: "\f00a";}
 .wpi_icon_fa-th-list i:before {content: "\f00b";}
 .wpi_icon_fa-check i:before {content: "\f00c";}
-.wpi_icon_fa-remove:before,
-.wpi_icon_fa-close:before,
+.wpi_icon_fa-remove i:before,
+.wpi_icon_fa-close i:before,
 .wpi_icon_fa-times i:before {content: "\f00d";}
 .wpi_icon_fa-search-plus i:before {content: "\f00e";}
 .wpi_icon_fa-search-minus i:before {content: "\f010";}
@@ -2517,18 +2554,18 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-align-right i:before {content: "\f038";}
 .wpi_icon_fa-align-justify i:before {content: "\f039";}
 .wpi_icon_fa-list i:before {content: "\f03a";}
-.wpi_icon_fa-dedent:before,
+.wpi_icon_fa-dedent i:before,
 .wpi_icon_fa-outdent i:before {content: "\f03b";}
 .wpi_icon_fa-indent i:before {content: "\f03c";}
 .wpi_icon_fa-video-camera i:before {content: "\f03d";}
-.wpi_icon_fa-photo:before,
-.wpi_icon_fa-image:before,
+.wpi_icon_fa-photo i:before,
+.wpi_icon_fa-image i:before,
 .wpi_icon_fa-picture-o i:before {content: "\f03e";}
 .wpi_icon_fa-pencil i:before {content: "\f040";}
 .wpi_icon_fa-map-marker i:before {content: "\f041";}
 .wpi_icon_fa-adjust i:before {content: "\f042";}
 .wpi_icon_fa-tint i:before {content: "\f043";}
-.wpi_icon_fa-edit:before,
+.wpi_icon_fa-edit i:before,
 .wpi_icon_fa-pencil-square-o i:before {content: "\f044";}
 .wpi_icon_fa-share-square-o i:before {content: "\f045";}
 .wpi_icon_fa-check-square-o i:before {content: "\f046";}
@@ -2559,7 +2596,7 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-arrow-right i:before {content: "\f061";}
 .wpi_icon_fa-arrow-up i:before {content: "\f062";}
 .wpi_icon_fa-arrow-down i:before {content: "\f063";}
-.wpi_icon_fa-mail-forward:before,
+.wpi_icon_fa-mail-forward i:before,
 .wpi_icon_fa-share i:before {content: "\f064";}
 .wpi_icon_fa-expand i:before {content: "\f065";}
 .wpi_icon_fa-compress i:before {content: "\f066";}
@@ -2572,7 +2609,7 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-fire i:before {content: "\f06d";}
 .wpi_icon_fa-eye i:before {content: "\f06e";}
 .wpi_icon_fa-eye-slash i:before {content: "\f070";}
-.wpi_icon_fa-warning:before,
+.wpi_icon_fa-warning i:before,
 .wpi_icon_fa-exclamation-triangle i:before {content: "\f071";}
 .wpi_icon_fa-plane i:before {content: "\f072";}
 .wpi_icon_fa-calendar i:before {content: "\f073";}
@@ -2593,7 +2630,7 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-facebook-square i:before {content: "\f082";}
 .wpi_icon_fa-camera-retro i:before {content: "\f083";}
 .wpi_icon_fa-key i:before {content: "\f084";}
-.wpi_icon_fa-gears:before,
+.wpi_icon_fa-gears i:before,
 .wpi_icon_fa-cogs i:before {content: "\f085";}
 .wpi_icon_fa-comments i:before {content: "\f086";}
 .wpi_icon_fa-thumbs-o-up i:before {content: "\f087";}
@@ -2614,7 +2651,7 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-bookmark-o i:before {content: "\f097";}
 .wpi_icon_fa-phone-square i:before {content: "\f098";}
 .wpi_icon_fa-twitter i:before {content: "\f099";}
-.wpi_icon_fa-facebook-f:before,
+.wpi_icon_fa-facebook-f i:before,
 .wpi_icon_fa-facebook i:before {content: "\f09a";}
 .wpi_icon_fa-github i:before {content: "\f09b";}
 .wpi_icon_fa-unlock i:before {content: "\f09c";}
@@ -2638,22 +2675,22 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-filter i:before {content: "\f0b0";}
 .wpi_icon_fa-briefcase i:before {content: "\f0b1";}
 .wpi_icon_fa-arrows-alt i:before {content: "\f0b2";}
-.wpi_icon_fa-group:before,
+.wpi_icon_fa-group i:before,
 .wpi_icon_fa-users i:before {content: "\f0c0";}
-.wpi_icon_fa-chain:before,
+.wpi_icon_fa-chain i:before,
 .wpi_icon_fa-link i:before {content: "\f0c1";}
 .wpi_icon_fa-cloud i:before {content: "\f0c2";}
 .wpi_icon_fa-flask i:before {content: "\f0c3";}
-.wpi_icon_fa-cut:before,
+.wpi_icon_fa-cut i:before,
 .wpi_icon_fa-scissors i:before {content: "\f0c4";}
-.wpi_icon_fa-copy:before,
+.wpi_icon_fa-copy i:before,
 .wpi_icon_fa-files-o i:before {content: "\f0c5";}
 .wpi_icon_fa-paperclip i:before {content: "\f0c6";}
-.wpi_icon_fa-save:before,
+.wpi_icon_fa-save i:before,
 .wpi_icon_fa-floppy-o i:before {content: "\f0c7";}
 .wpi_icon_fa-square i:before {content: "\f0c8";}
-.wpi_icon_fa-navicon:before,
-.wpi_icon_fa-reorder:before,
+.wpi_icon_fa-navicon i:before,
+.wpi_icon_fa-reorder i:before,
 .wpi_icon_fa-bars i:before {content: "\f0c9";}
 .wpi_icon_fa-list-ul i:before {content: "\f0ca";}
 .wpi_icon_fa-list-ol i:before {content: "\f0cb";}
@@ -2672,27 +2709,27 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-caret-left i:before {content: "\f0d9";}
 .wpi_icon_fa-caret-right i:before {content: "\f0da";}
 .wpi_icon_fa-columns i:before {content: "\f0db";}
-.wpi_icon_fa-unsorted:before,
+.wpi_icon_fa-unsorted i:before,
 .wpi_icon_fa-sort i:before {content: "\f0dc";}
-.wpi_icon_fa-sort-down:before,
+.wpi_icon_fa-sort-down i:before,
 .wpi_icon_fa-sort-desc i:before {content: "\f0dd";}
-.wpi_icon_fa-sort-up:before,
+.wpi_icon_fa-sort-up i:before,
 .wpi_icon_fa-sort-asc i:before {content: "\f0de";}
 .wpi_icon_fa-envelope i:before {content: "\f0e0";}
 .wpi_icon_fa-linkedin i:before {content: "\f0e1";}
 .wpi_icon_fa-rotate-left:before,
 .wpi_icon_fa-undo i:before {content: "\f0e2";}
-.wpi_icon_fa-legal:before,
+.wpi_icon_fa-legal i:before,
 .wpi_icon_fa-gavel i:before {content: "\f0e3";}
-.wpi_icon_fa-dashboard:before,
+.wpi_icon_fa-dashboard i:before,
 .wpi_icon_fa-tachometer i:before {content: "\f0e4";}
 .wpi_icon_fa-comment-o i:before {content: "\f0e5";}
 .wpi_icon_fa-comments-o i:before {content: "\f0e6";}
-.wpi_icon_fa-flash:before,
+.wpi_icon_fa-flash i:before,
 .wpi_icon_fa-bolt i:before {content: "\f0e7";}
 .wpi_icon_fa-sitemap i:before {content: "\f0e8";}
 .wpi_icon_fa-umbrella i:before {content: "\f0e9";}
-.wpi_icon_fa-paste:before,
+.wpi_icon_fa-paste i:before,
 .wpi_icon_fa-clipboard i:before {content: "\f0ea";}
 .wpi_icon_fa-lightbulb-o i:before {content: "\f0eb";}
 .wpi_icon_fa-exchange i:before {content: "\f0ec";}
@@ -2731,7 +2768,7 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-quote-right i:before {content: "\f10e";}
 .wpi_icon_fa-spinner i:before {content: "\f110";}
 .wpi_icon_fa-circle i:before {content: "\f111";}
-.wpi_icon_fa-mail-reply:before,
+.wpi_icon_fa-mail-reply i:before,
 .wpi_icon_fa-reply i:before {content: "\f112";}
 .wpi_icon_fa-github-alt i:before {content: "\f113";}
 .wpi_icon_fa-folder-o i:before {content: "\f114";}
@@ -2745,15 +2782,15 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-flag-checkered i:before {content: "\f11e";}
 .wpi_icon_fa-terminal i:before {content: "\f120";}
 .wpi_icon_fa-code i:before {content: "\f121";}
-.wpi_icon_fa-mail-reply-all:before,
+.wpi_icon_fa-mail-reply-all i:before,
 .wpi_icon_fa-reply-all i:before {content: "\f122";}
-.wpi_icon_fa-star-half-empty:before,
-.wpi_icon_fa-star-half-full:before,
+.wpi_icon_fa-star-half-empty i:before,
+.wpi_icon_fa-star-half-full i:before,
 .wpi_icon_fa-star-half-o i:before {content: "\f123";}
 .wpi_icon_fa-location-arrow i:before {content: "\f124";}
 .wpi_icon_fa-crop i:before {content: "\f125";}
 .wpi_icon_fa-code-fork i:before {content: "\f126";}
-.wpi_icon_fa-unlink:before,
+.wpi_icon_fa-unlink i:before,
 .wpi_icon_fa-chain-broken i:before {content: "\f127";}
 .wpi_icon_fa-question i:before {content: "\f128";}
 .wpi_icon_fa-info i:before {content: "\f129";}
@@ -2794,27 +2831,27 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-external-link-square i:before {content: "\f14c";}
 .wpi_icon_fa-share-square i:before {content: "\f14d";}
 .wpi_icon_fa-compass i:before {content: "\f14e";}
-.wpi_icon_fa-toggle-down:before,
+.wpi_icon_fa-toggle-down i:before,
 .wpi_icon_fa-caret-square-o-down i:before {content: "\f150";}
-.wpi_icon_fa-toggle-up:before,
+.wpi_icon_fa-toggle-up i:before,
 .wpi_icon_fa-caret-square-o-up i:before {content: "\f151";}
 .wpi_icon_fa-toggle-right:before,
 .wpi_icon_fa-caret-square-o-right i:before {content: "\f152";}
-.wpi_icon_fa-euro:before,
+.wpi_icon_fa-euro i:before,
 .wpi_icon_fa-eur i:before {content: "\f153";}
 .wpi_icon_fa-gbp i:before {content: "\f154";}
-.wpi_icon_fa-dollar:before,
+.wpi_icon_fa-dollar i:before,
 .wpi_icon_fa-usd i:before {content: "\f155";}
-.wpi_icon_fa-rupee:before,
+.wpi_icon_fa-rupee i:before,
 .wpi_icon_fa-inr i:before {content: "\f156";}
-.wpi_icon_fa-cny:before,
-.wpi_icon_fa-rmb:before,
-.wpi_icon_fa-yen:before,
+.wpi_icon_fa-cny i:before,
+.wpi_icon_fa-rmb i:before,
+.wpi_icon_fa-yen i:before,
 .wpi_icon_fa-jpy i:before {content: "\f157";}
-.wpi_icon_fa-ruble:before,
-.wpi_icon_fa-rouble:before,
+.wpi_icon_fa-ruble i:before,
+.wpi_icon_fa-rouble i:before,
 .wpi_icon_fa-rub i:before {content: "\f158";}
-.wpi_icon_fa-won:before,
+.wpi_icon_fa-won i:before,
 .wpi_icon_fa-krw i:before {content: "\f159";}
 .wpi_icon_fa-bitcoin:before,
 .wpi_icon_fa-btc i:before {content: "\f15a";}
@@ -2856,7 +2893,7 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-trello i:before {content: "\f181";}
 .wpi_icon_fa-female i:before {content: "\f182";}
 .wpi_icon_fa-male i:before {content: "\f183";}
-.wpi_icon_fa-gittip:before,
+.wpi_icon_fa-gittip i:before,
 .wpi_icon_fa-gratipay i:before {content: "\f184";}
 .wpi_icon_fa-sun-o i:before {content: "\f185";}
 .wpi_icon_fa-moon-o i:before {content: "\f186";}
@@ -2869,12 +2906,12 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-stack-exchange i:before {content: "\f18d";}
 .wpi_icon_fa-arrow-circle-o-right i:before {content: "\f18e";}
 .wpi_icon_fa-arrow-circle-o-left i:before {content: "\f190";}
-.wpi_icon_fa-toggle-left:before,
+.wpi_icon_fa-toggle-left i:before,
 .wpi_icon_fa-caret-square-o-left i:before {content: "\f191";}
 .wpi_icon_fa-dot-circle-o i:before {content: "\f192";}
 .wpi_icon_fa-wheelchair i:before {content: "\f193";}
 .wpi_icon_fa-vimeo-square i:before {content: "\f194";}
-.wpi_icon_fa-turkish-lira:before,
+.wpi_icon_fa-turkish-lira i:before,
 .wpi_icon_fa-try i:before {content: "\f195";}
 .wpi_icon_fa-plus-square-o i:before {content: "\f196";}
 .wpi_icon_fa-space-shuttle i:before {content: "\f197";}
@@ -2882,10 +2919,10 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-envelope-square i:before {content: "\f199";}
 .wpi_icon_fa-wordpress i:before {content: "\f19a";}
 .wpi_icon_fa-openid i:before {content: "\f19b";}
-.wpi_icon_fa-institution:before,
-.wpi_icon_fa-bank:before,
+.wpi_icon_fa-institution i:before,
+.wpi_icon_fa-bank i:before,
 .wpi_icon_fa-university i:before {content: "\f19c";}
-.wpi_icon_fa-mortar-board:before,
+.wpi_icon_fa-mortar-board i:before,
 .wpi_icon_fa-graduation-cap i:before {content: "\f19d";}
 .wpi_icon_fa-yahoo i:before {content: "\f19e";}
 .wpi_icon_fa-google i:before {content: "\f1a0";}
@@ -2912,9 +2949,9 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-steam i:before {content: "\f1b6";}
 .wpi_icon_fa-steam-square i:before {content: "\f1b7";}
 .wpi_icon_fa-recycle i:before {content: "\f1b8";}
-.wpi_icon_fa-automobile:before,
+.wpi_icon_fa-automobile i:before,
 .wpi_icon_fa-car i:before {content: "\f1b9";}
-.wpi_icon_fa-cab:before,
+.wpi_icon_fa-cab i:before,
 .wpi_icon_fa-taxi i:before {content: "\f1ba";}
 .wpi_icon_fa-tree i:before {content: "\f1bb";}
 .wpi_icon_fa-spotify i:before {content: "\f1bc";}
@@ -2925,42 +2962,42 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-file-word-o i:before {content: "\f1c2";}
 .wpi_icon_fa-file-excel-o i:before {content: "\f1c3";}
 .wpi_icon_fa-file-powerpoint-o i:before {content: "\f1c4";}
-.wpi_icon_fa-file-photo-o:before,
-.wpi_icon_fa-file-picture-o:before,
+.wpi_icon_fa-file-photo-o i:before,
+.wpi_icon_fa-file-picture-o i:before,
 .wpi_icon_fa-file-image-o i:before {content: "\f1c5";}
-.wpi_icon_fa-file-zip-o:before,
+.wpi_icon_fa-file-zip-o i:before,
 .wpi_icon_fa-file-archive-o i:before {content: "\f1c6";}
-.wpi_icon_fa-file-sound-o:before,
+.wpi_icon_fa-file-sound-o i:before,
 .wpi_icon_fa-file-audio-o i:before {content: "\f1c7";}
-.wpi_icon_fa-file-movie-o:before,
+.wpi_icon_fa-file-movie-o i:before,
 .wpi_icon_fa-file-video-o i:before {content: "\f1c8";}
 .wpi_icon_fa-file-code-o i:before {content: "\f1c9";}
 .wpi_icon_fa-vine i:before {content: "\f1ca";}
 .wpi_icon_fa-codepen i:before {content: "\f1cb";}
 .wpi_icon_fa-jsfiddle i:before {content: "\f1cc";}
-.wpi_icon_fa-life-bouy:before,
-.wpi_icon_fa-life-buoy:before,
-.wpi_icon_fa-life-saver:before,
-.wpi_icon_fa-support:before,
+.wpi_icon_fa-life-bouy i:before,
+.wpi_icon_fa-life-buoy i:before,
+.wpi_icon_fa-life-saver i:before,
+.wpi_icon_fa-support i:before,
 .wpi_icon_fa-life-ring i:before {content: "\f1cd";}
 .wpi_icon_fa-circle-o-notch i:before {content: "\f1ce";}
-.wpi_icon_fa-ra:before,
+.wpi_icon_fa-ra i:before,
 .wpi_icon_fa-rebel i:before {content: "\f1d0";}
-.wpi_icon_fa-ge:before,
+.wpi_icon_fa-ge i:before,
 .wpi_icon_fa-empire i:before {content: "\f1d1";}
 .wpi_icon_fa-git-square i:before {content: "\f1d2";}
 .wpi_icon_fa-git i:before {content: "\f1d3";}
 .wpi_icon_fa-hacker-news i:before {content: "\f1d4";}
 .wpi_icon_fa-tencent-weibo i:before {content: "\f1d5";}
 .wpi_icon_fa-qq i:before {content: "\f1d6";}
-.wpi_icon_fa-wechat:before,
+.wpi_icon_fa-wechat i:before,
 .wpi_icon_fa-weixin i:before {content: "\f1d7";}
-.wpi_icon_fa-send:before,
+.wpi_icon_fa-send i:before,
 .wpi_icon_fa-paper-plane i:before {content: "\f1d8";}
-.wpi_icon_fa-send-o:before,
+.wpi_icon_fa-send-o i:before,
 .wpi_icon_fa-paper-plane-o i:before {content: "\f1d9";}
 .wpi_icon_fa-history i:before {content: "\f1da";}
-.wpi_icon_fa-genderless:before,
+.wpi_icon_fa-genderless i:before,
 .wpi_icon_fa-circle-thin i:before {content: "\f1db";}
 .wpi_icon_fa-header i:before {content: "\f1dc";}
 .wpi_icon_fa-paragraph i:before {content: "\f1dd";}
@@ -2968,7 +3005,7 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-share-alt i:before {content: "\f1e0";}
 .wpi_icon_fa-share-alt-square i:before {content: "\f1e1";}
 .wpi_icon_fa-bomb i:before {content: "\f1e2";}
-.wpi_icon_fa-soccer-ball-o:before,
+.wpi_icon_fa-soccer-ball-o i:before,
 .wpi_icon_fa-futbol-o i:before {content: "\f1e3";}
 .wpi_icon_fa-tty i:before {content: "\f1e4";}
 .wpi_icon_fa-binoculars i:before {content: "\f1e5";}
@@ -3007,8 +3044,8 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-ioxhost i:before {content: "\f208";}
 .wpi_icon_fa-angellist i:before {content: "\f209";}
 .wpi_icon_fa-cc i:before {content: "\f20a";}
-.wpi_icon_fa-shekel:before,
-.wpi_icon_fa-sheqel:before,
+.wpi_icon_fa-shekel i:before,
+.wpi_icon_fa-sheqel i:before,
 .wpi_icon_fa-ils i:before {content: "\f20b";}
 .wpi_icon_fa-meanpath i:before {content: "\f20c";}
 .wpi_icon_fa-buysellads i:before {content: "\f20d";}
@@ -3046,7 +3083,7 @@ b.wpidb_icon_fa-medium:before {content: "\f23a";}
 .wpi_icon_fa-server i:before {content: "\f233";}
 .wpi_icon_fa-user-plus i:before {content: "\f234";}
 .wpi_icon_fa-user-times i:before {content: "\f235";}
-.wpi_icon_fa-hotel:before,
+.wpi_icon_fa-hotel i:before,
 .wpi_icon_fa-bed i:before {content: "\f236";}
 .wpi_icon_fa-viacoin i:before {content: "\f237";}
 .wpi_icon_fa-train i:before {content: "\f238";}

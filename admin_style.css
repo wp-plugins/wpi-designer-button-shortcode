@@ -392,6 +392,7 @@ outline: 3px solid #00c3ca;
 	border: 0px;
 }
 .wpi_db .wpi_visual .wpi_visual_holder{
+	position:relative;
 	/*margin-top: 10px;
 	border-radius: 10px;*/
 	background-color: #eeeeee;	
@@ -530,6 +531,7 @@ outline: 3px solid #00c3ca;
 	position: absolute;
 	right: 0px;
 	top: 0px;
+	cursor:pointer;
 }
 .wpi_db .wpi_layout .wpi_property_bar_popup_close:hover {
 	background-color:#E5E3C2;
@@ -925,6 +927,16 @@ height: 100%;
 .wpi_des_but_sty .wpi_visual .button_wrap, .wpi_des_but .wpi_visual .button_wrap{
 	padding:50px 50px; 
 }
+/* ---------------------------------------------------------------------------- Twin Buttons --------------------------------------------------------------------*/
+
+.wpi_des_but_tb #wpi_preview{
+	text-align:center;
+	padding:50px 10px;
+}
+.wpi_des_but_tb #wpi_visual_header{
+	min-height:30px;
+}
+
 /* ---------------------------------------------------------------------------- Share Buttons --------------------------------------------------------------------*/
 
 .wpi_des_but_sb #wpi_preview{
@@ -1020,6 +1032,55 @@ text-align: left;
 #wpi_admin #wpi_gs_product_logo img{  width:100%; height:auto; vertical-align: top; }
 #wpi_admin #wpi_gs_content_inner{margin:20px;background-color:#ffffff; padding:20px; border-radius:5px;}
 #wpi_admin #wpi_gs_content_header{  border-bottom:1px solid #eeeeee; padding-bottom:10px; color:#666666; font-family:"Open Sans";}
+
+
+/* ---------------------------------------------------------------------------- wpiModal --------------------------------------------------------------------*/
+.wpiModal_overlay{
+	position: absolute;
+	background-color: #ffffff;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: 100;	
+}
+.wpiModal{
+	margin: 20px 40px;
+	position: absolute;
+	overflow: hidden;
+	top: 0px;
+	left: 0px;	
+	right: 0px;
+	min-height:300px;
+	background-color: #F9F9F9;
+	z-index: 101;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.3);	
+}
+.wpiModal_header{
+	font-size: 24px;
+	font-weight: 100;
+	padding: 20px;
+	border-bottom: 1px solid #dddddd;
+}
+.wpiModal_content{
+	padding: 20px;	
+}
+.wpiModal .wpiModal_close {
+	color: #555555;
+	padding: 10px;
+	display: inline-block;
+	width: 38px;
+	height: 38px;
+	text-align: center;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	cursor:pointer;
+}
+
+.wpiModal .wpiModal_close:hover {
+	background-color:#E5E3C2;
+}
 
 /* ---------------------------------------------------------------------------- wpiAccordion --------------------------------------------------------------------*/
 .wpiAccordion * {
@@ -1210,6 +1271,26 @@ overflow:auto;
 #wpi_dashboard_widget_buttons li .wpi_dashboard_widget_item_name{ font-size:16px; font-weight:bold; color:#dddddd; display:block; margin-bottom:10px;}
 #wpi_dashboard_widget_buttons li .wpi_dashboard_widget_item_shortcode{ display:block; }
 #wpi_dashboard_widget_buttons li .wpi_dashboard_widget_item_preview{ display:block;}
+
+#wpi_dashboard_widget .wpi_tab_content {
+height:400px;
+overflow:auto;
+}
+#wpi_dashboard_widget #wpi_news{} 
+#wpi_dashboard_widget #wpi_news .wpi_dashboard_widget_title{font-size:24px; margin:20px; font-weight: 100;}
+#wpi_dashboard_widget #wpi_news li {border-top:1px solid #eeeeee;  background-color: #ffffff; margin:0px 0px 1px 0px;	}
+#wpi_dashboard_widget #wpi_news li.wpi_alternate {background-color: #F9F9F9;}
+#wpi_dashboard_widget #wpi_news a {
+  padding: 15px 20px 15px 20px;
+  display: inline-block;
+  font-size: 16px;   
+}
+#wpi_dashboard_widget #wpi_news .wpi_time {
+  padding: 5px 20px 15px 20px;
+  font-size: 14px;
+  display: inline-block;
+  color: #cccccc;   
+}
 
 background: url(images/help_bg2.png);
 

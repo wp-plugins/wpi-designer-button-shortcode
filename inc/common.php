@@ -103,7 +103,7 @@ class WPiDesButCommon{
 		$note="<div class='wpi_notes wpi_pn'><div class='wpi_notes_content'><span class='wpi_icon wpi_icon_book wpi_no_text'><i></i></span><span class='wpi_notes_title'>Guide</span>".$content."</div>".$nav."</div>";
 		$help=$popup.$note;	
 		return $help;
-	}
+	}	
 }
 
 ?>
