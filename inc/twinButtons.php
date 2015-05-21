@@ -90,11 +90,8 @@ class WPiDesButTB{
 		//$field_names=WPiTools::get_field_names($this->fields());		
 		WPiData::update_post_meta($post_id, $this->fields());				
 	}
-	public function inline_styles() {		
-		wp_enqueue_style(
-			'custom-style',
-			WPIDB_URL . 'custom_script.css'
-		);		
+	public function get_twin() {	
+		
 		$custom_css = "";
 		$args = array(			
 			'post_type' => 'wpi_des_but_tb', 'post_status'=>array('publish'), 'numberposts'  => -1
@@ -115,9 +112,16 @@ class WPiDesButTB{
 			
 			$custom_css.=WPiCss::build_css($classes);		
         endforeach;
-		
+		return $custom_css;		
+	}	
+	public function inline_styles() {		
+		wp_enqueue_style(
+			'custom-style',
+			WPIDB_URL . 'custom_script.css'
+		);		
+		$custom_css.=$this->get_twin();		
 		wp_add_inline_style( 'custom-style', $custom_css );
-	}		
+	}			
 	public function help(){
 		$help_args=array("notes"=>array(
 		"To add icon to the button select icon from above 'Icons' tab", 

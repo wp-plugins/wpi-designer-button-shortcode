@@ -165,12 +165,15 @@ class WPiDesButSli{
 		//$field_names=WPiTools::get_field_names($this->fields());	
 		WPiData::update_post_meta($post_id, $this->fields());
 	}	
-	public function inline_styles() {		
-				
+	public function inline_styles() {
 		wp_enqueue_style(
 			'custom-style',
 			WPIDB_URL . 'custom_script.css'
-		);	
+		);
+		$custom_css=$this->get_slides();
+		wp_add_inline_style( 'custom-style', $custom_css );
+	}
+	public function get_slides() {			
 		$custom_css = "";
 		$args = array(			
 			'post_type' => 'wpi_des_but_sli', 'post_status'=>array('publish'), 'numberposts'  => -1
@@ -270,8 +273,8 @@ class WPiDesButSli{
 			$custom_css.=WPiCss::build_css($classes);				
         endforeach;		
 		
-		wp_add_inline_style( 'custom-style', $custom_css );
-	}	
+		return $custom_css;
+	}		
 	public function help(){
 		$help_args=array("notes"=>array(
 		"First create button style before creating call to action button", 

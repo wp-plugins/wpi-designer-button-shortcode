@@ -33,6 +33,7 @@ class WPiControls{
 	public static function text($args=array()){
 		$defaults=array("name"=>"", "class"=>" ", "value"=>"");
 		extract(wp_parse_args($args,$defaults));
+		$value=wp_specialchars( $value, "single" );
 		$output="<input type='text' name='{$name}' id='{$name}' value='{$value}' />";
 		return $output;	
 	}
@@ -63,6 +64,13 @@ class WPiControls{
 	public static function textarea($args=array()){
 		$defaults=array("name"=>"", "class"=>" ", "value"=>"");
 		extract(wp_parse_args($args,$defaults));
+		$output="<textarea type='text' name='{$name}' id='{$name}'>{$value}</textarea>";
+		return $output;	
+	}
+	public static function link($args=array()){
+		$defaults=array("name"=>"", "class"=>" ", "value"=>"");
+		extract(wp_parse_args($args,$defaults));
+		$value=wp_specialchars( $value, "single" );		
 		$output="<textarea type='text' name='{$name}' id='{$name}'>{$value}</textarea>";
 		return $output;	
 	}
@@ -457,6 +465,8 @@ class WPiTemplate{
 						$input=WPiControls::text(array("name"=>$name, "value"=>$value));
 					}else if($type == "textarea" ){
 						$input=WPiControls::textarea(array("name"=>$name, "value"=>$value));
+					}else if($type == "link" ){
+						$input=WPiControls::link(array("name"=>$name, "value"=>$value));
 					}else if($type == "hidden" ){
 						$input=WPiControls::hidden(array("name"=>$name, "value"=>$value));
 					}else if($type == "button" ){

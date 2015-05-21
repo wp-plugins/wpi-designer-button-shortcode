@@ -2,13 +2,19 @@
 class WPiDesButSty{	
 	
 	public function __construct(){
-		add_action("add_meta_boxes", array($this, "meta_box"));
+		add_action("add_meta_boxes", array($this, "meta_box")); 
 		add_action("save_post",array($this,"save_post"));
 		add_action("wp_enqueue_scripts", array($this, 'inline_styles'),21 );
-		add_action("admin_enqueue_scripts", array($this, 'inline_styles'),21);
-		
+		add_action("admin_enqueue_scripts", array($this, 'inline_styles'),21);	
 	}
-	
+	public function inline_styles() {		
+		wp_enqueue_style(
+			'custom-style',
+			WPIDB_URL . 'custom_script.css'
+		);		
+		$custom_css = $this->get_styles();	
+		wp_add_inline_style( 'custom-style', $custom_css );
+	}		
 	public function fields(){
 		$icons_arr=WPiArray::get_icons_arr();
 		$icons=WPiTools::array2object($icons_arr);
@@ -113,11 +119,8 @@ class WPiDesButSty{
 		//$field_names=WPiTools::get_field_names($this->fields());	
 		WPiData::update_post_meta($post_id, $this->fields());	
 	}
-	public function inline_styles() {		
-		wp_enqueue_style(
-			'custom-style',
-			WPIDB_URL . 'custom_script.css'
-		);		
+	public function get_styles() {	
+			
 		$custom_css = "";
 		$args = array(			
 			'post_type' => 'wpi_des_but_sty', 'post_status'=>array('publish'), 'numberposts'  => -1
@@ -214,7 +217,8 @@ class WPiDesButSty{
 			$custom_css.=WPiCss::build_css($classes);		
         endforeach;
 		
-		wp_add_inline_style( 'custom-style', $custom_css );
+		return $custom_css;
+		
 	}	
 	public function help(){
 		$help_args=array("notes"=>array("If you are a new user to this plugin then its best practice to start with Style Presets.", "Select button style from above style presets tab.", "Please enter Text Size in pixels like 24px.", "Enter color values like #ff33ff. It should contains total 7 characters including # symbol.", "If you don't know about color values then, You can copy color values from above color palette tab."));
