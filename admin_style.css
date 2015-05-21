@@ -1276,16 +1276,16 @@ overflow:auto;
 height:400px;
 overflow:auto;
 }
-#wpi_dashboard_widget #wpi_news{} 
-#wpi_dashboard_widget #wpi_news .wpi_dashboard_widget_title{font-size:24px; margin:20px; font-weight: 100;}
-#wpi_dashboard_widget #wpi_news li {border-top:1px solid #eeeeee;  background-color: #ffffff; margin:0px 0px 1px 0px;	}
-#wpi_dashboard_widget #wpi_news li.wpi_alternate {background-color: #F9F9F9;}
-#wpi_dashboard_widget #wpi_news a {
+#wpi_news{} 
+#wpi_news .wpi_dashboard_widget_title{font-size:24px; margin:20px; font-weight: 100;}
+#wpi_news li {border-top:1px solid #eeeeee;  background-color: #ffffff; margin:0px 0px 1px 0px;	}
+#wpi_news li.wpi_alternate {background-color: #F9F9F9;}
+#wpi_news a {
   padding: 15px 20px 15px 20px;
   display: inline-block;
   font-size: 16px;   
 }
-#wpi_dashboard_widget #wpi_news .wpi_time {
+#wpi_news .wpi_time {
   padding: 5px 20px 15px 20px;
   font-size: 14px;
   display: inline-block;

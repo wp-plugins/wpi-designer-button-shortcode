@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://designerbutton.prali.in/
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.3.93
+ * Version: 2.3.94
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -13,7 +13,7 @@
  */
 defined('ABSPATH') or die("No script kiddies please!");
 if ( !defined('WPIDB_URL' ) ) {
-	define( 'WPIDB_VER', "2.3.93" ); 
+	define( 'WPIDB_VER', "2.3.94" ); 
 	define( 'WPIDB_URL', plugin_dir_url( __FILE__ ) ); 
 	define( 'WPIDB_PLUGIN', plugin_basename( __FILE__) );	
 }
@@ -31,9 +31,9 @@ require_once("inc/activation.php");
 
 class WPiDesignerButtonShortcode{
 
-	const VERSION = '2.3.93';	
+	const VERSION = '2.3.94';	
 	public function __construct(){	
-		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.93' );
+		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.94' );
 		define( 'DEV', "?t=".rand(0,1000) );	
 		register_activation_hook( __FILE__, array("WPi_DesignerButtonActivation", 'myplugin_activate' ));	
 		add_action( 'admin_notices', array("WPi_DesignerButtonActivation",'my_admin_notice' ));
@@ -101,13 +101,15 @@ class WPiDesignerButtonShortcode{
     	register_widget( 'WPi_DesignerButtonWidget' );
 	}
 	public function add_dashboard_widgets() {	
+		$dashboard_widget_enabled=get_option("wpi_admin_"."global_settings_"."dashboard_widget");
+		if(!$dashboard_widget_enabled) return;
 		wp_add_dashboard_widget(
 			'wpi_dashboard_widget',
 			'WPI Designer Button',  
 			array($this,'dashboard_widget_function')
 		);	
 	}		
-	public function dashboard_widget_function() {
+	public function dashboard_widget_function() {		
 		$styles_list="sd";
 		$help=self::dashboard_widget_help();
 		$buttons="<div class='wpi_dashboard_widget_title'>Button Shortcodes</div>";
@@ -127,9 +129,22 @@ class WPiDesignerButtonShortcode{
 		endforeach; 			
 		$buttons.="</ul>";
 		
+		$news="<div class='wpi_dashboard_widget_title'>Recent news</div>";	
+		$news.=$this->get_news();	
+		
+		$args=array(
+			array("id"=>"wpi_dashboard_widget_buttons", "text"=>"Button", "content"=>$buttons),
+			array("id"=>"wpi_news", "text"=>"News", "content"=>$news), 			
+			array("id"=>"wpi_help", "text"=>"Help", "content"=>$help, "active"=>true),
+			
+		);	
+		$tabs=WPiTemplate::create_tabs($args);
+		echo $tabs;
+	}
+	public function get_news(){
 		//blog
 		$alternate="";
-		$news="<div class='wpi_dashboard_widget_title'>Recent news</div>";	
+		$news="";	
         include_once( ABSPATH . WPINC . '/feed.php' );
         $rss = fetch_feed( 'http://designerbutton.prali.in/category/blog/feed/?v='.VERSION );
         $maxitems = 0;
@@ -150,15 +165,7 @@ class WPiDesignerButtonShortcode{
                 endforeach;
             endif;
         $news.="</ul>";
-		
-		$args=array(
-			array("id"=>"wpi_dashboard_widget_buttons", "text"=>"Button", "content"=>$buttons),
-			array("id"=>"wpi_news", "text"=>"News", "content"=>$news), 			
-			array("id"=>"wpi_help", "text"=>"Help", "content"=>$help, "active"=>true),
-			
-		);	
-		$tabs=WPiTemplate::create_tabs($args);
-		echo $tabs;
+		return $news;
 	}
 	public function just($content){
 		$share_buttons=get_option("wpi_admin_"."global_settings_"."share_buttons");
@@ -340,9 +347,17 @@ class WPiDesignerButtonShortcode{
 			array("label"=>"Share Button Above/Below Content", "name"=>'share_buttons_location', "type"=>"select",  "section"=>"Share Buttons Location", "group"=>"Share Buttons Location", "value"=> "", "list"=>array("above"=>"Above", "below"=>"Below"), "default"=>"below"),
 		);		
 		$share_buttons= WPiTemplate::html_option("global_settings", $fields);
+		
+		$fields=array(	
+			array("label"=>"Dashboard Widget Enabled?", "name"=>'dashboard_widget', "type"=>"select",  "section"=>"general", "group"=>"general", "value"=> "", "list"=>array("0"=>"Disable", "1"=>"Enable"), "default"=>1),				
+		);		
+		$general= WPiTemplate::html_option("global_settings", $fields);
+		$news=$this->get_news();
 		$help=self::help();		
 		$args=array(
-			array("id"=>"wpi_share_buttons", "text"=>"Share Buttons", "content"=>$share_buttons), 			
+			array("id"=>"wpi_general", "text"=>"General", "content"=>$general), 
+			array("id"=>"wpi_share_buttons", "text"=>"Share Buttons", "content"=>$share_buttons), 
+			array("id"=>"wpi_news", "text"=>"News", "content"=>$news),			
 			array("id"=>"wpi_help", "text"=>"Help", "content"=>$help, "active"=>true),
 		);	
 		$tabs=WPiTemplate::create_tabs($args);		
