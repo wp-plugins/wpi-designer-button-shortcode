@@ -15,7 +15,8 @@ class WPiDesBut{
 			array("label"=>"Icon", "name"=>'icon', "type"=>"select",  "section"=>"Icon Section", "group"=>"Text", "value"=> "", "list"=> $icons),
 			array("label"=>"Icon Position", "name"=>'icon_position', "type"=>"select",  "section"=>"Icon Section", "group"=>"Text", "value"=> "", "list"=>  array("left"=>"Left","right"=>"Right")),
 			array("label"=>"Link", "name"=>'link', "type"=>"link", "section"=>"Link Section", "group"=>"Link", "value"=> ""),
-			array("label"=>"Target", "name"=>'target', "type"=>"select", "section"=>"Link Section", "group"=>"Link", "value"=> "", "list"=> array("self"=>"Self","_blank"=>"New Window")),			
+			array("label"=>"Target", "name"=>'target', "type"=>"select", "section"=>"Link Section", "group"=>"Link", "value"=> "", "list"=> array("self"=>"Self","_blank"=>"New Window")),	
+			array("label"=>"Rel", "name"=>'rel', "type"=>"text", "section"=>"Link Section", "group"=>"Link", "value"=> "", "global_enabled"=>"button_rel"),		
 		);
 		return $fields;
 	}

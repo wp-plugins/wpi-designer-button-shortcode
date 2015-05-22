@@ -458,9 +458,15 @@ class WPiTemplate{
 					$sections_content.='<h3>'.$group_key.' <i class="genericon genericon-next"></i></h3>';
 				}				
 				$sections_content.='<div class="wpi_accordion_content">';		
-				foreach($group as $data){
-					$defaults=array("name"=>"", "label"=>"", "type"=>"text", "value"=>"", "list"=>array(0), "default"=>"");
+				foreach($group as $data){					
+					$defaults=array("name"=>"", "label"=>"", "type"=>"text", "value"=>"", "list"=>array(0), "default"=>"", "global_enabled"=>"");
 					extract(wp_parse_args($data,$defaults));
+					if($global_enabled!=""){
+						$is_enabled=get_option("wpi_admin_"."global_settings_".$global_enabled);
+						if(!$is_enabled){
+							$type="hidden";
+						}
+					}
 					if($type	== "text" ){
 						$input=WPiControls::text(array("name"=>$name, "value"=>$value));
 					}else if($type == "textarea" ){

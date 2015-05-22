@@ -6,7 +6,7 @@ Plugin URI: http://designerbutton.prali.in
 Author URI: http://wooprali.prali.in
 Requires at least: 3.0.1
 Tested up to: 4.2
-Stable tag: 2.3.94
+Stable tag: 2.3.95
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -159,6 +159,9 @@ Yes, by using shortcode [wpidb icon="icon name"] in button text. Button text acc
 
 
 == Changelog ==
+
+= 2.3.95 =
+* Now use this designer button for same page navigation. [Easy Steps](http://designerbutton.prali.in/page-scroll-to-id-wordpress-make-button-link-navigate-to-other-section-in-same-page/)
 
 = 2.3.94 =
 * Now you can disable Designer Button Plugin's Dashboard Widget from this plugin's global settings page.

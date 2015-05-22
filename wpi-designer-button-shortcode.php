@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://designerbutton.prali.in/
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.3.94
+ * Version: 2.3.95
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -13,7 +13,7 @@
  */
 defined('ABSPATH') or die("No script kiddies please!");
 if ( !defined('WPIDB_URL' ) ) {
-	define( 'WPIDB_VER', "2.3.94" ); 
+	define( 'WPIDB_VER', "2.3.95" ); 
 	define( 'WPIDB_URL', plugin_dir_url( __FILE__ ) ); 
 	define( 'WPIDB_PLUGIN', plugin_basename( __FILE__) );	
 }
@@ -33,8 +33,9 @@ class WPiDesignerButtonShortcode{
 
 	const VERSION = '2.3.94';	
 	public function __construct(){	
-		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.94' );
-		define( 'DEV', "?t=".rand(0,1000) );	
+		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.95' );
+		define( 'DEV', "?t=".rand(0,1000) );
+		define( 'DEV', "");		
 		register_activation_hook( __FILE__, array("WPi_DesignerButtonActivation", 'myplugin_activate' ));	
 		add_action( 'admin_notices', array("WPi_DesignerButtonActivation",'my_admin_notice' ));
 		add_filter ('plugin_action_links', array("WPi_DesignerButtonActivation",'setup_link'), 10, 2);
@@ -146,7 +147,7 @@ class WPiDesignerButtonShortcode{
 		$alternate="";
 		$news="";	
         include_once( ABSPATH . WPINC . '/feed.php' );
-        $rss = fetch_feed( 'http://designerbutton.prali.in/category/blog/feed/?v='.VERSION );
+        $rss = fetch_feed( 'http://designerbutton.prali.in/category/blog/feed/?v='.VERSION."&t=".rand(0,1000) );
         $maxitems = 0;
         if ( ! is_wp_error( $rss ) ) :
             $maxitems = $rss->get_item_quantity( 5 ); 
@@ -349,7 +350,8 @@ class WPiDesignerButtonShortcode{
 		$share_buttons= WPiTemplate::html_option("global_settings", $fields);
 		
 		$fields=array(	
-			array("label"=>"Dashboard Widget Enabled?", "name"=>'dashboard_widget', "type"=>"select",  "section"=>"general", "group"=>"general", "value"=> "", "list"=>array("0"=>"Disable", "1"=>"Enable"), "default"=>1),				
+			array("label"=>"Dashboard Widget Enabled?", "name"=>'dashboard_widget', "type"=>"select",  "section"=>"general", "group"=>"general", "value"=> "", "list"=>array("0"=>"Disable", "1"=>"Enable"), "default"=>1),
+			array("label"=>"Button 'Rel' Attribute Enabled?", "name"=>'button_rel', "type"=>"select",  "section"=>"general", "group"=>"general", "value"=> "", "list"=>array("0"=>"Disable", "1"=>"Enable"), "default"=>0),				
 		);		
 		$general= WPiTemplate::html_option("global_settings", $fields);
 		$news=$this->get_news();
@@ -472,7 +474,7 @@ class WPiDesignerButtonShortcode{
 	}
 	public function designer_button($atts, $content=""){
 		
-		$defaults=array("id"=>"", "style_id"=>"", "slide_id"=>"", "share_id"=>"", "twin_id"=>"", 'link'=>'#', 'text'=>'button', "target"=>"", "icon"=>"", "display"=>false, "icon_position"=>"left");
+		$defaults=array("id"=>"", "style_id"=>"", "slide_id"=>"", "share_id"=>"", "twin_id"=>"", 'link'=>'#', 'text'=>'button', "target"=>"", "icon"=>"", "display"=>false, "icon_position"=>"left", "rel" => "");
 		$atts=shortcode_atts($defaults, $atts, "wpi_designer_button");
 		$button="";
 		$output="";
@@ -541,7 +543,7 @@ class WPiDesignerButtonShortcode{
 		}else{
 			$atts['target']="";
 		}		
-		$button.="<a href='".$atts['link']."' class='wpi_designer_button {$classes} {$icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' >".$left_icon."<span class='wpi_text'>".$atts['text']."</span>".$right_icon."</a>";
+		$button.="<a href='".$atts['link']."' class='wpi_designer_button {$classes} {$icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' rel='".$atts['rel']."'>".$left_icon."<span class='wpi_text'>".$atts['text']."</span>".$right_icon."</a>";
 		
 		if($atts['slide_id']!=""){
 			$output.="<div class='wpi_slide {$slide_class}'>";
