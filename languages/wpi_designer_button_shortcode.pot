@@ -1,0 +1,110 @@
+# Copyright (C) 2015 WPi Designer Button Shortcodes
+msgid ""
+msgstr ""
+"Project-Id-Version: WPi Designer Button Shortcode 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wooprali.prali.in/plugin/wpi-designer-button-"
+"shortcodeshortcodes\n"
+"POT-Creation-Date: 2015-02-05 04:51:11+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-02-03 17:09+0530\n"
+"Last-Translator: WooPrali <info@prali.in>\n"
+"Language-Team: LANGUAGE <info@prali.in>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en_GB\n"
+"X-Generator: Poedit 1.6.4\n"
+
+#: wpi-designer-button-shortcode.php:8 wpi-designer-button-shortcode.php:99
+msgid "WooPrali"
+msgstr "WooPrali"
+
+#: wpi-designer-button-shortcode.php:9
+msgid "Product"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:10
+msgid "List"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:27
+msgid "ID"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:36
+msgid "Name"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:37
+msgid "Count"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:38
+msgid "Slug"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:39
+msgid "None"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:40
+msgid "Order"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:41
+msgid "ASC"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:42
+msgid "DESC"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:43
+msgid "Columns"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:44
+msgid "Hide Empty"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:47
+msgid "Default"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:49
+msgid "Date"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:50
+msgid "Price"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:53
+msgid "Title"
+msgstr ""
+
+#: wpi-designer-button-shortcode.php:99
+msgid ""
+"WooPrali Shortcodes on not depends on any theme and it is specially "
+"developed for WooPrali themes !"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WPi Designer Button Shortcode"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wooprali.prali.in/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "WPi Designer Button Shortcode."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WooPrali, Prali"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://wooprali.prali.in"
+msgstr ""
