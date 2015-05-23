@@ -230,7 +230,7 @@
 		
 		//twin buttons page
 		var tb_el=$( ".wpi_des_but_tb" );
-		var tb_ids=["left_button_icon","left_button_text", "right_button_icon","right_button_text", "min_width", "style_id", "icon_position"];
+		var tb_ids=["left_button_icon","left_button_text", "right_button_icon","right_button_text", "min_width", "style_id", "left_button_style_id", "right_button_style_id", "icon_position"];
 		var tb=get_elements(tb_ids);
 		var left_preview_button=preview.find(".wpi_designer_button.wpi_left_button");
 		var right_preview_button=preview.find(".wpi_designer_button.wpi_right_button");
@@ -248,64 +248,66 @@
 				tb['min_width'].change({fn:this},function(event){ event.data.fn.min_width();});
 				tb['icon_position'].change({fn:this},function(event){ event.data.fn.icon_position();});
 				tb['style_id'].change({fn:this},function(event){ event.data.fn.style_id();});
+				tb['left_button_style_id'].change({fn:this},function(event){ event.data.fn.left_button_style_id();});
+				tb['right_button_style_id'].change({fn:this},function(event){ event.data.fn.right_button_style_id();});
 				
 			},
-			prepare_preview:function(){
+			prepare_preview:function(){				
 				this.left_button_icon();
 				this.left_button_text();
 				this.right_button_icon();
 				this.right_button_text();
-				this.style_id();				
+				this.style_id();	
+				this.left_button_style_id();	
+				this.right_button_style_id();	
 				this.icon_position();	
 				this.min_width();
 			},			
 			left_button_icon:function(){
-				remove_class("icon");				
-				var icon_position="wpi_icon_left";				
-				if(tb['icon_position'].val()=="right"){
-					icon_position="wpi_icon_right";
-				}				
-				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
-				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);
+				this.set_icon_class();				
 			},
 			left_button_text:function(){				
 				preview_button_text(left_preview_button, tb['left_button_text'].val());
 			},
 			right_button_icon:function(){
-				remove_class("icon");				
-				var icon_position="wpi_icon_left";				
-				if(tb['icon_position'].val()=="right"){
-					icon_position="wpi_icon_right";
-				}
-				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
-				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);				
+				this.set_icon_class();						
 			},
 			right_button_text:function(){				
 				preview_button_text(right_preview_button, tb['right_button_text'].val());
 			},
 			icon_position:function(){
-				remove_class("icon");					
-				var icon_position="wpi_icon_left";				
-				if(tb['icon_position'].val()=="right"){
-					icon_position="wpi_icon_right";
-				}				
-				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
-				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);
+				this.set_icon_class();				
 			},			
-			style_id:function(){
-				var no_text_class="";
-				var icon_position="wpi_icon_left";				
-				if(tb['icon_position'].val()=="right"){
-					icon_position="wpi_icon_right";
+			style_id:function(){				
+				var l_val=tb['style_id'].val();
+				var r_val=tb['style_id'].val();
+				if(tb['left_button_style_id'].val()!=0){ 
+					l_val=tb['left_button_style_id'].val();					
 				}
-				var left_button_icon_class="wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position;
-				var right_button_icon_class="wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position;
-				var element="#wpi_db_sty_"+tb['style_id'].val();
-				var classes=$(element).attr("class");	
+				if(tb['right_button_style_id'].val()!=0){ 
+					r_val=tb['right_button_style_id'].val();					
+				}
+				var l_element="#wpi_db_sty_"+l_val;
+				var r_element="#wpi_db_sty_"+r_val;
+				var l_classes=$(l_element).attr("class");
+				var r_classes=$(r_element).attr("class");
+										
+				
+				var no_text_class="";
 				if(tb['left_button_text'].val()==""){no_text_class="wpi_no_text";}				
-				left_preview_button.attr("class",classes+" wpi_left_button "+left_button_icon_class+" "+no_text_class);
-				right_preview_button.attr("class",classes+" wpi_right_button "+right_button_icon_class+" "+no_text_class);
-			},				
+				var icon_position=this.get_icon_position();	
+				var left_button_icon_class="wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position;
+				var right_button_icon_class="wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position;					
+						
+				left_preview_button.attr("class",l_classes+" wpi_left_button "+left_button_icon_class+" "+no_text_class);
+				right_preview_button.attr("class",r_classes+" wpi_right_button "+right_button_icon_class+" "+no_text_class);
+			},	
+			left_button_style_id:function(){
+				this.style_id();
+			},
+			right_button_style_id:function(){
+				this.style_id();
+			},
 			min_width:function(){	
 				var val=tb['min_width'].val();
 				if(val!="" && val!=0){
@@ -317,19 +319,24 @@
 				preview_button.css({"min-width":val});
 			},
 			apply_preset:function(style){
-				var id=$(style).find(".wpi_id").text();
-				var no_text_class="";
-				var icon_position="wpi_icon_left";
-				tb['style_id'].val(id);
-				if(tb['icon_position'].val()=="right"){
-					icon_position="wpi_icon_right";
-				}
-				var left_button_icon_class="wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position;
-				var right_button_icon_class="wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position;
-				var classes=$(style).attr("class");	
-				if(tb['left_button_text'].val()==""){no_text_class="wpi_no_text";}
-				left_preview_button.attr("class",classes+" wpi_left_button "+left_button_icon_class+" "+no_text_class);
-				right_preview_button.attr("class",classes+" wpi_right_button "+right_button_icon_class+" "+no_text_class);
+				var self=this;
+				var id=$(style).find(".wpi_id").text();				
+				var content=$("<div></div>");				
+				var all_buttons=$("<div class='wpi_designer_button wpi_designer_button_preset_215'>All Buttons</div>");
+				var left_button=$("<div class='wpi_designer_button wpi_designer_button_preset_215'>Left Button</div>");
+				var right_button=$("<div  class='wpi_designer_button wpi_designer_button_preset_215'>Right Button</div>");
+				all_buttons.click(function(){  self.set_style_id(id); MODAL.close_modal() });
+				left_button.click(function(){  self.set_left_button_style_id(id); MODAL.close_modal() });
+				right_button.click(function(){ self.set_right_button_style_id(id); MODAL.close_modal()});
+				content.append(all_buttons).append("<div>&nbsp;</div>").append(left_button).append("<div>&nbsp;</div>").append(right_button);				
+				MODAL.open_modal({heading:"For which button you need Style?.", content:content});					
+				
+			},
+			set_icon_class:function(){
+				remove_class("icon");				
+				var icon_position=this.get_icon_position();							
+				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
+				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);
 			},
 			set_icon:function(icon){
 				var self=this;
@@ -344,19 +351,27 @@
 				content.append(right_button);
 				MODAL.open_modal({heading:"For which button you need Icon?.", content:content});				
 			},
+			set_style_id:function(id){				
+				tb['style_id'].val(id);
+				tb['left_button_style_id'].val(0);
+				tb['right_button_style_id'].val(0);				
+				this.style_id();
+			},
+			set_left_button_style_id:function(id){				
+				tb['left_button_style_id'].val(id);
+				this.style_id();
+			},
+			set_right_button_style_id:function(id){
+				tb['right_button_style_id'].val(id);
+				this.style_id();
+			},
 			set_left_button_icon:function(id){				
 				tb['left_button_icon'].val(id);
-				remove_class("icon");				
-				var icon_position=this.get_icon_position();
-				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
-				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);			
+				this.set_icon_class();		
 			},
 			set_right_button_icon:function(id){
 				tb['right_button_icon'].val(id);
-				remove_class("icon");				
-				var icon_position=this.get_icon_position();	
-				left_preview_button.addClass("wpi_icon wpi_icon_"+tb['left_button_icon'].val()+" "+icon_position);
-				right_preview_button.addClass("wpi_icon wpi_icon_"+tb['right_button_icon'].val()+" "+icon_position);				
+				this.set_icon_class();			
 			},
 			get_icon_position:function(){
 				var icon_position="wpi_icon_left";				

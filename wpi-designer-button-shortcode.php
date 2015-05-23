@@ -3,7 +3,7 @@
  * Plugin Name: WPi Designer Button Shortcode
  * Plugin URI: http://designerbutton.prali.in/
  * Description: Create Designer Buttons anywhere in wordpress using button shortcode [wpi_designer_button]
- * Version: 2.3.95
+ * Version: 2.3.96
  * Author: wooprali
  * Author URI: http://wooprali.prali.in
  * Text Domain: wooprali
@@ -13,7 +13,7 @@
  */
 defined('ABSPATH') or die("No script kiddies please!");
 if ( !defined('WPIDB_URL' ) ) {
-	define( 'WPIDB_VER', "2.3.95" ); 
+	define( 'WPIDB_VER', "2.3.96" ); 
 	define( 'WPIDB_URL', plugin_dir_url( __FILE__ ) ); 
 	define( 'WPIDB_PLUGIN', plugin_basename( __FILE__) );	
 }
@@ -31,9 +31,9 @@ require_once("inc/activation.php");
 
 class WPiDesignerButtonShortcode{
 
-	const VERSION = '2.3.94';	
+	const VERSION = '2.3.96';	
 	public function __construct(){	
-		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.95' );
+		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.96' );
 		define( 'DEV', "?t=".rand(0,1000) );
 		define( 'DEV', "");		
 		register_activation_hook( __FILE__, array("WPi_DesignerButtonActivation", 'myplugin_activate' ));	
@@ -608,10 +608,17 @@ class WPiDesignerButtonShortcode{
 						
 			$output.=$share_buttons;
 		}else if($atts['twin_id']!=""){
-			$style_id=get_post_meta($atts['twin_id'], "style_id",true);	
+			$l_style_id=get_post_meta($atts['twin_id'], "style_id",true);	
+			$r_style_id=$l_style_id;
+			$left_button_style_id=get_post_meta($atts['twin_id'], "left_button_style_id",true);	
+			$right_button_style_id=get_post_meta($atts['twin_id'], "right_button_style_id",true);	
+			if($left_button_style_id!="" && $left_button_style_id!="0"){$l_style_id=$left_button_style_id; }
+			if($right_button_style_id!="" && $right_button_style_id!="0"){$r_style_id=$right_button_style_id; }			
+			$l_classes=WPiDesButCommon::get_button_style_class($l_style_id);
+			$r_classes=WPiDesButCommon::get_button_style_class($r_style_id);
 			$twin_buttons="<div class='wpi_twin_buttons wpi_twin_button_".$atts['twin_id']."'>";
-			$twin_buttons.="<a href='".$atts['left_button_link']."' class='wpi_left_button wpi_designer_button {$classes} {$left_button_icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' >".$left_icon."<span class='wpi_text'>".$atts['left_button_text']."</span>".$right_icon."<span class='wpi_or_txt'>or</span></a>";			
-			$twin_buttons.="<a href='".$atts['right_button_link']."' class='wpi_right_button wpi_designer_button {$classes} {$right_button_icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' >".$left_icon."<span class='wpi_text'>".$atts['right_button_text']."</span>".$right_icon."</a>";
+			$twin_buttons.="<a href='".$atts['left_button_link']."' class='wpi_left_button wpi_designer_button {$l_classes} {$left_button_icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' >".$left_icon."<span class='wpi_text'>".$atts['left_button_text']."</span>".$right_icon."<span class='wpi_or_txt'>or</span></a>";			
+			$twin_buttons.="<a href='".$atts['right_button_link']."' class='wpi_right_button wpi_designer_button {$r_classes} {$right_button_icon_class} {$display_class} {$no_text_class}' target='".$atts['target']."' >".$left_icon."<span class='wpi_text'>".$atts['right_button_text']."</span>".$right_icon."</a>";
 			$twin_buttons.="</div>";	
 								
 			$output.=$twin_buttons;
@@ -746,6 +753,11 @@ class WPiDesignerButtonShortcode{
 						array(
 							'label'       => 'Icon Position',
 							'attr'        => 'icon_position',
+							'type'        => 'text',							
+						),	
+						array(
+							'label'       => 'Rel',
+							'attr'        => 'rel',
 							'type'        => 'text',							
 						),									
 					),

@@ -264,12 +264,14 @@ box-sizing: border-box;
 	border-bottom-right-radius: 0px;
 	margin-right: 1px;
 	position:relative;
+	vertical-align: middle;
 }
 .wpi_twin_buttons .wpi_designer_button.wpi_right_button{	
 	padding-left: 40px!important;
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 0px;
 	margin-left: 1px;
+	vertical-align: middle;
 }
 
 /* ---------------------------------------------------------------------------- Share Buttons --------------------------------------------------------------------*/

@@ -24,6 +24,12 @@ class WPiDesButCommon{
 		}
 		$classes=implode(" ",$class);
 		return $classes;
+	}
+	public static function add_empty_option($args){
+		$defaults=array("array"=>"");
+		extract(wp_parse_args($args,$defaults));
+		$array=array("0"=>"None")+$array;
+		return $array;		
 	}		
 	public  static function get_style_ids(){
 		$args = array(			

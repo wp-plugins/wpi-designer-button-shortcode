@@ -10,10 +10,13 @@ class WPiDesButTB{
 		$icons=WPiTools::array2object($icons_arr);
 				
 		$style_ids=WPiDesButCommon::get_style_ids();
+		$style_ids_2=WPiDesButCommon::add_empty_option(array("array"=>$style_ids));
 		$fields=array(		
-			array("label"=>"Style Id", "name"=>'style_id', "type"=>"select",  "section"=>"Style Section",  "group"=>"Style","value"=> "", "list"=> $style_ids),
+			array("label"=>"All Buttons Style Id", "name"=>'style_id', "type"=>"select",  "section"=>"Style Section",  "group"=>"Style","value"=> "", "list"=> $style_ids),		
+			array("label"=>"Left Button Style Id", "name"=>'left_button_style_id', "type"=>"select",  "section"=>"Style Section",  "group"=>"Style","value"=> "", "list"=> $style_ids_2),		
+			array("label"=>"Right Button Style Id", "name"=>'right_button_style_id', "type"=>"select",  "section"=>"Style Section",  "group"=>"Style","value"=> "", "list"=> $style_ids_2),			
 			array("label"=>"Left Button Text", "name"=>'left_button_text', "type"=>"text",  "section"=>"Text Section", "group"=>"Text", "value"=> ""),
-			array("label"=>"Right Button Text", "name"=>'right_button_text', "type"=>"text",  "section"=>"Text Section", "group"=>"Text", "value"=> ""),
+			array("label"=>"Right Button Text", "name"=>'right_button_text', "type"=>"text",  "section"=>"Text Section", "group"=>"Text", "value"=> ""),			
 			array("label"=>"Left Button Icon", "name"=>'left_button_icon', "type"=>"select",  "section"=>"Icon Section", "group"=>"Text", "value"=> "", "list"=> $icons),
 			array("label"=>"Right Button Icon", "name"=>'right_button_icon', "type"=>"select",  "section"=>"Icon Section", "group"=>"Text", "value"=> "", "list"=> $icons),
 			array("label"=>"Left Button Link", "name"=>'left_button_link', "type"=>"text", "section"=>"Link Section", "group"=>"Link", "value"=> ""),
@@ -99,7 +102,7 @@ class WPiDesButTB{
 		$twin_button_styles = get_posts($args); 
 					
 		foreach ( $twin_button_styles as $s ) :				
-			$element=".wpi_twin_button_".$s->ID." .wpi_designer_button";			
+			$element=".wpi_twin_button_".$s->ID." .wpi_designer_button";		
 			if( $s->shadow=="" || $s->shadow=="no") { $shadow="0px"; }else{$shadow=$s->shadow;}			
 			$classes=array(
 				array(
@@ -107,7 +110,7 @@ class WPiDesButTB{
 					"styles"=> array(
 						"min-width"=> $s->min_width."!important",
 					),				
-				),				
+				),
 			);
 			
 			$custom_css.=WPiCss::build_css($classes);		
