@@ -235,6 +235,17 @@ box-sizing: border-box;
 .wpi_designer_button.wpi_padding_40px.wpi_no_text{padding:40px 40px;}
 .wpi_designer_button.wpi_padding_50px.wpi_no_text{padding:50px 50px;}
 
+
+.wpi_dummy_text{
+text-align:left;
+padding:20px;
+}
+.noscroll {
+  overflow: hidden !important;
+  -webkit-overflow-scrolling: none !important;
+  -moz-overflow-scrolling: none !important;
+  -o-overflow-scrolling: none !important;
+}
 /* ---------------------------------------------------------------------------- Twin Buttons --------------------------------------------------------------------*/
 
 .wpi_twin_buttons {	
@@ -274,6 +285,68 @@ box-sizing: border-box;
 	vertical-align: middle;
 }
 
+/* ---------------------------------------------------------------------------- Smart Buttons --------------------------------------------------------------------*/
+
+.wpi_smart_buttons {
+	position:relative;
+	display: block;
+ 	text-align: center;
+	font-family: "Open Sans";
+}
+.wpi_smart_buttons ul.wpi_menu_links{	
+	position: absolute;
+	bottom: 100%;
+	left: 0px;
+	width: 320px;
+	text-align: left;
+	background-color: #ffffff;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	margin-bottom: 8px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+	border-radius: 5px;
+	overflow: hidden;
+}
+.wpi_smart_buttons ul.wpi_menu_links.wpi_open{	
+	display:block;
+}
+.wpi_smart_buttons ul.wpi_menu_links.wpi_close{	
+	display:none;
+}
+.wpi_smart_buttons ul.wpi_menu_links > li{	
+	border-bottom:1px solid #E0E0E0;
+	position:relative;
+	padding: 0px;
+	margin: 0px;
+}
+.wpi_smart_buttons ul.wpi_menu_links > li:hover{	
+	background-color: #f5f5f5;	
+}
+.wpi_smart_buttons ul.wpi_menu_links > li > a{	
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;	
+	bottom:0px;
+}
+.wpi_smart_buttons ul.wpi_menu_links > li > div{	
+	padding: 10px 20px 15px 20px;
+}
+.wpi_smart_buttons ul.wpi_menu_links .wpi_heading{	
+	font-size: 18px;
+	display: block;
+	font-weight: 100;
+	color: #333333;
+	line-height: 1.2;
+	margin-bottom:10px;
+}
+.wpi_smart_buttons ul.wpi_menu_links .wpi_subheading{
+	font-size: 12px;	
+	display: block;
+	color: #84B1C2;
+	line-height: 1.2;
+}
 /* ---------------------------------------------------------------------------- Share Buttons --------------------------------------------------------------------*/
 .wpi_share_buttons {	
 	display: inline-block;

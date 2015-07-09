@@ -185,7 +185,8 @@
 				tabs_content:"",
 				init:function(el){				
 					this.el=$(el);
-					this.set_tabs();				
+					this.set_tabs();
+					this.set_toggle();
 				},
 				test:function(){
 					alert("test");
@@ -222,6 +223,25 @@
 						$(content).remove();
 						$(this).remove();
 						//alert(href);							
+					});
+				},
+				set_toggle:function(){	
+					var self=this;
+					if(!this.el.find("a.wpi_toggle_control").length) return;
+					this.toggle_control=this.el.find("a.wpi_toggle_control");
+					this.toggle_panel=this.el.find(".wpi_toggle_panel");
+					
+					this.toggle_control.click(function(event){
+						event.preventDefault();							   
+						if($(this).hasClass("wpi_toggle_control_down")){
+							$(this).removeClass("wpi_toggle_control_down").addClass("wpi_toggle_control_up");
+							$(this).removeClass("fa-chevron-up").addClass("fa-chevron-down");
+							self.tabs_content.removeClass("wpi_toggle_panel_open").addClass("wpi_toggle_panel_close");
+						}else{
+							$(this).removeClass("wpi_toggle_control_up").addClass("wpi_toggle_control_down");
+							$(this).removeClass("fa-chevron-down").addClass("fa-chevron-up");
+							self.tabs_content.removeClass("wpi_toggle_panel_close").addClass("wpi_toggle_panel_open");
+						}
 					});
 				},
 			}	

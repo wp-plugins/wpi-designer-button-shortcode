@@ -382,6 +382,83 @@
 			}
 		};	
 		
+		//smart buttons page
+		var smb_el=$( ".wpi_des_but_smb" );
+		var smb_container_id=["wpi_smb", "wpi_menu_links","wpi_smart_button"];
+		var smb_ids=["style_id", "button_text", "button_icon", "button_align",];	
+		var smb=get_elements($.merge(smb_ids, smb_container_id));			
+		var smb_map={
+			defaults:{},
+			init:function(){
+				var self=this;
+				this.defaults=get_defaults(smb_ids);
+				this.prepare_preview();	
+				export_fn(this.defaults);
+				smb['style_id'].change(function(){ self.style_id();});
+				smb['button_icon'].change(function(){ self.button_icon();});
+				smb['button_align'].change(function(){ self.button_align();});
+				smb['button_text'].keyup(function(){ self.button_text();});
+			},
+			prepare_preview:function(){	
+				this.style_id();
+				this.button_text();
+				this.button_align();
+				this.button_icon();
+			},
+			button_align:function(){
+				var val=smb['button_align'].val();
+				var smb_w=smb['wpi_smb'].width();
+				var ml_w=smb['wpi_menu_links'].width();
+				var left=0;
+				var right="auto";
+				if(val=="right"){
+					left="auto";
+					right=0;
+				}else if(val=="center"){
+					left=(smb_w/2)-(ml_w/2);					
+				}
+				smb['wpi_smb'].css({"text-align":val});
+				smb['wpi_menu_links'].css({"left":left, "right":right});
+			},
+			button_text:function(){				
+				preview_button_text(smb['wpi_smart_button'], smb['button_text'].val());
+			},			
+			style_id:function(){				
+				var val=smb['style_id'].val();
+				var element="#wpi_db_sty_"+val;
+				var classes=$(element).attr("class");
+				
+				var no_text_class="";
+				if(smb['button_text'].val()==""){no_text_class="wpi_no_text";}	
+				var button_icon_class="wpi_icon wpi_icon_"+smb['button_icon'].val();					
+						
+				smb['wpi_smart_button'].attr("class",classes+" "+button_icon_class+" "+no_text_class);
+			},
+			button_icon:function(){
+				this.set_icon_class();				
+			},
+			apply_preset:function(style){				
+				var id=$(style).find(".wpi_id").text();				
+				this.set_style_id(id);	
+			},			
+			set_icon:function(icon){				
+				var id=$(icon).find(".wpi_icon_title").text();				
+				this.set_button_icon(id);			
+			},
+			set_style_id:function(id){				
+				smb['style_id'].val(id);							
+				this.style_id();
+			},			
+			set_button_icon:function(id){				
+				smb['button_icon'].val(id);
+				this.set_icon_class();		
+			},
+			set_icon_class:function(){				
+				remove_icon_class({el:smb['wpi_smart_button'], type:"icon"});
+				smb['wpi_smart_button'].addClass("wpi_icon wpi_icon_"+smb['button_icon'].val());
+			},
+		};	
+		
 		//share buttons page
 		var sb_el=$( ".wpi_des_but_sb" );
 		var sb_buttons_ids=["facebook","twitter", "googleplus","pinterest","linkedin", "tumblr", "stumbleupon", "reddit", "wordpress", "email"];
@@ -1052,7 +1129,14 @@
 				preview_button.removeClass(icon);
 			}
 		}		
-		
+		function remove_icon_class(args){
+			var defaults={el:"", type:""};
+			args=$.extend(defaults,args);
+			var icon="wpi_icon wpi_icon_left wpi_icon_right "+create_remove_class("wpi_icon_",$wpi_db_icons_arr);
+			if(args['type']=="icon"){
+				args['el'].removeClass(icon);
+			}
+		}	
 		//Events
 		
 		
@@ -1090,6 +1174,8 @@
 			sb_map.init();			
 		}else if ( tb_el.length) {
 			tb_map.init();			
+		}else if ( smb_el.length) {
+			smb_map.init();			
 		}
 		
 		function preview_button_text(el, val){
@@ -1138,13 +1224,13 @@
 				styles.find(".wpi_style").click(function(){				
 					tb_map.apply_preset(this);
 				});	
-			}
-			if (icons.length ) {				
-				icons.find(".wpi_icon").click(function(){
-					alert(1);
-					//tb_map.apply_preset(this);
-				});					
-			}
+			}			
+		}else if ( smb_el.length ) {
+			if (styles.length ) {
+				styles.find(".wpi_style").click(function(){				
+					smb_map.apply_preset(this);
+				});	
+			}			
 		}
 		
 		
@@ -1400,6 +1486,10 @@
 			if (tb_el.length && icons.length ) {				
 				icons.find(".wpi_icon").click(function(){					
 					tb_map.set_icon(this);
+				});					
+			}else if (smb_el.length && icons.length ) {					
+				icons.find(".wpi_icon").click(function(){					
+					smb_map.set_icon(this);
 				});					
 			}else{
 				set_icon();				

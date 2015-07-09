@@ -31,8 +31,9 @@ class WPiControls{
 		return $output;
 	}
 	public static function text($args=array()){
-		$defaults=array("name"=>"", "class"=>" ", "value"=>"");
+		$defaults=array("name"=>"", "class"=>" ", "value"=>"", "default"=>"");
 		extract(wp_parse_args($args,$defaults));
+		if($value=="" && $default!=""){$value=$default; }
 		$value=wp_specialchars( $value, "single" );
 		$output="<input type='text' name='{$name}' id='{$name}' value='{$value}' />";
 		return $output;	
@@ -64,6 +65,7 @@ class WPiControls{
 	public static function textarea($args=array()){
 		$defaults=array("name"=>"", "class"=>" ", "value"=>"");
 		extract(wp_parse_args($args,$defaults));
+		if($value=="" && $default!=""){$value=$default; }
 		$output="<textarea type='text' name='{$name}' id='{$name}'>{$value}</textarea>";
 		return $output;	
 	}
@@ -468,9 +470,9 @@ class WPiTemplate{
 						}
 					}
 					if($type	== "text" ){
-						$input=WPiControls::text(array("name"=>$name, "value"=>$value));
+						$input=WPiControls::text(array("name"=>$name, "value"=>$value, "default"=>$default ));
 					}else if($type == "textarea" ){
-						$input=WPiControls::textarea(array("name"=>$name, "value"=>$value));
+						$input=WPiControls::textarea(array("name"=>$name, "value"=>$value, "default"=>$default ));
 					}else if($type == "link" ){
 						$input=WPiControls::link(array("name"=>$name, "value"=>$value));
 					}else if($type == "hidden" ){
@@ -535,17 +537,30 @@ class WPiTemplate{
 		return $html;
 	}
 	public static function create_tabs($args){
-		
-		$content="<div class='wpi_tabs'>";	
-		foreach($args as $tab){
-			if(isset($tab['active']) && $tab['active']==true){$active="active";}else{$active="";};
-			$content.="<a href='#".$tab['id']."' class='wpi_tab {$active}'>".$tab['text']."</a>";
+		$defaults=array("id"=>"", "active"=>"", "content"=>"", "text"=>"", "type"=>"tab");
+		$content="<div class='wpi_tabs'>";
+		$toggle="";	
+		foreach($args as $tab){			
+			$tab=wp_parse_args($tab,$defaults);
+			if($tab['type']=="toggle"){
+				$content.="<a href='#' class='wpi_toggle_control wpi_toggle_control_down fa fa-chevron-up'></a>";
+				$toggle="wpi_toggle_panel wpi_toggle_panel_open";
+			}else{
+				if(isset($tab['active']) && $tab['active']==true){$active="active";}else{$active="";};
+				$content.="<a href='#".$tab['id']."' class='wpi_tab {$active}'>".$tab['text']."</a>";
+			}
 		}
+		
 		$content.="</div>";
-		$content.="<div class='wpi_tabs_content'>";	
+		$content.="<div class='wpi_tabs_content ".$toggle."'>";	
 		foreach($args as $tab){
-			if(isset($tab['active']) && $tab['active']==true){$none="";}else{$none="wpi_none";};
-			$content.="<div id='".$tab['id']."' class='wpi_tab_content {$none}'>".$tab['content']."</div>";
+			$tab=wp_parse_args($tab,$defaults);
+			if($tab['type']=="wpi_toggle"){
+				continue;
+			}else{				
+				if($tab['active']==true){$none="";}else{$none="wpi_none";};
+				$content.="<div id='".$tab['id']."' class='wpi_tab_content {$none}'>".$tab['content']."</div>";
+			}
 		}
 		$content.="</div>";
 		return $content;

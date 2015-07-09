@@ -320,7 +320,7 @@ class WPiDesignerButtonShortcode{
 				),
 			"remove_support"=>array("editor"),			
 		);
-		WPiData::register_post_type($data2);		
+		//WPiData::register_post_type($data2);		
 		
 		$data2=array(
 			"post_type"=>"wpi_des_but_sli",

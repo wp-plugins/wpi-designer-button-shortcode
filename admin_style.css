@@ -363,6 +363,14 @@ outline: 3px solid #00c3ca;
 .wpi_db .wpi_tabs_content{
 	padding-top: 1px;
 }
+.wpi_db .wpi_tabs_content.wpi_toggle_panel_open{
+	height:auto;
+	overflow:auto;
+}
+.wpi_db .wpi_tabs_content.wpi_toggle_panel_close{
+	height:2px;
+	overflow:hidden;
+}
 .wpi_db #wpi_shortcode, .wpi_db  #wpi_shortcode{
 	font-size:13px;
 	padding: 7px 10px;
@@ -931,9 +939,24 @@ height: 100%;
 
 .wpi_des_but_tb #wpi_preview{
 	text-align:center;
-	padding:50px 10px;
+	padding:50px 10px 50px 10px;
 }
 .wpi_des_but_tb #wpi_visual_header{
+	min-height:30px;
+}
+
+/* ---------------------------------------------------------------------------- Smart Buttons --------------------------------------------------------------------*/
+
+.wpi_des_but_smb #wpi_preview{
+	text-align:center;
+	margin-top:50px;
+	padding:50px 10px;
+}
+.wpi_des_but_smb #wpi_visual_header{
+	min-height:30px;
+}
+.wpi_des_but_smb .wpi_dummy_text{
+	padding:50px 10px;
 	min-height:30px;
 }
 
