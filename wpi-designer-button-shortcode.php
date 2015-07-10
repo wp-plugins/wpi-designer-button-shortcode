@@ -13,7 +13,7 @@
  */
 defined('ABSPATH') or die("No script kiddies please!");
 if ( !defined('WPIDB_URL' ) ) {
-	define( 'WPIDB_VER', "2.3.98" ); 
+	define( 'WPIDB_VER', "2.3.99" ); 
 	define( 'WPIDB_URL', plugin_dir_url( __FILE__ ) ); 
 	define( 'WPIDB_PLUGIN', plugin_basename( __FILE__) );	
 }
@@ -32,9 +32,9 @@ require_once("inc/activation.php");
 
 class WPiDesignerButtonShortcode{
 
-	const VERSION = '2.3.98';	
+	const VERSION = '2.3.99';	
 	public function __construct(){	
-		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.98' );
+		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.99' );
 		define( 'DEV', "?t=".rand(0,1000) );
 		//define( 'DEV', "");		
 		register_activation_hook( __FILE__, array("WPi_DesignerButtonActivation", 'myplugin_activate' ));	
@@ -630,7 +630,7 @@ class WPiDesignerButtonShortcode{
 			foreach($buttons_data as $k => $v){
 				$state=get_post_meta($atts['share_id'], $k,true);
 				if($state==1) $display="" ; else $display="wpi_none"; 
-				$share_buttons.="<li class='wpi_sb_".$k." ".$display."'><a href='".$v['link']."' target='_blank' title='Share on  Facebook' class='wpi_designer_button wpi_designer_button_{$style_id} wpi_no_text wpi_icon wpi_icon_".$v['icon']."' href='#'><i></i></a></li>";
+				$share_buttons.="<li class='wpi_sb_".$k." ".$display."'><a href='".$v['link']."' target='_blank' title='".$v['title']."' class='wpi_designer_button wpi_designer_button_{$style_id} wpi_no_text wpi_icon wpi_icon_".$v['icon']."' href='#'><i></i></a></li>";
 			}
 			$share_buttons.="</ul></div>";
 						
