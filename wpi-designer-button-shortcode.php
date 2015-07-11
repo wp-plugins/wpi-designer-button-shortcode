@@ -13,7 +13,7 @@
  */
 defined('ABSPATH') or die("No script kiddies please!");
 if ( !defined('WPIDB_URL' ) ) {
-	define( 'WPIDB_VER', "2.3.99" ); 
+	define( 'WPIDB_VER', "2.3.991" ); 
 	define( 'WPIDB_URL', plugin_dir_url( __FILE__ ) ); 
 	define( 'WPIDB_PLUGIN', plugin_basename( __FILE__) );	
 }
@@ -26,15 +26,15 @@ require_once("inc/twinButtons.php");
 require_once("inc/slides.php");
 require_once("inc/shareButtons.php");
 require_once("inc/buttonWidget.php");
-require_once("inc/smartButtons.php");
+//require_once("inc/smartButtons.php");
 require_once("inc/activation.php");
 
 
 class WPiDesignerButtonShortcode{
 
-	const VERSION = '2.3.99';	
+	const VERSION = '2.3.991';	
 	public function __construct(){	
-		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.99' );
+		define( 'WPI_DESIGNER_BUTTON_SHORTCODE', '2.3.991' );
 		define( 'DEV', "?t=".rand(0,1000) );
 		//define( 'DEV', "");		
 		register_activation_hook( __FILE__, array("WPi_DesignerButtonActivation", 'myplugin_activate' ));	
