@@ -161,12 +161,9 @@ Yes, by using shortcode [wpidb icon="icon name"] in button text. Button text acc
 = 2.3.991=
 * Plugin bug fixed
 
-
-== Changelog ==
 = 2.3.99 =
 * Share buttons title fixed
 
-== Changelog ==
 = 2.3.98 =
 * Plugin bug fixed
 
