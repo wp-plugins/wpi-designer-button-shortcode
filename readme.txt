@@ -158,7 +158,7 @@ Yes, by using shortcode [wpidb icon="icon name"] in button text. Button text acc
 2. Call-to-action presets collection
 
 == Changelog ==
-= 2.3.991=
+= 2.3.991 =
 * Plugin bug fixed
 
 = 2.3.99 =
